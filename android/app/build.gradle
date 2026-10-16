@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.meowdoki.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.meowdoki.app'
+        minSdk 23
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+        // Google AdMob app ID (real). Ad unit IDs are passed from the game; see MainActivity.
+        manifestPlaceholders = [admobAppId: 'ca-app-pub-8181395204701342~8914114286']
+    }
+
+    buildTypes {
+        debug {
+            // Debug builds always use Google's test ads, so tapping ads while testing is safe.
+            buildConfigField 'boolean', 'USE_TEST_ADS', 'true'
+        }
+        release {
+            buildConfigField 'boolean', 'USE_TEST_ADS', 'false'
+            minifyEnabled false
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.11.0'
+    implementation 'com.google.android.gms:play-services-ads:23.3.0'
+    implementation 'com.google.android.ump:user-messaging-platform:3.0.0'
+}
