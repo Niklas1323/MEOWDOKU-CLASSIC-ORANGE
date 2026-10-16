@@ -12,7 +12,8 @@ src_dc, src_site, vendor = sys.argv[1:4]
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 out = os.path.join(root, 'android', 'app', 'src', 'main', 'assets')
 shutil.rmtree(out, ignore_errors=True)
-os.makedirs(os.path.join(out, '_blob'))
+# note: Android's packager silently drops asset folders starting with '_', so images go to img/
+os.makedirs(os.path.join(out, 'img'))
 os.makedirs(os.path.join(out, 'vendor'))
 
 
@@ -30,8 +31,8 @@ main = open(os.path.join(src_dc, 'Main.dc.html'), encoding='utf-8').read()
 for blob in sorted(set(re.findall(r'/_blob/([0-9a-f]{32})', main))):
     data = open(os.path.join(src_site, '_blob', blob), 'rb').read()
     ext = ext_of(data)
-    open(os.path.join(out, '_blob', blob + '.' + ext), 'wb').write(data)
-    main = main.replace('/_blob/' + blob, '/_blob/' + blob + '.' + ext)
+    open(os.path.join(out, 'img', blob + '.' + ext), 'wb').write(data)
+    main = main.replace('/_blob/' + blob, '/img/' + blob + '.' + ext)
 open(os.path.join(out, 'Main.dc.html'), 'w', encoding='utf-8').write(main)
 
 # runtime: load React from the app instead of the CDN (same files, same integrity hashes)
@@ -78,4 +79,5 @@ class Component extends DCLogic {
 </html>
 """ % ''.join(faces)
 open(os.path.join(out, 'App.dc.html'), 'w', encoding='utf-8').write(app)
-print('packed', len(os.listdir(os.path.join(out, '_blob'))), 'images into', out)
+assert '/_blob/' not in main
+print('packed', len(os.listdir(os.path.join(out, 'img'))), 'images into', out)
