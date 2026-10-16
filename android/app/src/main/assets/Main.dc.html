@@ -61,6 +61,7 @@ body{margin:0}
 @keyframes mdkCountB{0%{transform:scale(1)}40%{transform:scale(1.28)}100%{transform:scale(1)}}
 @keyframes mdkAdBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes mdkAdBarB{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes mdkGlow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12) drop-shadow(0 0 8px rgba(255,138,42,.85))}}
 @keyframes mdkSheet{from{transform:translateY(100%)}to{transform:none}}
 @keyframes mdkTipIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @keyframes mdkLoadFill{from{width:0%}to{width:100%}}
@@ -122,9 +123,9 @@ body{margin:0}
 <!-- ============ HOME ============ -->
 <sc-if value="{{isHome}}" hint-placeholder-val="{{true}}">
 <div style="position: absolute; inset: 0; animation: {{screenAnim}}">
-  <img src="/img/0bba9693e97ab72f64e51acbdd69618d.webp" alt="" style="position: absolute; left: 0; top: 0; width: 390px; height: 900px; display: block">
+  <img src="/img/ebb5f0324e947cdc1ba9ba27c2bf10c1.webp" alt="" style="position: absolute; left: 0; top: 0; width: 390px; height: 900px; display: block">
   <h1 style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); margin: 0">MEOWDOKI</h1>
-  <div style="position: absolute; left: 12px; top: 12px; display: flex; gap: 8px">
+  <div style="position: absolute; left: 12px; top: 40px; display: flex; gap: 8px">
     <button onClick="{{tapHearts}}" aria-label="{{heartsLabel}}" style="height: 36px; padding: 0 13px 0 8px; border: none; border-radius: 18px; background: rgba(255, 250, 242, 0.92); box-shadow: 0 3px 10px rgba(178, 116, 56, 0.20), inset 0 -2px 0 rgba(232, 200, 160, 0.5); display: flex; align-items: center; gap: 6px; cursor: pointer; color: #2B1A14">
       <svg width="26" height="24" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21s-8.6-5.2-10.6-10.3C.1 7.1 2.2 2.6 6.5 2.2c2.3-.2 4.1.9 5.5 2.9 1.4-2 3.2-3.1 5.5-2.9 4.3.4 6.4 4.9 5.1 8.5C20.6 15.8 12 21 12 21z" fill="#F23C3C"></path><ellipse cx="7.2" cy="6.8" rx="2.4" ry="1.5" fill="#FFFFFF" opacity="0.55" transform="rotate(-30 7.2 6.8)"></ellipse></svg>
       <span style="font-size: 20px; font-weight: 900; line-height: 1">{{hearts}}</span>
@@ -135,11 +136,11 @@ body{margin:0}
       <span style="font-size: 13px; font-weight: 900; color: #C77414; line-height: 1">XP</span>
     </button>
   </div>
-  <button onClick="{{openStreak}}" aria-label="{{streakLabel}}" style="position: absolute; right: 77px; top: 12px; height: 36px; padding: 0 13px 0 9px; border: none; border-radius: 18px; background: rgba(255, 250, 242, 0.92); box-shadow: 0 3px 10px rgba(178, 116, 56, 0.20), inset 0 -2px 0 rgba(232, 200, 160, 0.5); display: flex; align-items: center; gap: 5px; cursor: pointer; color: #2B1A14">
+  <button onClick="{{openStreak}}" aria-label="{{streakLabel}}" style="position: absolute; right: 70px; top: 40px; height: 36px; padding: 0 13px 0 9px; border: none; border-radius: 18px; background: rgba(255, 250, 242, 0.92); box-shadow: 0 3px 10px rgba(178, 116, 56, 0.20), inset 0 -2px 0 rgba(232, 200, 160, 0.5); display: flex; align-items: center; gap: 5px; cursor: pointer; color: #2B1A14">
     <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M11 1.2c.7 3.9 3.4 5.6 5.6 8.2 1.9 2.3 2.9 4.7 2.9 7.3 0 4.7-3.8 8.1-8.5 8.1S2.5 21.4 2.5 16.7c0-3 1.4-5.4 3.4-7.2.3 1.9 1.2 3.1 2.6 3.7C8 9.2 8.7 4.6 11 1.2z" fill="{{flameOuter}}"></path><path d="M11.3 12.4c.4 2 1.9 3.1 2.9 4.5.8 1.1 1.2 2.2 1.2 3.3 0 2.4-1.9 4.1-4.3 4.1S6.8 22.6 6.8 20.2c0-1.6.8-2.9 1.9-3.9.2.9.7 1.6 1.4 1.9-.1-2 .3-4 1.2-5.8z" fill="{{flameInner}}"></path></svg>
     <span style="font-size: 20px; font-weight: 900; line-height: 1">{{goalStreak}}</span>
   </button>
-  <button aria-label="Settings" onClick="{{goSettings}}" style="position: absolute; left: 321px; top: 3px; width: 54px; height: 54px; padding: 0; border: none; border-radius: 50%; background: radial-gradient(circle at 50% 40%, #FFFBF4 0%, #FDF1E1 100%); box-shadow: 0 4px 12px rgba(178, 116, 56, 0.20); display: flex; align-items: center; justify-content: center; cursor: pointer">
+  <button aria-label="Settings" onClick="{{goSettings}}" style="position: absolute; left: 330px; top: 34px; width: 48px; height: 48px; padding: 0; border: none; border-radius: 50%; background: radial-gradient(circle at 50% 40%, #FFFBF4 0%, #FDF1E1 100%); box-shadow: 0 4px 12px rgba(178, 116, 56, 0.20); display: flex; align-items: center; justify-content: center; cursor: pointer">
     <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><g fill="#8E5A3B"><circle cx="12" cy="12" r="7.3"></circle><circle cx="12" cy="4.4" r="3.1"></circle><circle cx="12" cy="19.6" r="3.1"></circle><circle cx="4.4" cy="12" r="3.1"></circle><circle cx="19.6" cy="12" r="3.1"></circle><circle cx="6.6" cy="6.6" r="3.1"></circle><circle cx="17.4" cy="17.4" r="3.1"></circle><circle cx="6.6" cy="17.4" r="3.1"></circle><circle cx="17.4" cy="6.6" r="3.1"></circle></g><g fill="#FDF4E8"><circle cx="12" cy="12" r="5.2"></circle><circle cx="12" cy="4.4" r="1.05"></circle><circle cx="12" cy="19.6" r="1.05"></circle><circle cx="4.4" cy="12" r="1.05"></circle><circle cx="19.6" cy="12" r="1.05"></circle><circle cx="6.6" cy="6.6" r="1.05"></circle><circle cx="17.4" cy="17.4" r="1.05"></circle><circle cx="6.6" cy="17.4" r="1.05"></circle><circle cx="17.4" cy="6.6" r="1.05"></circle></g><circle cx="12" cy="12" r="2.5" fill="none" stroke="#8E5A3B" stroke-width="1.9"></circle></svg>
   </button>
 
@@ -228,6 +229,7 @@ body{margin:0}
     <span aria-hidden="true" style="{{lossStyle}}">−1</span>
   </sc-if>
 
+  <sc-if value="{{showChips}}" hint-placeholder-val="{{true}}">
   <div style="position: absolute; left: 0; right: 0; top: 166px; display: flex; justify-content: center; gap: 10px; animation: mdkPopIn 0.5s 0.1s both">
     <span style="height: 36px; padding: 0 15px 0 12px; border-radius: 18px; background: rgba(255, 250, 242, 0.86); box-shadow: 0 3px 10px rgba(150, 100, 60, 0.14); display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 800; color: #4E3B36">
       <span aria-hidden="true" style="{{diffDot}}"></span>{{diffText}}
@@ -237,6 +239,23 @@ body{margin:0}
       <span aria-hidden="true">{{catsText}}</span>
     </span>
   </div>
+  </sc-if>
+  <sc-if value="{{showCoach}}" hint-placeholder-val="{{false}}">
+    <div role="status" style="position: absolute; left: 12px; right: 12px; top: 100px; height: 122px; box-sizing: border-box; padding: 12px 14px 12px 12px; border-radius: 22px; background: rgba(255, 252, 246, 0.97); box-shadow: 0 8px 22px rgba(120, 76, 40, 0.20); display: flex; gap: 10px; align-items: center; animation: mdkPopIn 0.4s cubic-bezier(.2, 1.3, .4, 1) both">
+      <span aria-hidden="true" style="position: relative; flex: none; width: 62px; height: 54px; overflow: hidden; display: block"><img src="/img/e5c1bbbd3d34642479a6162c71da749c.png" alt="" style="position: absolute; top: 0; left: {{homeFaceX}}px; width: 868px; height: 54px; max-width: none"></span>
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 6px; min-width: 0">
+        <p style="margin: 0; font-size: 15px; line-height: 1.35; font-weight: 800; color: #3A2924">{{coachText}}</p>
+        <div style="display: flex; gap: 8px; justify-content: flex-end">
+          <sc-if value="{{coachShowSkip}}" hint-placeholder-val="{{true}}">
+            <button onClick="{{coachSkip}}" style="height: 30px; padding: 0 10px; border: none; background: none; color: #A08A7C; font-size: 14px; font-weight: 800; cursor: pointer">Skip</button>
+          </sc-if>
+          <sc-if value="{{coachHasNext}}" hint-placeholder-val="{{true}}">
+            <button onClick="{{coachNext}}" style="height: 32px; padding: 0 16px; border: none; border-radius: 16px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -3px 0 #DD5F17; color: #FFFFFF; font-size: 15px; font-weight: 900; cursor: pointer">{{coachNextLabel}}</button>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-if>
 
   <div style="{{boardStyle}}">
     <div style="width: 366px; height: 366px; display: grid; grid-template-columns: repeat({{g.n}}, minmax(0, 1fr)); grid-template-rows: repeat({{g.n}}, minmax(0, 1fr)); gap: {{gap}}px">
@@ -253,11 +272,13 @@ body{margin:0}
     </div>
   </div>
 
+  <sc-if value="{{showHintBtn}}" hint-placeholder-val="{{true}}">
   <button onClick="{{useHint}}" aria-label="{{hintLabel}}" style="position: absolute; left: 16px; top: 628px; width: 142px; height: 54px; padding: 0 0 3px; border: none; border-radius: 27px; background: linear-gradient(180deg, #FFF8E2 0%, #FFEBC2 100%); box-shadow: inset 0 -4px 0 rgba(236, 184, 96, 0.55), inset 0 0 0 2px rgba(246, 199, 126, 0.75), 0 6px 14px rgba(170, 110, 40, 0.22); display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; color: #3A2924; animation: mdkRise 0.5s cubic-bezier(.2, 1.25, .4, 1) 0.25s both">
     <svg width="30" height="33" viewBox="0 0 24 26" aria-hidden="true"><path d="M12 1.6a7.4 7.4 0 0 0-4.4 13.4c.8.6 1.2 1.4 1.2 2.3v.9h6.4v-.9c0-.9.4-1.7 1.2-2.3A7.4 7.4 0 0 0 12 1.6z" fill="#FFD23C" stroke="#E6A813" stroke-width="1.1"></path><path d="M8.6 5.4a4.6 4.6 0 0 1 3.4-1.6" stroke="#FFF6C9" stroke-width="1.6" stroke-linecap="round" fill="none"></path><rect x="8.6" y="18.9" width="6.8" height="2.2" rx="1.1" fill="#A1928A"></rect><rect x="9.3" y="21.6" width="5.4" height="2.2" rx="1.1" fill="#8C7D75"></rect></svg>
     <span style="font-size: 21px; font-weight: 900">Hint</span>
     <span aria-hidden="true" style="{{hintBadgeStyle}}">{{hintBadge}}</span>
   </button>
+  </sc-if>
 
   <!-- level complete -->
   <sc-if value="{{showComplete}}" hint-placeholder-val="{{false}}">
@@ -647,6 +668,7 @@ body{margin:0}
         <li>Stuck? A hint places a correct cat for you.</li>
         <li>Finish levels to earn XP and get hearts back. Spend XP on new cats and boards.</li>
       </ul>
+      <button onClick="{{playTutorial}}" style="height: 52px; border: none; border-radius: 26px; background: #FFFFFF; box-shadow: inset 0 0 0 2.5px #F4873A; color: #D9611A; font-size: 19px; font-weight: 900; cursor: pointer">Play the tutorial</button>
       <button onClick="{{closeModal}}" style="height: 56px; border: none; border-radius: 28px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17; color: #FFFFFF; font-size: 21px; font-weight: 800; cursor: pointer; padding-bottom: 4px">Got it</button>
     </div>
   </div>
@@ -899,8 +921,8 @@ body{margin:0}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"start":{"editor":"enum","options":["home","loading","level","complete","daily","skins","settings"],"default":"home"},"$preview":{"width":390,"height":900}}'>
-const MDK_LEVELS = ["5|t|-1|aaaaaceaabceaddeedddeeedd|24031","5|g|2|aaabbcccbbccccccedddceddd|24031","5|t|-1|bbaccbbbccbdddcdddeedeeee|20413","5|g|15|dbbacdbbacdddccdeeceeeeee|31402","5|t|-1|aaabbcabbbccddbcddddceddd|24031","6|g|2|aaaaaaeaaabaecabbbecabddeeaaafeeffff|241503","6|t|-1|daaaaadacabedccccedddeeefffeeefffffe|142053","6|g|0|aabcccdabbccdddeceddeeeeddffeedddfff|024153","6|t|-1|aaaabfabbbbfaddecfadeeffedeeffeeefff|024135","6|g|15|bbccaabbcdddbbccddbbfdddeeffddfffddd|413502","6|t|-1|caccbbccccbbccccbdcecbbdeecbbdeeeffd|142503","6|g|9|abbcccaabbccadbeecddbeeeffffeeffffff|035142","6|t|-1|aaaaadaaabbdacebddaeeedfeeefdfeeffff|031425","6|g|21|aaaaabaadaabcdddbbccddbfcedddfceffff|250314","6|t|-1|bbbbacfbbcccfbbcccffecedfeeeedfffeee|413520","6|g|33|aaabbbabbbccaaacceadaffeddddfedddfff|024153","6|t|-1|bbbaaabbbaadbbecddbbeeddffeeedfffddd|413520","6|g|5|bbbaaabbbbbafcbddafceedafeefaaffffaa|531420","7|t|-1|aaacbbbfaccbbbfccccbbfdfcceefffeeeeffggeeeggggeee|2641503","7|g|37|cabbbbbcabbbbdccbbdddfceedeeffeeeeeffffgegfffgggg|1304625","7|t|-1|bbbaaaabbaaaaabbadcaabdddccaddddccefdffecefffgeee|5142603","7|g|40|eeaaabbeddbbbbeeddbccgeeddcfgeeedffgeggdffgggffff|2463150","7|t|-1|aaabbbbabbbbbbaabbbccdfcccccdffgggedffffggdfffggg|1350624","7|g|27|aabbbbbaabbbbbeccbdddecffggdeffggggefffgggeffgggg|1426035","7|t|-1|daaaaaadbacaccdddcaacdedcccceeddgcfeddggffeedgggf|4162053","7|g|29|baaaaaabccadadcccadddccegggdeeeggggefffgggeefgggg|4026135","7|t|-1|aaabbbbaabbbbbeaabdbceeadddfeaaaaafegaffffggaffff|2463051","7|g|41|caaabbbccbbbddceebdddeeeddddegeffdfggeffdfggggfff|1405263","7|t|-1|aaddbbbaaaddbbacaddebddddeeeffffeegffffgegffffggg|0613524","7|g|45|aaaaabbccabbbbccaccbbccccgddecgcgdfeggcggfeeggggf|2415063","7|t|-1|aaaaabbccaadbbcceadddcceddddfeeedddffeedddffgeedd|4615302","7|g|35|bbbbbaabbbccccbfbceccfffeeddfggeeedfggggeeggggggg|5136402","7|t|-1|caaabddccabbddccccddfceeeddfceeefffceeefffcegefff|1405362","7|g|28|gggaaaaggcbbaaggcccddggggdddegfggdfegffgdfggfffff|6425031","7|t|-1|dbbabbbddbbbbbddcceebdddceeeddccggedffccgedgggggg|3520614","8|g|4|bbaaaaccbaaaddccaadddddcfffdeeeehhfdeeeghhfeeeeghhfheegghhhheeee|40735261","8|t|-1|eeeeaaabeeedaaabeeedacbbedddfccceeedffffeeffffffegfffhhhefffhhhh|47520316","8|g|22|dddbbaaaddbbbccaddddddccdeeeeegcfffehhgcffeehhggfhhhhhhgfhhhhhhh|52603174","8|t|-1|ddddaaaadddaababddhcebbbhdheeeeehhhhheeehhffeeeehhhfffgghhhhhhhg|47315260","8|g|12|ccbbbaaaccbbbabacccebbbbdfeeehbbdfeeghbbdfegghhhdggggghhdgggghhh|64203157","8|t|-1|daabbbbbdbbbbccbdbbcccccddcccccfddddceffddddggffhhhhggffhhhhffff|13605742","8|g|48|ccccaaaacccaaabaeecccabfeecccddfgegghhffgggghhffgggghhfhggghhhhh|46251703","8|t|-1|eaebbbbbeeeebbbdeeccccbdeeeeffddgeefffffgehhhfhhgggghhhhgggghhhh|16372504","8|g|13|aaaaabbbaaaaabbbaacabbbbccccdbdbceefddddeeeffdgdeeeeffgghhheffgg|35261470","8|t|-1|dddbbeaaddddbeaadddbbecaddhhbeeedddhbeeefffhhehegghhhhheghhhhhhe|74615203","8|g|24|daabbbbbddbbccccddfcccceddffffeegdfeeeeegdfffeeegggffheeghhhhhee|13607425","8|t|-1|ccccaaabccccabbbcecccfbbceeeeffdggeeefffgggeefhfhhgghhhfhhhhhhhh|46072531","8|g|49|bbcccaaebbbccdeebccccdeebffffdeeggfffeeegggfffhhggggghhhgggghhhh|60257314","8|t|-1|aaaaabbbaaaaabbbaacacbcbaecccccdaeecccfgeeeefffgeeeefggghhhffggg|35271460","8|g|50|bbbbccaabccbcceeddcccceeddgceeeedggcheffdgcchhffdgghhhhfdhhhhhhh|60315724","8|t|-1|caaaaaddcccccabdcccccccdccccddddceedddddeeeeffhdegeffhhdegggfhhd|36072415","8|g|3|aaaabbbbaaaabbbbeccaabbbeeccdddbeeddddddeeddffddghhhhfffghhhhfff|37261504","8|t|-1|daabbbbgdacbbbbgdacbbgggddddbgggdddfggegdfffggggffhhhggghhhhhggg|15206374","8|g|54|ddddaccbdddfaccbdddfccccddffeecefffeeeeehffhgggghhhhghgghhhhhhgg|47503162","8|t|-1|bbaaaaeebbbbaaaebbbaaacedbbbaeeedbbbafeeddgghfffddgghhhhgggghhhh|31607524","9|g|18|ccaaaaabbcaadddabbceeddddddeedddiddfeeediidffgeiiiihhfggiiiihhhgiiiiihhhgiiiiiihh|570428163","9|t|-1|bbbbbbaaabbbbbddccbbbbdddccbbbbbddddfbgdddddefggdhhdddgggghhhddiiiihhhhhiiiiihhhh|637580241","9|g|34|aaaaaaabbecaababbbecccbbbdbeccffbbdbeeccfddddeeccffdddgeccfffidghhffffiiggffffffi|463715028","9|t|-1|bbbbbbbaacbcbbdbbacccbdddfaccdddddffcceeddfffceeeddfffcggeddfffgghhddfhhgghhhhhhi|740526138","9|g|14|aaaabbbbbaaaabbbbbaaccdbdbbcccedbddbfciedddddfiiidddgdfiiidddggfiiidhhggfffiihhgg|152730864","9|t|-1|cccccaabbdccccaabbdcccccabadddccaaaadddeceeeaggeeeehfhgggeeehhhiigggghhhigggggghh|584137260","9|g|69|aaaaaabbbadaaaabbbddaaaccbbdddddccbbeedddchhfeecccchhfegccccchhggihhchhhgiihhhhhh|475308162","9|t|-1|ccaaabbbbcccabbbbbcfccbdebecffeedeeeccfeeeeeeffffeeegefffeeeeggfffehehggfffhhhhig|260531847","9|g|75|eeeeeeaaaeeecceaabeeccaaaabeeccadddbeeehfffddeehhffffdheehhfigghehhhiiighhhiiiggg|682514703","9|t|-1|ccaaaabbdccaabbbddcceaabbbdcceaabbddceeaeeffdeeeeeeffdeeggghhffegggghhhfggggghhhi|240716358","9|g|11|aaabbcceeaabbcceeeaaabbceeeddabbcceedbbbfgceedddffggeeddffggggeddffhhgggddhhhiigg|025183746","9|t|-1|bbbbddaaabbbbddaaabbbbddcacbbbdddcccbbdddeeecbffffffecgffffffecffffihhecffffiiiic|718352064","9|g|10|bdddaaaaabbbdcacacbbddcccccbbddddcccbbdccccecfbccccgegfffffcggghfhfgggighhhhhhiig|415370826","9|t|-1|bbbbbaaacbbbbbbaacbbbbbaaccbddbbaeccdddbbaeecdddeeeeefghhhieeffhhhiiifffhiiiiiiif|537168024","9|g|46|fbbbbbaacffbdbccccfffdddcccfdddddcecffddddcecffdgggggghddddgggghdddigiighhhdiiigg|628371504","9|t|-1|ddccccccaddebcccaadeeccccccdeeeecgcceeefffgggheffffgggheeffgggghheffffgghhiiifggg|836025714","9|g|71|aaaaaaaaaaaaababbbaaccbbbddccccbbdddccceeddffceeeeddffcgggifffhgggiifffhiiiiiihhh|042637185","9|t|-1|bbbbbbaaabbbbbcccabbbdcccaabbddcccaadddgceeeedddgcefeeddgggiiiidhhhggiiihhhhhiiii|704286315","9|g|60|ccccaabbbcccccbbdbccccebdddfceeebdddfceeebdddfcffebdddffffgggddfffhhigggfffhiiggg|481720635","9|t|-1|ccabbbbbbccccddbgbcecffdbggeefffdgggeeeefffggeeehfffggehhhhfgggehhhhiiggehhhhiigg|280514736","10|g|57|aaaaaaccbbaecacccccbaeccccccddeeccchcfddgechhhfffdghhhiiifffghhhiiffifhhhhiifiifjhhhiififfjjjiiiiiif|4968170352","10|t|-1|aaaaaaaaaaabaaaacaaabbbbaccccfgdddddcccfgddddeefffggggdehffhgggidhhhhhgggihhhhhhggiiiihhhhggijiiihhh|4172680953","10|g|4|aaaaabbbbbaaccacbbbbaaacccccdbaacccdcddbaaeccddddfeeeeddddffggeeffffffgggggffhhhgggghhhhhigjjjhhhiii|4635280791","10|t|-1|ccccccaaaacccddaabbacceddddiggcceediiiggceeediiiggeeefdiigggjeefiiiiggjehffiiigijejjjiiiiijjjjjjiiii|6804139275","10|g|7|bbbaaaaaaabbbbacacaabbbbacccadbbbbaacdddefffcccdcdeffffccccdehfffccccgehhiiiiiggjhhiiigggijjiiiiiiii|7368049251","10|t|-1|ddccaaaaabdccccccaabddccccfaaedddffffeeeggggfffeeegggffffeeiggggfffeeigggghheeeiggghhhehiiggggjhhhii|6920731584","10|g|19|aaaaaaaabbaaaaaaaaabcccaaadbbbeecccdddbbeecccddddfeecciiddffgeiiiidhhfgeeeiihhhjiiieiihhjjiiiiiiijjj|3925180647","10|t|-1|aaaaaaaaaaeeaaaaaaabceafadbbbbeeaffddbbbeeefffddbbggggfhhhhbggjjhhhhbbgjjjhihiiigjjhhiiiiigjjjjiiiii|7905241683","10|g|45|dddddaaaaaddddbbbaaadddbbbeeccdjdjeeefffjjjjeeefffjjjgeiiifhjjgggiiffhjjjgiiihhhjjjiiihhhhjjjjiiihhh|6490582731","10|t|-1|bbbbaadcccbbbbbadddcbfbbddddecbfbffdddeejffffdfdeejjiffffdfejiiifgfffejjjiihhhhejjiiiiiihejjjjjiiihh|4196835720","10|g|18|caaaaaabbbccacccadbbfccccgadddfccgggeeedfccggggeeefhggjigegehhjjjigggehhjjiiiggehjjjijijgehjjjjjjjjj|5839706142","10|t|-1|dddcabbbbbddccccebebdcccceeeeeddcccceegedcceeeeggifjchggggiifjhhhgggiifjhhhhgiiijjhhhhgiiijjjhhhiiii|4931607582","10|g|98|aaccccccbbacccccccdbaccccccdddacccccdddjaaaeeddddjfffeeedddjifeeeggjjjieeeeehhhjieeeeeehhjieehhhhhjj|1936425708","10|t|-1|dbbbccaaaadbdcccccccdddccccccedddccccceeddffcceeeeddffcfeeeeddffffeeegjjhjjieeegjjjjiieeigjjjjiiiiig|6140759283","10|g|0|aaaccbbbbbhacccddddbhccdddddffhhddddffffhhddggeeefhgggggjeffhhggggjeefihiigjjjjfiiiigjjjjfiiijjjjjjj|0924685137","10|t|-1|bbbbbbbcaabbbbbcccaabbbbbbbccaeeedddcccceeeffffffceeeffffcccggggfffffcgghjffifccgjjjfiiiccgggjiiiiii|9485160273","10|g|58|cccbaaaaadecbbbbddddeccddddddfeeeddddfffeeeedfffffeheeeeiiffehhegiifffhhhggiiiffhjggiiiffihjggggiiii|7526384091","10|t|-1|bbbbbcaaaabbbbbccagabbbcbcfagadbccccffgadbbbbcfeggdbbhhffeegddhhhhhhegdddhhjhheeddjhjjhjiejjjjjjjjjj|6130759482","10|g|38|aaaaaaabbbaaaaaaabbbaaaaccabdbffeaecaddbfeeeecddbbffeeedddbbffeheeggbbfffheggbbbiiihhhgggbjjjjhhhhgg|6958417302","10|t|-1|bbbaaaacccdbbbaeecccdbbeaeeecedbheeeeeeefbhhhggeejfffhgggggjffhhgggggjfhhhhggggjfihhhgggjjhhhhjjjjjj|5380726419","10|g|88|ddddaaaebbddcccceeebddddeceeegjdfdeeeeggjdfddeeeggjdffeeegggjdhffefgigjdhffffgiijhhhhiiiiijjjjhhhhhi|4951637280","10|t|-1|aaaaaabeeeddaabbbceeddaabccceedaacccceeeddaccccceeddacccfceeggfffffheeggggfhhhehjjjjijjhhhjjjjjjjhhh|3570861942","10|g|13|bbbbbbbaaaddbbcbccaaddddccccaadddddddccadeedcccccaeeecccgccfeehccggggfejhcccggiijjjjccggiijjjjjjgggi|7364195280","10|t|-1|bbbbbddaacbbbbdddcccjbbddfccccjbbddfffccjbedffccccjeedffccccjjeeffffgchjjifiigggjjiifiiiggjjiiiiiiii|7394258061","10|g|19|ddaaaaaaaaddddaaaaabcffdadaaabcffdddaabbcffgdddeeeffggdgggiifgggggghhifgggghghhijgghhhhhiijjjhhhiiii|6904713582"];
-const MDK_DAILY = ["7|g|1|aacbbddaaccbddacccbddaccbbddcccegddfcfegddfffeggd|1426305","7|g|29|baaaaacbbbbaccbbbbcccbbeccddbeeccfdbeffffdbeffggg|2046135","7|g|44|aaccbcceaccbcceagcccceegddccgeggdffgeggdffggggfff|0463152","7|g|5|bbbbaacbbbbbbcbbbecbcddbecccddeecccddeeegfdddgggf|5140263","7|g|19|ddbbaaaddbdddadddddccgddddccgdccccegffffceggggfff|4251630","7|t|-1|aaabbbbaaabbbbaacddddaaaggddegggddfeggggdfgggggdd|1425063","7|g|10|ccbbaaaccbbabaccbbbbfccdbbbfcddeeefccdgggfcggggff|5302461","7|g|41|aaaaaaaacbbabaacbbbbacccffddceeefddcegefffceggggf|0315264","7|g|14|cccaaabccdabbbcdddgfeddddgfegggggfeggggffegggggfe|3502641","7|g|26|acbbbbbaccbeddccceeddceeedddggeddfdgeeegffggggggg|0315264","7|g|25|eeacbbbeeacdbdecccdddeeegdddeeeggfdeggggffegggggg|2514063","7|g|16|bbbbbaabcccdddccccdddeeecdfdeegggfdeegggfgeeggggg|6024153","7|g|37|aaaacccaabbcccddcccecdeeeeeefeeeegefffeeggfffgggg|1360425","7|g|9|bbbbbaadbbbaaadbbbccaddccceeddccccefggcgeefggggge|5241603","7|g|13|aaaaaabacaaccbacaccebdcccceedfcceegdfeeeggdffeegg|2630415","7|g|40|aaaaabbaaaabbbddaacbbedddcbbeggccbbeggcffbggfffbb|3642051","7|g|40|eaacbbbeeacbbbeeccccbeddcccbeeecccbegecgfbeggggff|1642053","7|g|11|aaaabccddabbbcdeeeebcdeggfffgeegggfgeegfffggggggg|1460253","7|g|33|bbbaaccbddgcccdddgggcddgggeeddfggeedfffggefffggge|3061524","7|g|12|ccaabbbccdbbbbcddbeeegddeeeeggfeeeegfffffeggffffe|3502641","7|g|23|bbbccaabbbccccfbbccccfddfeecffffeecfgfffeefgfeeee|6042531","7|g|17|bbbaaaebbbbbbebbccbeebddcceefffggegffffgggffggggg|4031526","7|g|8|bbbaaccbbbacccggbdddcgffdeeeggffeeeggffeeegggfffe|4163520","7|g|36|aaaaaaabbbaaaabbbcaaaccccccdccggeedcffggggffffggg|2036415","7|g|1|aaaaaccaabbbbcabbbcccdddbbccdgddeecgggdeffgeeeeee|1352460","7|g|26|aacbbbbaccccdbacccdddaeecgddfeecgddfeggggdeeggggd|1635204","7|g|26|eebbaaaeccbbddeeccdddeefddddeeffffdeefffffeggggff|6425031","7|t|-1|aaabbbbaaaabbbacacbbdacccbddacecdddeeegdfdeeggggg|0416253","7|g|2|aaaabbbdaaaaabdaccaabdddcccefcccceefggcggefggggee|2631504","7|g|2|daacbbbdaccbbbddccbbbfdceebbfdcceebfggceebgggggee|2631504","7|g|0|aaabbbdaaabbbdaccbbddeeeeedfffeffdffffffffffggfff|0415263","7|t|-1|ddaabbbddaabbbdddcbbedgffeeegggfeeegggffeeggggeee|2530641","7|g|16|bcccaaabccccaaecccdddeeeccddeeeegdfeggggdfeeegggg|4025163","7|t|-1|bbbbbaacbbbddaccebddaecedddaeeeedddeefddffefffffg|5314026","7|g|42|bbbaaaabbbaaacbbdaacceedddccgefffccgegfcccgggffff|5264130","7|g|14|caaabbbccccbebcccdbebcceddeecceeeeeccffffgffffffg|1403526","7|t|-1|baaaaaababbaacbbbbcccbgbdccceggddccggdddcfgggggff|4253061","7|g|11|aaaaaabaccbbbbacbbbdbcccbddfceeefffcegefffcggefff|0415362","7|g|14|cccbaaaccbbbaaccccbadecccbadeeeddddeeefffdeeffggg|4206135","7|g|13|ddaaabbddccaabddcccccfdddceeffffceeffffgeeffffgee|2631504","7|g|4|dbbfaacdbbffacdddfeacdggfeeegggffeegfffffeggffffe|4260531","7|t|-1|cbbaaaacbbabaaccbbbadfffbbddffeggddffggggdggggggg|6415203","7|g|2|aaaaadcbbaaddcbbaadccbbbddcefbbfggefffffggffffggg|2053614","7|g|17|bbbaaaabbbcadaffbcaddffeeeddffggedgffggddgggggggg|5136402","7|t|-1|ccaaaddbcaaaadcccadadcgeedddggeeeffggggffgggggggg|4026351","7|g|0|abbbdddaaabbdfccbbddfccccddfgccefffgeeefffggggfff|0415362","7|g|13|aaaaaaaddaaabbddaecccfddecggfffeeggffffeegffffggg|2641305","7|g|13|cccaaabccccbbbeceddddeeeedddeddddfgeegggfgegggggg|3614052","7|g|5|aaaaaacabbbaacabbecccddbecccfdbeeccfddgcccfffgccc|5261403","7|g|8|aaaacccabaacccbbbccccdddccccdfeececdffeeecdffeegg|3140526","7|g|7|bbbbaaabbbaaaabbbccaabbeccdaeeecdddegeedffegeedff|4035261","7|g|11|aaabbbbccabbbbccbbbbbccccbbdecfcggdeffffgdeffgggg|2416035","7|g|3|ccaaabbcaabbbbceaaabdcedddbdceeddddgeedddfggdddff|3504261","7|g|7|bbaaaddbbccaddfbbcdddffbcdddfffeeddfffggggffggggg|2036415","7|g|39|aacccccdaaacbbdacccggdecggggeeeegfgeeffffgeeffggg|1530246","7|t|-1|bbbbaaebbbcccebbccceedffeeeeffeeeegffeeeegfgggggg|5240316","7|g|34|bbbbaaebdccceeddcceeedddcceeddfceeefffcgeeffgggee|5031624","7|t|-1|caaaaaacccabbbccdddbbfcdddddffdggedfdddgggfffffgg|2413506","7|g|37|bbbbbbadbdbbbadbdbbcaddddeccfffeeecfffffecggffeee|6351420","7|g|3|cccabbbdccaabcddcccccdffcccgddffeegdffeeggddfeggg|3520416","7|g|3|baaaaaabbbaaacbbbbcccdbbbcccdbbbbeeddfffgefffffge|3140625","7|t|-1|eaaaccceaacccbeeccccbeeeccddggeedddggggfddggggggd|1635240","7|g|20|aaaacccaaabbbcddabcccgdebfffgeeeeefgeeefffgeeeeef|2461350","7|t|-1|cccaaadbcccaddccccdddccdddddddddddeffgdeeeffggeee|5024613","7|g|18|ebaaaccebbbacdeebbccdeeeeecdggeeeffgggefffggggggf|3146250","7|t|-1|bbaaaacbbbaaacbbbacccbbbaccdebbafffeeeffffeegggff|3146052","7|g|2|ddaaabbdaaabbcdagggecddgggeedggfeeeddgfffedgggffe|2460531","7|g|23|aabbbccadbbbceadddbceaddbbeeffddeegfddggggggggggg|1352406","7|g|20|dbbaaccdbbbcccddbecgcddbecgcfeeecgcfeeegggeeggggg|4261305","7|g|15|aaaccccacccdbbacdddeeaffdddeafffddeaafggggggggggg|0513624","7|t|-1|ggcaaaagccbbaagcccbaagcceedagceeeeegeefffegggggfe|6315240","7|g|36|ddbcccaddbbccadddbeccdddgeecdfdgeegdffggggdffgggg|6250413","7|g|10|aaaaaaaaadbccaaadbbccadddgecfddggecfddggggffggggg|1362504","7|t|-1|aabccddbbbcdddbebcccdeeggdddeeggdddeegggfdegggggg|0246153","7|g|36|daaabbedacbbbedacbbeedddggeedddgeeedffgeeeddgggge|3520614","7|g|18|bbccaaabbbcaaabbbccaabdeecccdddeeccffeeeecffegggc|6241305","7|g|48|aaaaaacaaabbbcdaabcccdeebfggeeefffgefffffgeeffggg|1350246","7|g|35|bbaaaacbbbdaccbbbdcccffdddccfeeecccfeggcccggggccc|5164203","7|g|2|aaaabbbacabbggecabgggeccdddgeedddggeeffgggeffgggg|2415036","7|g|10|aaaaaaacccbbaaceeaaadceeefadeegffggegggfggggggggg|5306142","7|g|29|caaaabbcaabbbdceabbddceafdddgeffdddgffffddgggffff|3506142","7|g|6|ccbbbaacbbddaeccddeaecdddeeefffffegffgfgggggggggg|6203514","7|g|43|bbbaaaabbbccdabbccdddbbbcccdgbgecddgbgefffgggffff|4026351","7|g|36|aaaaaaaaabbaaaccdbbbacddggeacfggeeafffggeeffffgee|6302514","7|g|6|bdddddabbddccabddddcadddggcafddgeeefgggggefggggge|6152403","7|g|1|aaaaabbaaabbbbaabbbcbdaeecccdgeeeccdgeeeffgggeeff|1350462","7|g|20|aaabbbcabbbcccbbdccecbbdceecfddceeefdggeeefdgggee|1362504","7|t|-1|aaaaaabeaaababeccabbbeeegdbbfegggggffffffgfffffgg|0624135","7|g|18|aaabbbbaacbbbbdacccbbdaaacebdaaccebdaafceegggfeee|2640531","7|g|33|bbbaaggbbbaaggbbccaggbddccggbffffegfffeeegfffeggg|4031526","7|g|35|bbbbaaabbbfcccdbbffecddffeeeffffegefgggeggffggggg|5261403","7|g|12|eeaaaabeaabbbbeecbbdbeeccdddeggggffegggggfggggggg|3524061","7|g|8|bbbbaaabbbbcccbdbbfccedddfcceeddfcceedffccefffggc|4162035","7|g|15|cbbddaacbbbddaccbbddaeccbbdaeeebffaggabfaagaaaaaa|6315240","7|t|-1|aaaaaabacababbacabbbdccaabbdccfegddffffgddfffgggg|2516304","7|g|32|dbbbbaadbbbbaadbcccceddccecefdgeeceffgeeeegggeeee|6351402","7|g|17|aaaafffaafffbbaaacfddccccffdceefffdceegffdeeggggg|0536142","7|g|1|aacbbbbeecccbdeecccddeeecdddeeecdddfeggdgdfeggggd|1536204","7|t|-1|aaabbbeddbbbbedddbbcedffeeeefffggeefffggggffggggg|1350624","7|g|12|aaaaaabccaabbbccdddbbeddedebeeeedeefffeeeeggffeee|3514620","7|g|13|aaaaaabddaaabbdeaacccdeeaeccgeeaecfgeeeeffggeeeff|3640251","7|g|14|ccaaaddccbbaddccccccdeecgffdeeegffdeggggffggggggf|4206153","7|g|47|dddbbbaddbbcaafdddccafdddeccfddeeegffddeegffffegg|6241305","7|t|-1|aaaaaaabbaacaabbbccaabdccccabgeecccbggeecfgggeeff|5041362","7|g|13|aaaabbbaaacbbbaaccbbbadcccbbfdddcebfdgggeefggggge|2631504","7|g|11|aaabbbbaabbbbcdacccccdeeccffddeefffgdeffffggeefff|2460351","7|g|40|aaaabbcaadbbcceaddddceeegdddgeggffdgggffffgggggff|0364152","7|g|48|bbbaaaabbdaaeebbdaceebddcceebddeeegbdffeggbbggggg|3041526","7|t|-1|aaabbbbaabbbbbaaafbbcddffbecddfffecddffffcgdffffc|2461530","7|g|34|bbbbaaabbbbacabbbcacabdfcccaddffccedfffggeddddgee|5031624","7|g|45|ccaaaaaccaabaacccabaadcbbbaedfgeeeedfggggedggggee|6420513","7|g|16|eeeaaabeaaaaabeeccddbeedddfbeeeggffegggfffegggfff|3624051","7|g|18|ddbccaaddbccccddbcccedddggceddddgcedfddgeefffggge|5240613","7|t|-1|cccaeeeccaaeebcdeeeegcddeeegfdddeegffeeeegfffffgg|3602415","7|g|36|bbbcaaabbcccccfbcecccfffecdcffeedddffeddgdffeeegg|4025316","7|t|-1|ccbbbaacbbbbbacdbdbbadddddaaddddeaaffeeeeefffeeeg|5302416","7|g|21|aaaaabbadaaaabaddcbbbdddcbbbdfccgeedfggggedgggggg|2630514","7|g|19|bbbbaaaeebdacaeeedacaeeedaffeggfffgeggfffgggggggg|6253041","7|t|-1|bccccadbbcccadbccccadbbcgcddeffgggdfffggggffggggg|5136024","7|g|24|aaabbbbcaaadbdccaddddfdddeedfdgdgeefdgggggggggggg|2513604"];
+const MDK_LEVELS = ["5|t|-1|caaaaccabbccaaaceedeceeee|24031","5|g|10|caadbcaddbccdbbeedddeeddd|24031","5|t|-1|bbbbabbbbaddbceddeeeddeee|41302","5|g|7|ccbaacbbadccbddcedddeeddd|42031","5|t|-1|bbaccbbcccdddceddccedeeee|20314","6|g|20|aaaaccdcbbccdcccccddddffeeeddfedddff|135204","6|t|-1|aaccccabbcccaaccccfdeeeefffffeffffff|024153","6|g|20|aaaaabaaabbbeaddbceddddceeefdfefffff|135204","6|t|-1|ccdddaccdbbeccdddeccdddecccfeefffffe|530241","6|g|2|caaabdccdabdcddaddcddddfceefffccefff|240315","6|t|-1|caaabbccebbbceebbfceeedfceeeefeeeeef|130425","6|g|22|bbcaaabcccdaecccdfeceddfeeefffeeeeff|302415","6|t|-1|bbaaaabbbaaadbbbccddddcceeedcceefddd|415302","6|g|33|bbbbaabbfbaabfffcabddfcaeddfcceddffc|514203","6|t|-1|aaaaaacaacbbccaccbecccdbecdddbeddfdd|251403","6|g|3|baaaaabaaaaacccaadceaafdceffffeeefff|302514","6|t|-1|dbbaaedbddaedddcfedffffeffeeeeffffee|413052","6|g|11|aaaabbaccbbbaaccddaeccddaeffffeeffff|052413","7|t|-1|aaaabeeddbbbbedddbceeddddeeedffffeedfffffeddddgge|0241635","7|g|38|bbbccaabbdcccaeedcccaeedffcgeffffcgeeffffgffffffg|5142036","7|t|-1|bbbccaabcccffacccccffccceefdgceeeffgggeffgggggggg|5036241","7|g|22|aacccccdadcbbbdddccbbdddfffbdeeeffbggeeffbgggfffb|0641352","7|t|-1|cccccaacdcdbaacdddaafeeedddfeeeeedfeggegffggggggg|6403152","7|g|11|aaaaaaaabbabbbbbbbbbcddbeebcddbeeegdfeegegdffeggg|2460315","7|t|-1|daaddccddabdccdddddcedddfdeefdffddeffffffeggffffe|1352640","7|g|48|bbbbeaaccbbeeeccbbbeefcddbeefdddeeefffffgeffggggg|5302416","7|t|-1|caaabbbcccaebecddaeeecdddddecdeeedegfgeeeeggggeee|2504613","7|g|18|aaabbbbaabbcbbaaaacccadcccecdddddeefdfffeefffggee|2641503","7|t|-1|ddaaaaabddafaabdgffccddgffccdggffcedgfffffdggffff|3051642","7|g|46|bbbbaaabbbbcaabbbbccaebbddcceeddgcceeffgccefffggg|6153024","7|t|-1|bbbbbbabbbbeccbbdeecgddddeggdddeeggfedeeegfeeeggg|6251304","7|g|20|bbbaaccbbbbbccddbeeccdgbbeccgggeeecffgeeccggggeec|4260513","7|t|-1|ddbbbbaddbbbccdbbdcccdddddeedfeeeeedfffffeddddfgg|6240315","7|g|14|ccaabbbccccbdbccccbdbcecddddeeeeeddgefefddggfffff|3605241","7|t|-1|ffcccbaffcbbbdfccbbbdfbbbdddfeeeeddfffeedgffffegg|6314205","8|g|42|bbdaaaaebddceeeebdcccceefdddeeeefdfeefeefffeffggfffffffgfhhfgggg|40536271","8|t|-1|ccccaaaacccaabbacccccbffgdccbbbfgdgcceffgggcccffgggcgggghhgggggg|46315720","8|g|49|ccaaadeecbbdddeecccddeeecchddeeegghhdeeegghdddefgghhddefgghhhhhh|42035716","8|t|-1|aaaaaaaadbbeeeeedbbceeeeddbbeddddddeeedddddddddfhhhggfffhhhhhhhh|61305742","8|g|17|cccaaaeeccbbeeeecccchheecccddhegffcdhhegfffffhggffffhhggfhhhhggg|53146072","8|t|-1|ccbeeaddccbeedddccceeeedffceehhdffceeehhfffeeghhffffgghhhhhhhhhh|52073146","8|g|59|cccccaaacbbbccaacbbbbccabbddbbaaebbddaaaebedffaaeeedddgahhhhdgga|71520463","8|t|-1|aaddddccdabdccccddddddecddffdeeedhhffeeeghhfeeeegghffeheghhhhhhe|02746315","8|g|52|bbbbbaaabbcbbbbbbbccbcbgbdcccccgbdggeeggbdfgeeggddfgggggddhhhhhg|70315246","8|t|-1|aaaaabbeaaacbbbeccccbbbegcddebeegggeeeeegffgeeeeggggggeeggghgggg|46027153","8|g|45|aaaaaabbfdddbbbbfdddddccfdfdfcccfffffeeeggffffffggffffhhggfhhhhh|24617503","8|t|-1|eaabbbffeaabbbffecebffffecebdfffeeefffffhhhfhfhfhggghhhfhhhhhhhh|25140736","8|g|57|aabbbdddccccbbddccceebddccccebddccceeeedhcceefffhhhheffghhhhhhgg|04263571","8|t|-1|cfffeaaacffeeaabcfdeehhhffddehehffdeeeehffddeeehfffgehehfgggghhh|57024136","8|g|20|aabbbbbbacccbcbbaaaccccbeaddccbbeaffccbbeafffccceaahhgggaaaahhgg|16420375","8|t|-1|caaaaaabccacbbbbccccccbbcccddcddcddddddeccggdfdeccgddhhhggggdhhh|14037526","8|g|24|dddaaaaadddabbecdddaheecdfddheecdfdhheeeffhhhheehhhggheehhhgggee|35706142","8|t|-1|bbbbaaccbcbbbcccccccccchcfdfcchhffffecchffffechhffgghhhhfhhhhhhh|50624137","8|g|5|ddaaaabbddacccebdccceeegddccccegdcceeeegfcccceegfcheeeggcchheeeg|57314062","8|t|-1|cccbbbaacbbbbbaaccaaaaaaccaaedaacfaeedggcfffdddgcccfdddgcccfhddg|62053174","9|g|29|cccccccacbbbdccaacbddddcccceedcccccdeedddddddeidfffddgeiidddddgiihhhhdggiiiihhhhg|716204853","9|t|-1|bbbbbaaaabbcbbaaddbccbbaaddbccddddddccedhhdddciedhfddgciidhhdhgiiiiihhhhiiiiiiiih|731425860","9|g|68|aaaaaaiiiaeaafaibieeccfffbieeefddffigeefffffiggeffhffihgegfhfiihggghhfiihhhhhffii|072416358","9|t|-1|aaaaaaaaaccebbdadaccebddddaccebddddaceeedddaaceedddhhfcigidhhhfciiidddhhcidddhhhh|640538271","9|g|24|cccccccaacdcbcccaacddbbbcaacdfffcceacdfffceeacggfffffaggghfffaagghhhffffgiiihffff|836175042","9|t|-1|ggaaaaaaaggggabaaacgggabbbacccgdffbaeeggggffaeiggfffaaiiggghffaiihhghfhaiiihhhhha|850416372","9|g|61|cccbbeaaaccebeedaaceeeeedaaceggeddaaeegeeeddaeegeffgaaeeggffgggehhgggghiehhhhhhhi|630514728","9|t|-1|ddaddddbecdddddfbeccdffdfeeccddffffecddfffeeecdgcffffhcggccfhfhccgcchhhhcccchhhii|270364158","9|g|73|caaaaaaddcccaabbddcccadddddceeaaedddcceeeeeddieeeefedfiegffffffiiggggffhiiiffffhh|460735281","9|t|-1|aaahcccddaaahccdbdaahhccdddeaahgcddfeaahggfffhahhggfffhahhhgggghhhhhhhggiihhhgggg|274608531","9|g|56|aaaabbbbbagggbbbccaggggbcccaggddbbbcgggeeebccffggheeccgggghhhhhgghhhiiiigiiiiiiii|168350247","9|t|-1|aaaddfbbfaddddffbfaddcccfffddddccggfeeccccgffeccggggffeeccccggiheeccccgieecciiiii|275318604","9|g|11|abbbbbbbbaabefbbccbbbeffffcddbeeeffcdbbbehfffdgbbehffiggggehhiigghhhhiiihhhiiiiii|028146357","9|t|-1|bbdccccaabdddceccaddddceeeadedeeeeeaeeeefeieifffffiiiifggfffiiifggfifiihffgiiiiii|704253186","9|g|60|bbbbbbbaabcccccccgccdddccggddfdgggghdffddgeehdffdggeehddfdgggehddddhhhhhddiiiihhh|805371642","9|t|-1|ccccgafbbicccgffbfiiicgffffiddggfefhiggggfefhigggffeehiggggeehhiiiihhhhhiiiiiiiii|573164280","9|g|56|aaaaaaaaaabbbbbbbbbbdbfbcbcbdddffcccggfffeechgggffeehhgiggeeehhgiihehhhhgiihhhhhh|058364271","9|t|-1|bbaaaaaacbeeddaaccbbeeddaccbbbedddccbbbeedddcbfgeeddccbfggddcccbffgghcccbfighhhhc|708641352","9|g|74|bbbbbbbaabbbdddbbabbddcccaabdddddcafdddedddafddeeedfffdiiiiiffgiiihhiffgiiihhhhhg|705136842","9|t|-1|aacddddbbacccdddbdcciccddbdccicdddddciiieddeeciifeeeehgiffeeehhiiiiihhhhiiiiiiihh|174683052","10|g|15|bbbbbbbbaabcccbbabbabcbbbbaaaabcdddgaaaebcdddgeeeeccccfgeeeecfccfggeehcfffffffehciiffiffeejjiiiiiiee|8513746920","10|t|-1|ffeaaeeebbffeeeeeeebcfeeefeeeicfedffeeeifffffeegeiffjjffggeihffjjgggiihhfjggiggihffjggiigijjjjiiiiii|4903857162","10|g|54|ccccaaaaddccccbbaaadcfcccdadadffcccdddadffeecgddddffeefggdddffffffgiidfhhfjfffidffhfjjffidfjjjjjjjjd|7509246183","10|t|-1|caacccbbbbccacbbbbdbccccbbbbdbccccbfbbddceeeeffffdceeffffdddeeeeffddgdeeeehffggdeeiehffgddiiieejfgdd|1709368425","10|g|76|aaaaaaaaahbaeaacccahbaeeaaccchbeeeadddchbeeeeffdhhbeeeffffhhbegehfffhheeghhhhhhhegghhhjjiiegghhhhjii|3085142697","10|t|-1|haaaaaeeeehfaabaabeehfaabbbbcehffdbffbcehhfbbfeeeehhffffeegehhhhhhhggehjjhjjjegehhjhiijeeejjjjjjjjjj|1483627059","10|g|72|aaaddceebbddaddceeebdddddcceeedhddfeeeeedhdffggegedhhfffgggeddhfffffgeddhffifggfdjhhfifggfdjjhffffff|0963748251","10|t|-1|ehabbbbbbdehhcccccbdeehhcfccddehhhcffccdehhfffffcfhhhhffifcfhgghhfifffiiihhfififiiiiiiiiifijjjiiffff|2869051473","10|g|64|iaadddddddiiiiccdddbiicccddbbbiiiiddddbjihiieeddfjihhheeddfjihhiggddjjiihigggjjjiiiijjgjjjjjjjjjjjjj|1937584206","10|t|-1|bbbbbbcaccbeecccccccffececjdccffeeecjdddfiieeejjjjffiiiejjjjffieeegghjfiieeehhhjfiieeeehjjeeeeejjjjj|7039416825","10|g|22|aaaabbbbbbaaaaabbbbbaacccccbedfaacaaceedffaaacceecfaaaaccccchhacccggccjhjjiggjccjjjjijjjjcjjjjjjjjjj|3529706148","10|t|-1|aaaaaaaaaeabbbbbbaaeabbdddccaeabbddcccceabbddddceeafbbbbbcceffbgbbbbeeffggghheeiggggggheeiggggggjeee|0274813596","10|g|28|bbbbbbbaacddffcbccccdeffccchccdeffchhhhceeefccchhceggfficihcgggffiiihhgigffiihhhgiiiiiiiihiiiijjjjjh|7580241936","10|t|-1|cccfeeeaaebcffeeeeaecccfdddeeeccffddeegecffddeeggeccffdggggehcfggggeeehhhhhgggggjhhhhhhgigjjhhhiiiii|7025936481","10|g|59|cccddbbbaacccddbbbbacddddffbbbddhhddffffdhhhhddeefdhhhhheeefdggghhhhhfjgghhggiffjggghgiiffjjjgggffff|8504791362","10|t|-1|bbbbbbbbacbbbbccccccbbcccececcbdcceeceecbdcceeeeecbdddffeeccbbgfffeeccgbgffiehhcgbggfieiiigggggiiijj|8031642759","10|g|41|caacbdddggccccbddfggcecccdffggceeccdffggeeeccddffgeccccffffgefffffffggeefhhhfiiiefffhjfffieeeejjjjjj|2405168397","10|t|-1|cccaaddbbbcccddddddbcgggggdeddhgeeeeeeddhgeegggefdhggegggffdhhgeegggffhhggggjgffhhggihjjffhhhhhhjjff|3908275146","10|g|92|aaaaccccbbcaccccebbbcaacceeebbcacceebebdcaceeebbbdcaceeebbfdccceggffffcchhjjjjjjcjjhjiijjjjjjjjiiijj|1709485362","10|t|-1|ffccccceeaffcbceeeeafdddccdehhfdfddddehhffffdjjehhffffdjjhhifffggjjhiiffjgjjhhiifjjgjjiiiiffjjjjjjjj|9351704682","10|g|2|eaaaaabbbbeaaacabgggeeaacaadggeaaccaaddgeehhaaaddgeeehaaffggeeehhjjjggeehhhhjggjieeehhjggjiieehjjjjj|2648179305","10|t|-1|aaaaabbbbbccaabbbbbbcaacbbdbbbccccccdddbeecccccddbjjcccfcddbjgffcfffhhjjjfffhhhhjfffffffihjjjfiiiiii|4937051682","10|g|92|bbbbbbbaaadbccbbbbaadeecccbggaddeeggggaadfeeeeggggjfffegggggjhhhhgggggjjjjhhhgggijjjhhhhhhiijjjjjjjh|9741538602","10|t|-1|aaccccbbbbadcccbbbbbdddcccbbbbddddddbddbedddedbdbbeedeedddbfeeeegggddfeegggghdffeegihhhddfeeiiiihjff|1852094637","10|g|93|hhhhbbbaaahhhebbbbachheebbbccchhegbfcccdheegbfcfddheegbfffffheggbffffihhjiiiifiijhjiijiiiijjjjjjiiii|8479152063"];
+const MDK_DAILY = ["7|t|-1|aaaaabbaddabbbddaaaccddaeeeeddeeeeedfeeegedeeeege|2460315","7|g|8|bbbbbbabbcccbabdddcfabddddffedddddfeddddffegggggf|6142053","7|g|14|aaaaaaaabbdddacbbbdeacfffdeaccfffeecffffefcggffff|5204631","7|g|21|bbbaaeedbbbaeedcbbceedccccceddffffeffffffgfgggggg|3140625","7|g|37|ddddaccdbbbacedfbcccedfffccedffcceedffeeegffffffg|4130526","7|t|-1|bbdaaccbddaaccbddacccddddcggddffcegddffccgfffcccg|3041526","7|g|4|ceeaaaacebbbaaceeeddaffeegdafeeeggaffeeegafeeeggg|4205316","7|g|27|aaaaaabfffadbbcffedddccfeeddffffeedffgggedggggggd|2506413","7|g|45|cbbddaaccbbddaccccddaedddddfeeddggfggdgggfggggggf|5204163","7|g|4|ebbbaaaebaaaaaecccdaaeecdddaecccffaeeccfffeggggff|4135062","7|t|-1|bbbbaccbccccccdeeeeecdddddeeggdeeeeggdeffeggggfee|4061352","7|g|19|bbbaaccbccccccggcdccfgdcdcffgdddeefgddggffggggfff|3051462","7|g|36|caabeeecbbbbeecddbeeeffddfeefffffgeffffgggfffgggg|2403615","7|t|-1|aaaaaaaadbdeeaadddeecaddffecggdffeegggfffegggggfe|4261530","7|g|37|ccaabbdccabbbdccdbdddcddddddedffdggefffdggffffdgg|3514026","7|t|-1|ffffeaafbfeeaafbdeeacfbdeeagfgggeegfggggegggggggg|5162403","7|g|11|cbaabddcbbbbddcccbcddcfcccddcfceeddfffffdffgggfff|2405361","7|g|26|bbcaaaabbcddddbeccdddbeccddfeeecccfeeeccgfeeecggf|3025164","7|g|46|bddaaccbdddcccddddddcdfdeeccdfffeegfffeeegfffeggg|3062514","7|g|38|aaaaaacaabbaacaddddacdddfcccgfdfcecgfdfceegffffff|4261530","7|t|-1|bbbaabbbbbbbbedbbbceedbbeeeefbfeggeffffgggfffffgg|3140625","7|g|41|bbbbaaabbbbbaabbcbccabbcccdabecgddfbeggfffbggggff|4025163","7|g|24|baaaaaabbbaaaaebbdffceebdfcceggdfffggdddffggdffff|4263051","7|g|5|bbbaaacbbbbaccbbeecccebedcccebedddceeegffceeggccc|5163042","7|t|-1|aabccccabbbbbcabbbbccdbgbeecbbgbeffgbgbgffggggggg|1350462","7|g|21|bbbaaaadbbafaadffffacddeefccdddeffcddgffffddgffff|4160352","7|g|11|ccccaaacdcbbbbcdddbbeddddebeffddeeeffggegefggggge|6402513","7|g|43|bbbaaaabcccccdcccdccdgddddddggdeggdgddeggfgggggff|4025361","7|t|-1|aaaaaccaaaaccbaaacccbeccccdbeccggfbccggfffccggggg|1635042","7|g|2|aaaaaabacccbabfffcbbbddffffbddfeefgdffffggddfffgg|2630415","7|g|26|cbbddaacbbbddaccbffdaeefffdaegfgffaggfggaagggggaa|6315024","7|g|32|baaaaccbbaacccbbbccecbbbbeedfbbeeddffeeeddfeeeggd|2036415","7|t|-1|dbbbaacdbbbbbcdddbcccdddbbbcdbbbeecdbffeccdgfeeec|4260531","7|g|17|faaccccfaaacbcfddccbcfdddeccfffdeeegffffeeggggggg|2531640","7|t|-1|eeeeeadbeeeaadeeeccddegegcddegeggfdggegffgggggggg|5036241","7|g|33|ccbbbaaccbccceccccccecddcecefdcceeeffffffeffggfee|6241503","7|g|22|aaaccccaaaabbcadddddcaddeddcdddedfcdddeffcdggeefc|0461352","7|g|5|baaaaaabbdcaaebbdcaaebddeaeebddeeeeddffffeffffgge|5031624","7|g|23|ddaadbbddadddbcddddbbcddeeeecddfefecfffffeffgggge|3602415","7|t|-1|aaaaaagbaccccgdddddcgffddeggffffeegffgfffgfgggggg|3052416","7|g|12|aagccbbaagcbbbdfgcbebdfggbeeffggbeefffgbbbggggggb|1530624","7|t|-1|eeaaaaceedabbceedcccceedddcceeecddceggccfcegggccc|2463051","7|g|19|aacccccabbccccabcccccffddceefddccceffdfeeeffffgge|0253614","7|g|31|aaaaaaaacceabbaaceaadeeeeeedffeeeddfeeedddffeeggd|1526304","7|g|9|bbbaaaabdbbbbcddbfffcdbbbbffdbbebbffffefffggfffff|4260351","7|t|-1|acccccbccbbbbbdcccfebddgffebdggfeeeggfffeeggggffe|0531642","7|t|-1|aaaaaaeccaaabecgaaadecggaddeggaaeeegaafeffggfffff|2504631","7|g|16|ccaadddbccadddbccccddcccecddccfeeddfffeedgfeeeggg|3026415","7|g|17|aaabbbbcccbccbcgccccbcgecfdbcgeefddcgfffffcgggggg|0635241","7|g|10|aabbbbdcabbbbdcafbbbdfffbdddfffeeddfffffggfffffgg|1306425","7|t|-1|ebbbcadebecccdeeeccddecccdddeeecccdeeeefcdggfffcc|5136240","7|g|46|baaaaaabbaacacbaaacccbbdccccbgdcggefgggggeffffgee|3152604","7|t|-1|bbbaaadbbbbaddbaaaadcbgaddddbgedggdbgedgffbgggggf|3064251","7|g|15|ccaaaaacbbbaaaccbbbadccbddddccccddecfffddegggfddd|5314620","7|g|6|bbbbbaaggccbbaggccccageeeedageffddagfffdddggfffff|6425130","7|t|-1|ddbacccdbbbcceddddgceffdggeeffgggeeffgggggggggggg|3152604","7|g|40|cccaaaabcaafaabccffffbeeeefdeeffffdeggfgfdeggggfd|4026153","7|g|43|ccaadddccccdbbcgggddbcggddbbcgbbbbecggbfeecgbbfee|2503641","7|g|33|caaaaaacdddddbccddbbbdddddeefddeeeefdgggeedddggge|2613504","7|g|3|aaaaaaaabbaaaabbdcacabbdcccfeeddfffdeddddfdddggdd|3152064","7|g|44|ccaaaaacccebbaccceebbceeeddgceeegggffffgggggggggg|6415302","7|g|11|aacccccabbbbbcbbbdddcbbbddddgegddddgegdfffggggggf|0463152","7|g|4|baaaaaabaaaacafdaaccafddaacefdddggeffdddgefgggggg|4052613","7|t|-1|aacbbbbcacbcbbcacbccgcccccdgcfceddgcfggdggccggggg|0625314","7|g|44|bbbbaacbbdbbbcgbdbcccggddcccgeedddcgefffdcgggfddc|5063142","7|g|33|dbbacccdbbaceedbccccedbdceeedddddeefddddegffffdeg|3142506","7|t|-1|dccabeedcccbbeddccbeeddddeeeddeeefedfffffedffggff|3520614","7|g|10|accccccacbbbccdbbddcgddddeegdfffeegddfffegdddffgg|0351426","7|g|17|cccccaabbccdaabcccddabcccddaeecccddeefccgdeefgggg|6135024","7|t|-1|aaaabffaaadbbfccddbbfeedddbfeeeffffeefffffgeeefff|3514260","7|g|0|aacbbbdaccdbddaacddddafggeddffgeeddffggdddggggggd|0426315","7|t|-1|eeeeeaaebeeaaabbbeeacbbeedacffeeeagfggggggfgggggg|5164203","7|g|11|acccbddacccbddccbbbdecbbbbdeccceeeeccccggfgggggff|0415362","7|g|39|daacbbfdccccbfdcccbbfddcccffdggccfeggggffegffffff|2531640","7|g|47|eeaaaaaebaaaaaebbdaccebddagceeddaggeeeffggeeefggg|4162035","7|g|25|aaaaaabaabbbbbacdddbbdcdfdebdddfdeedgefeeeggeeeee|2514630","7|g|24|ddddaaadbdcaacdbbccccddbdcceddddddeffddggeffgggge|4153602","7|g|29|aaaagggebbdccgebddccgeeddgggeedffggeefffggefffggg|0253146","7|g|40|ebaaaccebbafccebddfcceeddffceeeefffegeffffegfffff|4263051","7|t|-1|bbbaaaabbbaaaafbbbacafbddacafbbeeeafbffffafffgaaa|6152403","7|g|41|ccaaaffccaabbfgcccfffgggffdfgggeddfggeeeefggfffff|2415360","7|g|35|aaaaaabddcccbbdddceebdddccebdddceebfdddeggffffeeg|2531406","7|g|33|bbbbaaabbbbbaabfffcccbbfddcebbfddeeggffdeegggfeee|4163520","7|g|15|cbbaaaacbbbaaaccebbaacceddafceeddffcggdffgggggggg|6314250","7|g|9|bbaaaacbbbbbccbebdbcceeddbcceeffccceefffcceggffcc|5263041","7|g|40|cccccaadddcbbbddcccbbdeeegfbeeeegffgegggffggggfff|6420351","7|g|28|eeaafffeeeffbfeccccbfeeedcffeeedfffeeeddgfeeedggf|2513064","7|g|21|ddaaaaaddacabbdddccccdgdceeedggccceggfffffgggggff|2530641","7|g|35|aaaacccbbaacccaaaeccgaddeccgdddeecgffgggggfffgggg|3152406","7|t|-1|bbbaaaabbbbaaabcbbbaaeccbddaebbbddaeebffdaeegffda|6315042","7|t|-1|eaabcccebbbccceebbfcfeedffffeeefffgffeffggffffggg|1352046","7|g|21|ddaaabbddddbbbddddbbcdeddbcceeeeeeeegegeffegggggg|2460351","7|t|-1|bbbbbaabaaaaaebaacaaebaacddebaeeeeebgeefeebgeeeee|6035241","7|g|22|bbccccabbbccaabdbdcceddddceeddfcceeddffeeeggfeeee|6241530","7|g|16|aaacbddecccbbdeccbbddecbbdddeccccddgggccfdggggcff|1426053","7|g|11|aaabbbbdabbbcbdabccccdbbeceedeeeeeeddeeffgddegggg|1460253","7|t|-1|cccabbbcccbbbdecgbdddeggddfdeegggfdgegfffdgggggfd|3516042","7|g|39|dbbbaacdbbbcccdbbccccdddccffeddcfffeggffffggggggf|5362041","7|t|-1|baaccccbacccccfaffcccfaafccdfeafffdfaafgfgffffggg|2046135","7|g|27|aaacbbcafacbbcfffccccffffeddfdfdeedfddddddfggggdd|1536402","7|t|-1|bbbabeebcbbbedfccceedfeeceedffeeeggffeffggffffggg|3026415","7|g|0|aaabbccaabbbecbbbeeecdddeeecgdddeeegdffeeeggfffee|0462531","7|g|3|ccaabbbccaabbdccceeedffcedddffceeedfccegegggggggg|3516402","7|g|45|eeeaabbceeabbbcceeebbggeggddggeeggdfggeggdfgggggd|4615203","7|g|39|aaaacccaaaccbbaaacccfaddfcffaddfffeadddffeggfffff|2531640","7|t|-1|bbdddaabbbdaaaccbddddcdddeddceddeddceeeeffceeegff|5203164","7|g|1|aaaaabdaaacabdecccaddeecddddecccdddeecfdgdfffffgg|1524036","7|g|19|aaabbbbabbbbccaadbbccaadbbccaddbccefddbceeffffgge|1352604","7|g|42|ddacbccddacbbcdccccccdddceccdddceeegggcfeegggffff|2531640","7|g|5|bbaaaacdbaaaacdddaeacdddaeacddfaeggfffaeggffggggg|5162403","7|g|37|accccccaabbccedddccceddffeeeddffeeefdfeeggfffeeeg|0351426","7|g|3|bbaaaaadbbccccddcccgcdddecggffdeeggfddggggddggggg|3162405","7|g|18|bbbccaabbbccccbccccddffceeedffeegggffeegggfeegggg|5146203","7|g|23|dddaaabccdadbbccddddbcddeeebcdfeeeecffeeggccfeeeg|3502416","7|g|26|aaaddbbacccdbbacccdbbecddddbeccccdbgccffffggfffff|2635041","7|g|8|cccaaaabbcacddbcccccdbbbbcddbgeecddbggeeefgggeeff|4135260","7|g|9|aaabbccaabbcccbbbbcddeeggffdeegggffeggffffeggggff|0246153","7|g|2|aaaaacbaaaaacbaaacacedaccccedffcceedffffeeddddggg|2630514","7|g|37|aabbbbdaabbfbdcbbfffdccbfdddfbbffdeffffeeefgggggg|1304625","7|g|2|aaabbbbacaaebbacaeebdaaeeebdaeegeegfffgeggggggggg|2516403"];
 
 const MDK_SKINS = [
   { id: 'orange', name: 'Orange Tabby', bg: '#FFF6EA', price: 0 },
@@ -974,7 +996,7 @@ const MDK_ADMOB = {
 const MDK_DOUBLE_ADS = 3;
 /* Android app: progress is saved on the phone, ads come from the native Google Mobile Ads SDK */
 const MDK_SAVE_KEY = 'meowdoki.save.v1';
-const MDK_SAVE_FIELDS = ['played', 'level', 'allDone', 'xp', 'hearts', 'hints', 'skin', 'board', 'owned', 'adProg', 'adsRemoved', 'personalized', 'settings', 'done'];
+const MDK_SAVE_FIELDS = ['tutorialDone', 'played', 'level', 'allDone', 'xp', 'hearts', 'hints', 'skin', 'board', 'owned', 'adProg', 'adsRemoved', 'personalized', 'settings', 'done'];
 function mdkNative() { return typeof window !== 'undefined' && window.MeowNative ? window.MeowNative : null; }
 const MDK_GOAL = 3;
 const MDK_LOAD_MS = 5500;
@@ -1036,6 +1058,29 @@ function mdkDayIndex(k) {
 function mdkParse(s) {
   const f = s.split('|');
   return { n: Number(f[0]), aid: f[1], given: Number(f[2]), reg: f[3].split('').map(ch => ch.charCodeAt(0) - 97), sol: f[4].split('').map(Number) };
+}
+const MDK_TUTORIAL = '5|t|-1|caaaaccabaccaeacccedcceed|13042';
+function mdkAttacked(n, reg, i) {
+  const r = Math.floor(i / n), c = i % n, out = [];
+  for (let j = 0; j < n * n; j++) {
+    if (j === i) continue;
+    const rr = Math.floor(j / n), cc = j % n;
+    if (rr === r || cc === c || reg[j] === reg[i] || (Math.abs(rr - r) <= 1 && Math.abs(cc - c) <= 1)) out.push(j);
+  }
+  return out;
+}
+/* first row / column / color that has exactly one free tile left */
+function mdkForced(g) {
+  const n = g.n, units = [];
+  for (let r = 0; r < n; r++) units.push({ kind: 'row', cells: [...Array(n).keys()].map(c => r * n + c) });
+  for (let c = 0; c < n; c++) units.push({ kind: 'column', cells: [...Array(n).keys()].map(r => r * n + c) });
+  for (let k = 0; k < n; k++) units.push({ kind: 'color', cells: g.reg.map((x, i) => x === k ? i : -1).filter(i => i >= 0) });
+  for (const u of units) {
+    if (u.cells.some(i => ['c', 'g', 'h'].includes(g.cells[i]))) continue;
+    const free = u.cells.filter(i => g.cells[i] === 'e');
+    if (free.length === 1) return { cell: free[0], kind: u.kind, cells: u.cells };
+  }
+  return null;
 }
 function mdkFace(idx, w) {
   return 'position: absolute; top: 0; left: ' + (-idx * w) + 'px; width: ' + (w * 14) + 'px; height: ' + Math.round(w * 0.875) + 'px; max-width: none';
@@ -1161,7 +1206,9 @@ class Component extends DCLogic {
       lossOn: false,
       frameW: 390,
       frameH: 900,
-      nativeAd: false
+      nativeAd: false,
+      tut: null,
+      tutorialDone: false
     };
     if (mdkNative()) {
       try {
@@ -1182,6 +1229,20 @@ class Component extends DCLogic {
   }
 
   componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.__meowBack = () => {
+        const s = this.state;
+        if (s.ad || s.nativeAd || s.screen === 'loading') return true;
+        if (s.modal) { this.setState({ modal: '' }); return true; }
+        if (s.tut) return true;
+        if (s.screen === 'level' && s.game.kind === 'daily') { this.go('daily', 'back', { complete: null }); return true; }
+        if (s.screen !== 'home') { this.go('home', 'back', { complete: null }); return true; }
+        return false;
+      };
+      window.__meowSetActive = active => this.setActive(!!active);
+      this.onVis = () => this.setActive(document.visibilityState !== 'hidden');
+      document.addEventListener('visibilitychange', this.onVis);
+    }
     const nat0 = mdkNative();
     if (nat0 && nat0.setPersonalized) { try { nat0.setPersonalized(!!this.state.personalized); } catch (e) {} }
     if (this.state.screen === 'loading') this.runLoading();
@@ -1212,6 +1273,7 @@ class Component extends DCLogic {
   }
 
   componentWillUnmount() {
+    if (this.onVis) document.removeEventListener('visibilitychange', this.onVis);
     if (this.measure) window.removeEventListener('resize', this.measure);
     if (this.ro) this.ro.disconnect();
     this.timers.forEach(t => clearTimeout(t));
@@ -1228,7 +1290,7 @@ class Component extends DCLogic {
   buildGame(kind, num, dayKey) {
     const daily = kind === 'daily';
     const idx = daily ? mdkDayIndex(dayKey) : num - 1;
-    const p = mdkParse(daily ? MDK_DAILY[((idx % MDK_DAILY.length) + MDK_DAILY.length) % MDK_DAILY.length] : MDK_LEVELS[idx]);
+    const p = kind === 'tutorial' ? mdkParse(MDK_TUTORIAL) : mdkParse(daily ? MDK_DAILY[((idx % MDK_DAILY.length) + MDK_DAILY.length) % MDK_DAILY.length] : MDK_LEVELS[idx]);
     const cells = new Array(p.n * p.n).fill('e');
     if (p.given >= 0) cells[p.given] = 'g';
     this.gid += 1;
@@ -1247,54 +1309,202 @@ class Component extends DCLogic {
     if (this.ac && this.ac.state === 'suspended') { try { this.ac.resume(); } catch (e) {} }
     return this.ac;
   }
-  tone(freq, dur, type, vol, delay) {
+  /* ---------- sound: soft kalimba / bell voices through a gentle echo ---------- */
+  bus() {
     const ac = this.audio();
-    if (!ac) return;
+    if (!ac) return null;
+    if (!this.sfxBus) {
+      try {
+        const comp = ac.createDynamicsCompressor();
+        comp.threshold.value = -18; comp.ratio.value = 3;
+        comp.connect(ac.destination);
+        const dry = ac.createGain(); dry.gain.value = 1; dry.connect(comp);
+        const delay = ac.createDelay(1); delay.delayTime.value = 0.19;
+        const fb = ac.createGain(); fb.gain.value = 0.22;
+        const wet = ac.createGain(); wet.gain.value = 0.16;
+        const lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 3200;
+        delay.connect(fb); fb.connect(delay); delay.connect(lp); lp.connect(wet); wet.connect(comp);
+        const input = ac.createGain(); input.gain.value = 1; input.connect(dry); input.connect(delay);
+        this.sfxBus = input; this.master = comp;
+      } catch (e) { return null; }
+    }
+    return this.sfxBus;
+  }
+  tone(freq, dur, type, vol, delay, glideTo) {
+    const ac = this.audio(), out = this.bus();
+    if (!ac || !out) return;
     try {
       const t0 = ac.currentTime + (delay || 0);
       const o = ac.createOscillator(), g = ac.createGain();
       o.type = type || 'sine';
       o.frequency.setValueAtTime(freq, t0);
+      if (glideTo) o.frequency.exponentialRampToValueAtTime(glideTo, t0 + dur * 0.8);
       g.gain.setValueAtTime(0.0001, t0);
-      g.gain.exponentialRampToValueAtTime(vol || 0.12, t0 + 0.015);
+      g.gain.exponentialRampToValueAtTime(vol || 0.12, t0 + 0.012);
       g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
-      o.connect(g); g.connect(ac.destination);
-      o.start(t0); o.stop(t0 + dur + 0.02);
+      o.connect(g); g.connect(out);
+      o.start(t0); o.stop(t0 + dur + 0.03);
+    } catch (e) {}
+  }
+  /* kalimba-like pluck: pure tone + quickly fading upper partial */
+  pluck(freq, delay, vol, dur) {
+    this.tone(freq, dur || 0.6, 'sine', vol || 0.1, delay);
+    this.tone(freq * 2.01, (dur || 0.6) * 0.35, 'sine', (vol || 0.1) * 0.35, delay);
+    this.tone(freq * 4.2, 0.07, 'triangle', (vol || 0.1) * 0.12, delay);
+  }
+  noiseHit(delay, vol, freq, dur, out) {
+    const ac = this.audio(), dest = out || this.bus();
+    if (!ac || !dest) return;
+    try {
+      if (!this.noiseBuf) {
+        this.noiseBuf = ac.createBuffer(1, ac.sampleRate * 0.3, ac.sampleRate);
+        const d = this.noiseBuf.getChannelData(0);
+        for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+      }
+      const t0 = ac.currentTime + (delay || 0);
+      const src = ac.createBufferSource(); src.buffer = this.noiseBuf;
+      const f = ac.createBiquadFilter(); f.type = 'bandpass'; f.frequency.value = freq || 3000; f.Q.value = 1.2;
+      const g = ac.createGain();
+      g.gain.setValueAtTime(vol || 0.05, t0);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + (dur || 0.05));
+      src.connect(f); f.connect(g); g.connect(dest);
+      src.start(t0); src.stop(t0 + (dur || 0.05) + 0.02);
+    } catch (e) {}
+  }
+  /* a tiny synthesized "mew" */
+  mew(delay, pitch) {
+    const ac = this.audio(), out = this.bus();
+    if (!ac || !out) return;
+    try {
+      const p = pitch || 1, t0 = ac.currentTime + (delay || 0), d = 0.26;
+      const o = ac.createOscillator(), o2 = ac.createOscillator(), g = ac.createGain(), f = ac.createBiquadFilter();
+      const lfo = ac.createOscillator(), lg = ac.createGain();
+      o.type = 'triangle'; o2.type = 'sine';
+      o.frequency.setValueAtTime(620 * p, t0);
+      o.frequency.exponentialRampToValueAtTime(980 * p, t0 + d * 0.35);
+      o.frequency.exponentialRampToValueAtTime(700 * p, t0 + d);
+      o2.frequency.setValueAtTime(1240 * p, t0);
+      o2.frequency.exponentialRampToValueAtTime(1960 * p, t0 + d * 0.35);
+      o2.frequency.exponentialRampToValueAtTime(1400 * p, t0 + d);
+      lfo.frequency.value = 22; lg.gain.value = 18 * p; lfo.connect(lg); lg.connect(o.frequency);
+      f.type = 'bandpass'; f.frequency.value = 1300 * p; f.Q.value = 0.9;
+      g.gain.setValueAtTime(0.0001, t0);
+      g.gain.exponentialRampToValueAtTime(0.16, t0 + 0.03);
+      g.gain.setValueAtTime(0.16, t0 + d * 0.5);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + d);
+      const g2 = ac.createGain(); g2.gain.value = 0.25;
+      o.connect(f); o2.connect(g2); g2.connect(f); f.connect(g); g.connect(out);
+      [o, o2, lfo].forEach(x => { x.start(t0); x.stop(t0 + d + 0.05); });
     } catch (e) {}
   }
   sfx(kind) {
     this.interacted = true;
     if (!this.state.settings.sfx) return;
-    if (kind === 'tap') this.tone(520, 0.08, 'triangle', 0.08);
-    if (kind === 'mark') this.tone(380, 0.07, 'triangle', 0.07);
+    const N = m => 440 * Math.pow(2, (m - 69) / 12);
+    if (kind === 'tap') { this.tone(700, 0.07, 'sine', 0.07, 0, 1050); this.noiseHit(0, 0.015, 4200, 0.02); }
+    if (kind === 'tab') this.tone(520, 0.08, 'triangle', 0.08);
+    if (kind === 'mark') { this.noiseHit(0, 0.05, 2600, 0.04); this.tone(1150, 0.06, 'triangle', 0.05, 0, 760); }
+    if (kind === 'unmark') { this.noiseHit(0, 0.03, 3600, 0.03); this.tone(900, 0.05, 'sine', 0.04, 0, 1250); }
     if (kind === 'swoosh') { this.tone(420, 0.12, 'sine', 0.05); this.tone(640, 0.12, 'sine', 0.04, 0.06); }
-    if (kind === 'cat') { this.tone(660, 0.12, 'sine', 0.13); this.tone(990, 0.14, 'sine', 0.08, 0.07); }
-    if (kind === 'wrong') { this.tone(180, 0.22, 'square', 0.05); this.tone(140, 0.25, 'square', 0.04, 0.1); }
-    if (kind === 'win') [523, 659, 784, 1047].forEach((f, i) => this.tone(f, 0.25, 'sine', 0.12, i * 0.11));
-    if (kind === 'coin') [880, 1175, 1568].forEach((f, i) => this.tone(f, 0.16, 'triangle', 0.08, i * 0.07));
+    if (kind === 'cat') { this.mew(0, 1); this.pluck(N(84), 0.16, 0.06, 0.5); this.pluck(N(91), 0.22, 0.04, 0.5); }
+    if (kind === 'wrong') { this.pluck(N(64), 0, 0.11, 0.35); this.pluck(N(59), 0.13, 0.11, 0.5); this.tone(110, 0.18, 'sine', 0.12, 0, 70); }
+    if (kind === 'hint') [72, 76, 79, 84, 88, 91].forEach((m, i) => this.pluck(N(m), i * 0.045, 0.05, 0.45));
+    if (kind === 'coin') { this.pluck(N(88), 0, 0.08, 0.35); this.pluck(N(95), 0.08, 0.08, 0.6); }
+    if (kind === 'pop') { this.tone(380, 0.09, 'sine', 0.08, 0, 760); }
+    if (kind === 'win') {
+      [67, 72, 76, 79, 84].forEach((m, i) => this.pluck(N(m), i * 0.09, 0.09, 0.9));
+      this.pluck(N(88), 0.5, 0.07, 1.2); this.pluck(N(91), 0.5, 0.05, 1.2);
+      this.mew(0.62, 1.15);
+    }
+    if (kind === 'unlock') { [72, 79, 84, 88].forEach((m, i) => this.pluck(N(m), i * 0.07, 0.08, 0.8)); }
+    /* the redeem-code sounds stay as they were */
+    if (kind === 'redeem') [523, 659, 784, 1047].forEach((f, i) => this.tone(f, 0.25, 'sine', 0.12, i * 0.11));
+    if (kind === 'redeemBad') { this.tone(180, 0.22, 'square', 0.05); this.tone(140, 0.25, 'square', 0.04, 0.1); }
   }
   buzz() {
     const nat = mdkNative();
     if (this.state.settings.vibration && nat && nat.vibrate) { try { nat.vibrate(45); } catch (e) {} return; }
     if (this.state.settings.vibration && navigator.vibrate) { try { navigator.vibrate(45); } catch (e) {} }
   }
+  /* ---------- music: a slow, cozy lo-fi loop (C – Am – F – G) scheduled on the audio clock ---------- */
   syncMusic() {
-    const want = this.state.settings.music && this.state.screen === 'level' && this.interacted && this.state.game.status === 'play' && !this.state.ad && !this.state.nativeAd;
+    const want = this.state.settings.music && this.interacted && this.appActive !== false && this.state.screen !== 'loading' && !this.state.ad && !this.state.nativeAd;
     if (want && !this.musicTimer) this.startMusic();
     if (!want && this.musicTimer) this.stopMusic();
   }
   startMusic() {
-    const tune = [523, 659, 784, 659, 587, 698, 880, 698, 523, 659, 784, 1047, 880, 784, 659, 587];
-    let i = 0;
-    this.musicTimer = setInterval(() => {
-      const f = tune[i % tune.length];
-      this.tone(f, 0.5, 'sine', 0.025);
-      if (i % 4 === 0) this.tone(f / 2, 0.9, 'triangle', 0.02);
-      i++;
-    }, 420);
+    const ac = this.audio();
+    if (!ac || !this.bus()) return;
+    try {
+      const mg = ac.createGain(); mg.gain.setValueAtTime(0.0001, ac.currentTime); mg.gain.exponentialRampToValueAtTime(0.5, ac.currentTime + 1.5);
+      const lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2400; lp.Q.value = 0.4;
+      mg.connect(lp); lp.connect(this.master);
+      this.musicOut = mg;
+    } catch (e) { return; }
+    const N = m => 440 * Math.pow(2, (m - 69) / 12);
+    const bpm = 76, eighth = 60 / bpm / 2;
+    const chords = [[48, 60, 64, 67, 71], [45, 57, 60, 64, 67], [41, 57, 60, 64, 65], [43, 55, 59, 62, 64]];
+    const melody = [
+      [76, 0, 79, 0, 81, 0, 79, 0], [76, 0, 72, 0, 74, 0, 0, 0], [69, 0, 72, 0, 76, 0, 74, 72], [74, 0, 0, 0, 67, 0, 0, 0],
+      [76, 0, 79, 0, 84, 0, 81, 0], [79, 0, 76, 0, 72, 0, 74, 0], [72, 0, 74, 0, 76, 0, 79, 76], [74, 0, 0, 0, 72, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 72, 0, 76, 0, 0, 0], [0, 0, 0, 0, 77, 76, 74, 0], [0, 0, 0, 0, 0, 0, 0, 0]
+    ];
+    const out = this.musicOut;
+    const voice = (freq, t, dur, vol, type, partial) => {
+      try {
+        const o = ac.createOscillator(), g = ac.createGain();
+        o.type = type || 'sine'; o.frequency.setValueAtTime(freq, t);
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(vol, t + (type === 'triangle' ? 0.02 : 0.04));
+        g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+        o.connect(g); g.connect(out); o.start(t); o.stop(t + dur + 0.05);
+        if (partial) {
+          const o2 = ac.createOscillator(), g2 = ac.createGain();
+          o2.frequency.setValueAtTime(freq * 2.003, t);
+          g2.gain.setValueAtTime(0.0001, t); g2.gain.exponentialRampToValueAtTime(vol * 0.3, t + 0.01); g2.gain.exponentialRampToValueAtTime(0.0001, t + dur * 0.3);
+          o2.connect(g2); g2.connect(out); o2.start(t); o2.stop(t + dur * 0.3 + 0.05);
+        }
+      } catch (e) {}
+    };
+    let step = 0, next = ac.currentTime + 0.1;
+    const schedule = () => {
+      while (next < ac.currentTime + 0.35) {
+        const bar = Math.floor(step / 8), pos = step % 8;
+        const ch = chords[bar % 4];
+        if (pos === 0) {
+          voice(N(ch[0]), next, eighth * 7, 0.09, 'triangle');
+          ch.slice(1).forEach((m, k) => voice(N(m), next + k * 0.03, eighth * 7.5, 0.025, 'sine'));
+        }
+        if (pos === 4) {
+          voice(N(ch[0] + 7), next, eighth * 3.5, 0.06, 'triangle');
+          ch.slice(2).forEach(m => voice(N(m), next, eighth * 3.5, 0.016, 'sine'));
+        }
+        const mel = melody[bar % melody.length][pos];
+        if (mel) voice(N(mel), next, 0.9, 0.05, 'sine', true);
+        if (pos % 2 === 1) this.noiseHit(next - ac.currentTime, 0.008, 7000, 0.04, out);
+        step++; next += eighth;
+      }
+    };
+    schedule();
+    this.musicTimer = setInterval(schedule, 100);
   }
   stopMusic() {
     if (this.musicTimer) { clearInterval(this.musicTimer); this.musicTimer = null; }
+    if (this.musicOut && this.ac) {
+      try { const g = this.musicOut.gain; g.cancelScheduledValues(this.ac.currentTime); g.setValueAtTime(g.value, this.ac.currentTime); g.exponentialRampToValueAtTime(0.0001, this.ac.currentTime + 0.3); } catch (e) {}
+      const old = this.musicOut; setTimeout(() => { try { old.disconnect(); } catch (e) {} }, 600);
+      this.musicOut = null;
+    }
+  }
+  setActive(active) {
+    this.appActive = active;
+    if (!active) {
+      this.stopMusic();
+      if (this.ac && this.ac.suspend) { try { this.ac.suspend(); } catch (e) {} }
+    } else {
+      if (this.ac && this.ac.resume) { try { this.ac.resume(); } catch (e) {} }
+      this.syncMusic();
+    }
   }
 
   /* ---------- loading ---------- */
@@ -1307,6 +1517,7 @@ class Component extends DCLogic {
     this.later(() => {
       if (token !== this.loadToken || this.state.screen !== 'loading') return;
       if (stay) { this.setState({ tip: this.state.tip + 1, tipIdx: mdkPickTip(this.state.tipIdx) }); this.runLoading(); return; }
+      if (!this.state.tutorialDone) { this.startTutorial(); return; }
       this.go('home', 'fade');
     }, MDK_LOAD_MS + (stay ? 900 : 250));
   }
@@ -1363,9 +1574,53 @@ class Component extends DCLogic {
   }
 
   /* ---------- gameplay ---------- */
+  startTutorial() {
+    const game = this.buildGame('tutorial', 0);
+    this.go('level', 'fwd', { game: game, complete: null, tut: { step: 0, hi: [], target: -1, unit: [] } });
+  }
+  tutNext(step) {
+    const g = this.state.game, n = g.n;
+    let tut = { step: step, hi: [], target: -1, unit: [] };
+    if (step === 2) {
+      const sizes = new Array(n).fill(0); g.reg.forEach(x => sizes[x]++);
+      const k = sizes.indexOf(1);
+      tut.target = k * n + g.sol[k]; tut.hi = [tut.target];
+    }
+    if (step === 3) {
+      const cat = g.cells.findIndex(v => v === 'c');
+      tut.hi = mdkAttacked(n, g.reg, cat).filter(j => g.cells[j] === 'e');
+      if (!tut.hi.length) return this.tutNext(4);
+    }
+    if (step === 4) {
+      const f = mdkForced(g);
+      if (!f) return this.tutNext(5);
+      tut.target = f.cell; tut.hi = [f.cell]; tut.unit = f.cells; tut.kind = f.kind;
+    }
+    this.setState({ tut: tut });
+  }
+  finishTutorial(skip) {
+    this.setState({ tutorialDone: true, tut: null });
+    this.go('home', 'fwd', { complete: null, game: this.buildGame('level', this.state.level) });
+    if (!skip) this.later(() => this.flash('Tutorial done! Tap Play to start Level ' + this.state.level, 3000), 700);
+  }
+
   tapCell(i) {
     const g = this.state.game;
     if (g.status !== 'play' || this.state.modal || this.state.ad) return;
+    const tut = g.kind === 'tutorial' ? this.state.tut : null;
+    if (tut) {
+      if (tut.step < 2 || tut.step >= 6) return;
+      if ((tut.step === 2 || tut.step === 4) && i !== tut.target) { this.sfx('tap'); return; }
+      if (tut.step === 3) {
+        if (!tut.hi.includes(i) || g.cells[i] !== 'e') return;
+        const cells = g.cells.slice(); cells[i] = 'x';
+        this.sfx('mark');
+        const left = tut.hi.filter(j => cells[j] === 'e');
+        this.setState({ game: Object.assign({}, g, { cells: cells }) });
+        if (!left.length) this.later(() => this.tutNext(4), 350);
+        return;
+      }
+    }
     const now = Date.now(), lt = this.lastTap;
     const dbl = !!(lt && lt.i === i && now - lt.t < 340 && lt.id === g.id);
     this.lastTap = dbl ? null : { i: i, t: now, id: g.id, cells: g.cells };
@@ -1374,7 +1629,7 @@ class Component extends DCLogic {
     if (dbl) { this.placeCat(i, lt.cells); return; }
     const cells = g.cells.slice();
     cells[i] = st === 'x' ? 'e' : 'x';
-    this.sfx('mark');
+    this.sfx(st === 'x' ? 'unmark' : 'mark');
     this.setGame({ cells: cells });
   }
 
@@ -1386,6 +1641,17 @@ class Component extends DCLogic {
       cells[i] = 'c';
       this.sfx('cat');
       this.finishMove(cells);
+      const tut = g.kind === 'tutorial' ? this.state.tut : null;
+      if (tut && tut.step === 2) this.later(() => this.tutNext(3), 450);
+      if (tut && tut.step === 4) this.later(() => this.tutNext(5), 450);
+      return;
+    }
+    if (g.kind === 'tutorial') {
+      const cells = baseCells.slice(); cells[i] = 'w';
+      this.sfx('wrong');
+      this.setState({ game: Object.assign({}, g, { cells: cells }) });
+      this.flash('Not here: look for a row, column or color with only one free tile.', 2600);
+      this.later(() => { const gg = this.state.game; if (gg.id !== g.id || gg.cells[i] !== 'w') return; const cc = gg.cells.slice(); cc[i] = 'x'; this.setGame({ cells: cc }); }, 750);
       return;
     }
     const cells = baseCells.slice();
@@ -1411,12 +1677,17 @@ class Component extends DCLogic {
   finishMove(cells, extra) {
     const g = Object.assign({}, this.state.game, extra || {});
     const cats = cells.filter(v => v === 'c' || v === 'h' || v === 'g').length;
-    const hintPatch = extra && extra.hintsUsed !== undefined ? { hints: this.state.hints - 1 } : {};
+    const hintPatch = extra && extra.hintsUsed !== undefined && g.kind !== 'tutorial' ? { hints: this.state.hints - 1 } : {};
     if (cats !== g.n) {
       this.setState(Object.assign({ game: Object.assign({}, g, { cells: cells }) }, hintPatch));
       return;
     }
     const won = Object.assign({}, g, { cells: cells, status: 'won' });
+    if (g.kind === 'tutorial') {
+      this.sfx('win');
+      this.setState({ game: won, tut: { step: 6, hi: [], target: -1, unit: [] }, tutorialDone: true });
+      return;
+    }
     const patch = Object.assign({ game: won }, hintPatch);
     if (g.kind === 'level') {
       if (g.num >= MDK_LAST) patch.allDone = true;
@@ -1437,7 +1708,7 @@ class Component extends DCLogic {
     const g = this.state.game;
     if (g.status !== 'play' || this.state.ad) return;
     this.interacted = true;
-    if (this.state.hints <= 0) { this.sfx('tap'); this.setState({ modal: 'hints' }); return; }
+    if (this.state.hints <= 0 && g.kind !== 'tutorial') { this.sfx('tap'); this.setState({ modal: 'hints' }); return; }
     const n = g.n, open = [];
     for (let r = 0; r < n; r++) {
       const v = g.cells[r * n + g.sol[r]];
@@ -1447,7 +1718,7 @@ class Component extends DCLogic {
     const r = open[Math.floor(Math.random() * open.length)];
     const cells = g.cells.slice();
     cells[r * n + g.sol[r]] = 'h';
-    this.sfx('cat');
+    this.sfx('hint');
     this.finishMove(cells, { hintsUsed: g.hintsUsed + 1 });
   }
 
@@ -1606,9 +1877,10 @@ class Component extends DCLogic {
       if (st === 'c' || st === 'h') anim = 'animation: mdkPop 0.32s ease-out;';
       if (st === 'w') anim = 'animation: mdkShake 0.45s ease-in-out; filter: saturate(0.7);';
       const what = st === 'x' ? 'marked' : st === 'w' ? 'wrong cat' : isCat ? 'cat' : 'empty';
+      const tutHi = s.tut && s.tut.hi.includes(i), tutUnit = s.tut && s.tut.unit && s.tut.unit.includes(i) && !tutHi;
       cells.push({
         label: 'Row ' + (r + 1) + ', column ' + (c + 1) + ': ' + what,
-        style: 'position: relative; display: flex; align-items: center; justify-content: center; margin: 0; padding: 0; border: none; border-radius: ' + radius + 'px; background: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.08) 52%, rgba(255, 255, 255, 0) 100%), ' + color + '; box-shadow: inset 0 -' + depth + 'px 0 rgba(110, 70, 40, 0.13), inset 0 1.5px 0 rgba(255, 255, 255, 0.6)' + ring + '; cursor: pointer; min-width: 0; min-height: 0; animation: ' + (par ? 'mdkTile' : 'mdkTileB') + ' 0.42s cubic-bezier(.2, 1.3, .4, 1) ' + (120 + (r + c) * 26) + 'ms both',
+        style: 'position: relative; display: flex; align-items: center; justify-content: center; margin: 0; padding: 0; border: none; border-radius: ' + radius + 'px; background: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.08) 52%, rgba(255, 255, 255, 0) 100%), ' + color + '; box-shadow: inset 0 -' + depth + 'px 0 rgba(110, 70, 40, 0.13), inset 0 1.5px 0 rgba(255, 255, 255, 0.6)' + ring + '; cursor: pointer; min-width: 0; min-height: 0; animation: ' + (par ? 'mdkTile' : 'mdkTileB') + ' 0.42s cubic-bezier(.2, 1.3, .4, 1) ' + (120 + (r + c) * 26) + 'ms both' + (tutHi ? '; outline: 3px solid #FF8A2A; outline-offset: -3px; animation: mdkGlow 1.1s ease-in-out infinite' : tutUnit ? '; outline: 3px dashed rgba(255, 138, 42, 0.7); outline-offset: -3px' : ''),
         isX: st === 'x',
         isCat: isCat,
         faceBox: 'position: relative; display: block; width: ' + fw + 'px; height: ' + fh + 'px; overflow: hidden; pointer-events: none; ' + anim,
@@ -1788,8 +2060,9 @@ class Component extends DCLogic {
 
     /* fit the 390×900 design into any screen: phones, small phones, tablets, landscape */
     const fw0 = s.frameW, fh0 = s.frameH;
-    const scale = Math.min(fw0 / 390, fh0 / 900);
-    const backdropImg = s.screen === 'level' ? sc.bg : s.screen === 'daily' ? '/img/aee2339edae2499e021e42f8960abd88.webp' : s.screen === 'home' ? '/img/0bba9693e97ab72f64e51acbdd69618d.webp' : '';
+    const ratio = (fw0 / 390) / (fh0 / 900);
+    const scale = ratio > 0.9 && ratio < 1.12 ? Math.max(fw0 / 390, fh0 / 900) : Math.min(fw0 / 390, fh0 / 900);
+    const backdropImg = s.screen === 'level' ? sc.bg : s.screen === 'daily' ? '/img/aee2339edae2499e021e42f8960abd88.webp' : s.screen === 'home' ? '/img/ebb5f0324e947cdc1ba9ba27c2bf10c1.webp' : '';
     const fitted = Math.abs(fw0 - 390 * scale) > 2 || Math.abs(fh0 - 900 * scale) > 2;
 
     return {
@@ -1865,7 +2138,25 @@ class Component extends DCLogic {
         frontStyle: sc.front ? 'position: absolute; left: 0; bottom: 0; width: 390px; height: ' + sc.frontH + 'px; background: url(' + sc.front + ') center / 100% 100% no-repeat; pointer-events: none' : ''
       },
       fx: this.fxCache[sc.anim],
-      gameTitle: daily ? mdkShort(g.dayKey) : 'Level ' + g.num,
+      gameTitle: g.kind === 'tutorial' ? 'Tutorial' : daily ? mdkShort(g.dayKey) : 'Level ' + g.num,
+      showChips: g.kind !== 'tutorial',
+      showCoach: !!s.tut && g.kind === 'tutorial' && s.screen === 'level',
+      showHintBtn: g.kind !== 'tutorial' || (s.tut && s.tut.step === 5),
+      coachText: !s.tut ? '' : [
+        'Welcome to MEOWDOKI! Put exactly one cat in every row, every column and every color.',
+        'Cats need their space: two cats can never touch, not even diagonally.',
+        'This color has only one tile, so a cat must go here. Double-tap it!',
+        'No other cat fits in this row, this column, this color or next to the cat. Tap each glowing tile to mark it ✕.',
+        'Look at this ' + (s.tut.kind || 'row') + ': only one free tile is left, so the cat must go there. Double-tap it!',
+        'Great! Keep going: mark ✕ where cats can\'t be, then find the next tile that must be a cat. You never have to guess.',
+        'Purrfect! You know everything you need. Have fun!'
+      ][s.tut.step],
+      coachHasNext: !!s.tut && (s.tut.step < 2 || s.tut.step === 6),
+      coachNextLabel: s.tut && s.tut.step === 6 ? 'Start Level ' + s.level : 'Next',
+      coachNext: () => { this.sfx('tap'); const st = this.state.tut; if (!st) return; if (st.step === 6) { this.finishTutorial(false); return; } this.tutNext(st.step + 1); },
+      coachSkip: () => { this.sfx('tap'); this.finishTutorial(true); },
+      coachShowSkip: !!s.tut && s.tut.step < 6,
+      playTutorial: () => { this.sfx('tap'); this.setState({ modal: '' }); this.startTutorial(); },
       titleStyle: 'position: absolute; left: 95px; top: 50px; width: 200px; margin: 0; text-align: center; font-size: 29px; line-height: 44px; font-weight: 900; letter-spacing: -0.2px; color: ' + (sc.light ? '#FFF6EA' : '#2B1A14') + '; text-shadow: ' + (sc.light ? '0 2px 8px rgba(10, 14, 40, 0.55)' : '0 1px 0 rgba(255, 255, 255, 0.75)'),
       heartPillStyle: 'position: absolute; right: 12px; top: 51px; height: 42px; padding: 0 15px 0 10px; border-radius: 21px; background: rgba(255, 250, 242, 0.92); box-shadow: 0 3px 10px rgba(150, 100, 60, 0.18); display: flex; align-items: center; gap: 6px; color: #2B1A14' + (s.lossOn ? '; animation: ' + (s.lossKey % 2 ? 'mdkShake' : 'mdkShakeB') + ' 0.45s ease-in-out' : ''),
       heartFill: s.hearts > 0 ? '#F23C3C' : '#D7C9BC',
@@ -1971,8 +2262,8 @@ class Component extends DCLogic {
       tabPill: 'position: absolute; top: 0; left: ' + (catsTab ? 0 : 172) + 'px; width: 182px; height: 52px; border-radius: 26px; background: linear-gradient(180deg, #FC9341 0%, #F7792A 100%); box-shadow: inset 0 -3px 0 rgba(214, 94, 24, 0.55), 0 3px 8px rgba(207, 94, 26, 0.25); transition: left 0.35s cubic-bezier(.3, 1.35, .5, 1)',
       tabCatsStyle: tabText + 'color: ' + (catsTab ? '#FFFFFF' : '#2B1A14'),
       tabBoardsStyle: tabText + 'color: ' + (catsTab ? '#2B1A14' : '#FFFFFF'),
-      tabCats: () => { this.sfx('tap'); this.setState({ tab: 'cats' }); },
-      tabBoards: () => { this.sfx('tap'); this.setState({ tab: 'boards' }); },
+      tabCats: () => { this.sfx('tab'); this.setState({ tab: 'cats' }); },
+      tabBoards: () => { this.sfx('tab'); this.setState({ tab: 'boards' }); },
       skinCards: skinCards,
       boardCards: boardCards,
 
@@ -1994,9 +2285,9 @@ class Component extends DCLogic {
       redeem: () => {
         const code = (this.state.code || '').trim().toLowerCase();
         if (!code) { this.setState({ codeMsg: 'Please enter a code.', codeOk: false }); return; }
-        if (code !== MDK_CODE) { this.sfx('wrong'); this.setState({ codeMsg: 'That code is not valid.', codeOk: false }); return; }
+        if (code !== MDK_CODE) { this.sfx('redeemBad'); this.setState({ codeMsg: 'That code is not valid.', codeOk: false }); return; }
         if (this.state.adsRemoved) { this.setState({ codeMsg: 'This code has already been redeemed.', codeOk: true }); return; }
-        this.sfx('win');
+        this.sfx('redeem');
         this.setState({ adsRemoved: true, modal: '', code: '', codeMsg: '', heart: true });
         this.later(() => this.setState({ heart: false }), 4200);
       },

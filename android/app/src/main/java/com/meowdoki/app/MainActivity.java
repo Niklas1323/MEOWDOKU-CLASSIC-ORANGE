@@ -2,6 +2,9 @@ package com.meowdoki.app;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -37,6 +40,13 @@ import com.google.android.ump.ConsentInformation;
 import com.google.android.ump.ConsentRequestParameters;
 import com.google.android.ump.UserMessagingPlatform;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
+import java.io.FileInputStream;
+import java.io.ByteArrayOutputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -61,6 +71,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        installCrashReporter();
         if (Build.VERSION.SDK_INT >= 28) {
             // draw the game behind the camera cutout too (no black band at the top)
             android.view.WindowManager.LayoutParams lp = getWindow().getAttributes();
@@ -73,7 +84,12 @@ public class MainActivity extends Activity {
                 .addPathHandler("/", new WebViewAssetLoader.AssetsPathHandler(this))
                 .build();
 
-        webView = new WebView(this);
+        try {
+            webView = new WebView(this);
+        } catch (Throwable t) {
+            showError("MEOWDOKI needs Android System WebView. Please update \"Android System WebView\" and \"Google Chrome\" in the Play Store, then open the game again.", t);
+            return;
+        }
         webView.setBackgroundColor(0xFFFCEFDF);
         WebSettings s = webView.getSettings();
         s.setJavaScriptEnabled(true);
@@ -93,7 +109,65 @@ public class MainActivity extends Activity {
         setContentView(webView);
         webView.loadUrl("https://appassets.androidplatform.net/App.dc.html");
 
-        gatherConsentThenInitAds();
+        try {
+            gatherConsentThenInitAds();
+        } catch (Throwable t) {
+            initAds();
+        }
+        showPreviousCrashIfAny();
+    }
+
+    // ---------- crash report (shown on the next start, so testers can send it) ----------
+
+    private File crashFile() { return new File(getFilesDir(), "last_crash.txt"); }
+
+    private void installCrashReporter() {
+        final Thread.UncaughtExceptionHandler previous = Thread.getDefaultUncaughtExceptionHandler();
+        Thread.setDefaultUncaughtExceptionHandler((thread, e) -> {
+            try (FileOutputStream out = new FileOutputStream(crashFile())) {
+                out.write(describe(e).getBytes(StandardCharsets.UTF_8));
+            } catch (Throwable ignored) { }
+            if (previous != null) previous.uncaughtException(thread, e);
+        });
+    }
+
+    private String describe(Throwable e) {
+        StringWriter sw = new StringWriter();
+        e.printStackTrace(new PrintWriter(sw));
+        return "Device: " + Build.MANUFACTURER + " " + Build.MODEL + ", Android " + Build.VERSION.RELEASE
+                + " (SDK " + Build.VERSION.SDK_INT + ")\n\n" + sw;
+    }
+
+    private void showPreviousCrashIfAny() {
+        File f = crashFile();
+        if (!f.exists()) return;
+        try {
+            ByteArrayOutputStream buf = new ByteArrayOutputStream();
+            try (FileInputStream in = new FileInputStream(f)) {
+                byte[] b = new byte[4096];
+                int r;
+                while ((r = in.read(b)) > 0) buf.write(b, 0, r);
+            }
+            String text = new String(buf.toByteArray(), StandardCharsets.UTF_8);
+            f.delete();
+            showReport("MEOWDOKI crashed last time", text);
+        } catch (Throwable ignored) { }
+    }
+
+    private void showError(String message, Throwable t) {
+        showReport("MEOWDOKI can't start", message + "\n\n" + describe(t));
+    }
+
+    private void showReport(String title, String text) {
+        new AlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(text.length() > 3000 ? text.substring(0, 3000) : text)
+                .setPositiveButton("Copy report", (d, w) -> {
+                    ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    if (cm != null) cm.setPrimaryClip(ClipData.newPlainText("MEOWDOKI crash", text));
+                })
+                .setNegativeButton("Close", null)
+                .show();
     }
 
     // ---------- consent (Google UMP) + ads init ----------
@@ -244,18 +318,29 @@ public class MainActivity extends Activity {
     @SuppressWarnings("deprecation")
     @Override
     public void onBackPressed() {
-        moveTaskToBack(true);
+        // The game handles Back itself (closes a window, or goes to Home). On the Home screen the app goes to the background.
+        if (webView == null) { moveTaskToBack(true); return; }
+        webView.evaluateJavascript("(window.__meowBack && window.__meowBack()) ? 'handled' : 'home'", value -> {
+            if (value == null || !value.contains("handled")) moveTaskToBack(true);
+        });
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (webView != null) webView.onPause();
+        // stop the music when the player switches to another app (but not while one of our ads is on screen)
+        if (webView != null && !adShowing) {
+            webView.evaluateJavascript("window.__meowSetActive && window.__meowSetActive(false)", null);
+            webView.onPause();
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (webView != null) webView.onResume();
+        if (webView != null) {
+            webView.onResume();
+            webView.evaluateJavascript("window.__meowSetActive && window.__meowSetActive(true)", null);
+        }
     }
 }
