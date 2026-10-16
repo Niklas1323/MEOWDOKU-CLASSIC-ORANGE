@@ -987,13 +987,13 @@ const MDK_ADMOB = {
   appId: 'ca-app-pub-8181395204701342~8914114286',
   units: {
     doubleRewards: { label: 'Double rewards · rewarded interstitial', id: 'ca-app-pub-8181395204701342/7763939284' },
-    noThanks: { label: 'After level · interstitial', id: 'ca-app-pub-8181395204701342/5190491692' },
+    noThanks: { label: 'Leaving the level-complete screen · interstitial', id: 'ca-app-pub-8181395204701342/5190491692' },
     unlock: { label: 'Unlock skin or board · rewarded', id: 'ca-app-pub-8181395204701342/3713013633' },
     hearts: { label: 'Refill hearts · rewarded', id: 'ca-app-pub-8181395204701342/1973301417' },
     hint: { label: 'Extra hint · rewarded', id: 'ca-app-pub-8181395204701342/3713013633' }
   }
 };
-const MDK_DOUBLE_ADS = 3;
+const MDK_DOUBLE_ADS = 1;
 /* Android app: progress is saved on the phone, ads come from the native Google Mobile Ads SDK */
 const MDK_SAVE_KEY = 'meowdoki.save.v1';
 const MDK_SAVE_FIELDS = ['tutorialDone', 'played', 'level', 'allDone', 'xp', 'hearts', 'hints', 'skin', 'board', 'owned', 'adProg', 'adsRemoved', 'personalized', 'settings', 'done'];
@@ -1235,6 +1235,11 @@ class Component extends DCLogic {
         if (s.ad || s.nativeAd || s.screen === 'loading') return true;
         if (s.modal) { this.setState({ modal: '' }); return true; }
         if (s.tut) return true;
+        if (s.screen === 'level' && s.complete && s.game.status === 'won') {
+          if (s.complete.stage === 'offer') this.collect(1);
+          this.leaveComplete(() => this.go(s.game.kind === 'daily' ? 'daily' : 'home', 'back', { complete: null }));
+          return true;
+        }
         if (s.screen === 'level' && s.game.kind === 'daily') { this.go('daily', 'back', { complete: null }); return true; }
         if (s.screen !== 'home') { this.go('home', 'back', { complete: null }); return true; }
         return false;
@@ -1751,20 +1756,32 @@ class Component extends DCLogic {
     this.flash(info.item.name + ' unlocked!', 2400);
   }
 
+  /* the one ad after a level: shown when the player leaves the level-complete screen (Next Level, Home or Back) */
+  leaveComplete(then) {
+    if (this.leaving) return;
+    if (this.state.adsRemoved) { then(); return; }
+    this.leaving = true;
+    this.startAd({ type: 'interstitial', unit: 'noThanks', onClose: () => { this.leaving = false; then(); } });
+    this.later(() => { this.leaving = false; }, 60000);
+  }
+
   watchItemAds(id) {
     const info = this.itemInfo(id);
     if (!info || this.state.owned[id]) return;
     const prog = this.state.adProg[id] || 0;
     this.setState({ modal: '' });
     this.startAd({
-      type: 'rewarded', unit: 'unlock', count: MDK_ADS_TO_UNLOCK - prog, of: MDK_ADS_TO_UNLOCK, offset: prog,
+      type: 'rewarded', unit: 'unlock', count: 1, of: MDK_ADS_TO_UNLOCK, offset: prog,
       onEach: () => {
         const p = (this.state.adProg[id] || 0) + 1;
         const patch = { adProg: Object.assign({}, this.state.adProg, { [id]: p }) };
         if (p >= MDK_ADS_TO_UNLOCK) patch.owned = Object.assign({}, this.state.owned, { [id]: true });
         this.setState(patch);
       },
-      onReward: () => { this.selectItem(id); this.sfx('win'); this.flash(info.item.name + ' unlocked!', 2400); }
+      onReward: () => {
+        if (!this.state.owned[id]) { this.flash((this.state.adProg[id] || 0) + ' of ' + MDK_ADS_TO_UNLOCK + ' ads watched. Watch ' + (MDK_ADS_TO_UNLOCK - (this.state.adProg[id] || 0)) + ' more to unlock ' + info.item.name + '!', 2800); return; }
+        this.selectItem(id); this.sfx('unlock'); this.flash(info.item.name + ' unlocked!', 2400);
+      }
     });
   }
 
@@ -2179,18 +2196,17 @@ class Component extends DCLogic {
       showComplete: !!c && s.screen === 'level' && g.status === 'won',
       confetti: confetti,
       cp: cp,
-      doubleRewards: () => { this.interacted = true; this.startAd({ type: 'rewarded', unit: 'doubleRewards', count: MDK_DOUBLE_ADS, of: MDK_DOUBLE_ADS, onReward: () => this.collect(2) }); },
+      doubleRewards: () => { this.interacted = true; this.startAd({ type: 'rewarded', unit: 'doubleRewards', onReward: () => this.collect(2) }); },
       noThanks: () => {
         this.interacted = true;
-        if (this.state.adsRemoved) { this.collect(1); return; }
-        this.startAd({ type: 'interstitial', unit: 'noThanks', onClose: () => this.collect(1) });
+        this.collect(1);
       },
-      cpPrimary: () => {
+      cpPrimary: () => this.leaveComplete(() => {
         if (daily) { this.go('daily', 'back', { complete: null }); return; }
         if (finishedAll) { this.go('home', 'back', { complete: null }); return; }
         this.nextLevel();
-      },
-      cpHome: () => this.go('home', 'back', { complete: null }),
+      }),
+      cpHome: () => this.leaveComplete(() => this.go('home', 'back', { complete: null })),
 
       showOut: s.modal === 'nohearts' || (outInLevel && !s.modal && !ad),
       outText: outInLevel && s.modal !== 'nohearts' ? 'Watch an ad to get 3 hearts and keep playing this level.' : 'You need hearts to play. Watch an ad to get 3 hearts.',
@@ -2305,7 +2321,7 @@ class Component extends DCLogic {
       adSecsLabel: ad ? 'Ad ends in ' + ad.secs + ' seconds' : '',
       adBarStyle: ad ? 'height: 100%; width: 100%; background: #FFB067; transform-origin: left center; ' + (ad.done ? 'transform: scaleX(1)' : 'animation: ' + (ad.round % 2 ? 'mdkAdBarB' : 'mdkAdBar') + ' ' + ad.total + 's linear both') : '',
       adUnitText: ad && MDK_ADMOB.units[ad.unit] ? MDK_ADMOB.units[ad.unit].label + ' · ' + MDK_ADMOB.units[ad.unit].id : '',
-      doubleAdsText: MDK_DOUBLE_ADS + ' ads',
+      doubleAdsText: 'Ad',
       adRewarded: !!(ad && ad.type === 'rewarded'),
       adRewardText: !ad ? '' : ad.earned ? 'Reward earned! Close the ad to collect it.' : ad.between ? 'Next ad starting…' : 'Reward in ' + ad.secs + 's',
       adRewardChip: 'padding: 9px 16px; border-radius: 20px; font-size: 15px; font-weight: 800; background: ' + (ad && ad.earned ? '#5EAE5B' : 'rgba(255, 255, 255, 0.14)'),
