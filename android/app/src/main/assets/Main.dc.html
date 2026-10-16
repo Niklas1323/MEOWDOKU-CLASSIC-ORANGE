@@ -316,9 +316,9 @@ body{margin:0}
       <sc-for list="{{confetti}}" as="cf" hint-placeholder-count="18">
         <span aria-hidden="true" style="{{cf.style}}"></span>
       </sc-for>
-      <p style="position: absolute; left: 0; right: 0; top: 54px; margin: 0; text-align: center; font-size: 15px; font-weight: 900; letter-spacing: 2px; color: #E0681A; animation: mdkRise 0.5s 0.05s both">{{cp.kicker}}</p>
-      <h2 style="position: absolute; left: 0; right: 0; top: 76px; margin: 0; text-align: center; white-space: nowrap; font-size: 42px; line-height: 50px; font-weight: 900; color: #2B1A14; text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8); animation: mdkPopIn 0.55s cubic-bezier(.2, 1.3, .4, 1) 0.1s both">{{cp.title}}</h2>
-      <div role="img" aria-label="{{cp.starsLabel}}" style="position: absolute; left: 0; right: 0; top: 134px; height: 84px; display: flex; justify-content: center; align-items: flex-start; gap: 6px">
+      <p style="position: absolute; left: 0; right: 0; top: 74px; margin: 0; text-align: center; font-size: 15px; font-weight: 900; letter-spacing: 2px; color: #E0681A; animation: mdkRise 0.5s 0.05s both">{{cp.kicker}}</p>
+      <h2 style="position: absolute; left: 0; right: 0; top: 94px; margin: 0; text-align: center; white-space: nowrap; font-size: 42px; line-height: 50px; font-weight: 900; color: #2B1A14; text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8); animation: mdkPopIn 0.55s cubic-bezier(.2, 1.3, .4, 1) 0.1s both">{{cp.title}}</h2>
+      <div role="img" aria-label="{{cp.starsLabel}}" style="position: absolute; left: 0; right: 0; top: 146px; height: 84px; display: flex; justify-content: center; align-items: flex-start; gap: 6px">
         <sc-for list="{{cp.stars}}" as="sr" hint-placeholder-count="3">
           <svg viewBox="0 0 24 24" aria-hidden="true" style="{{sr.style}}"><path d="M12 2.2l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.8 3.1 1.1-6.5L2.6 9l6.5-.9z" fill="{{sr.fill}}" stroke="{{sr.stroke}}" stroke-width="1.3" stroke-linejoin="round"></path><path d="M8.3 9.6l2-.3" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="{{sr.shine}}"></path></svg>
         </sc-for>
@@ -1117,6 +1117,7 @@ const MDK_SKIN_IDS = MDK_SKINS.map(s => s.id);
 const MDK_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const MDK_WD = [['Mon', 'Monday'], ['Tue', 'Tuesday'], ['Wed', 'Wednesday'], ['Thu', 'Thursday'], ['Fri', 'Friday'], ['Sat', 'Saturday'], ['Sun', 'Sunday']];
 const MDK_CODE = 'ningeninge';
+const MDK_CODE_STOP = 'ningeningestop';
 const MDK_LAST = MDK_LEVELS.length;
 const MDK_ADS_TO_UNLOCK = 3;
 const MDK_REWARDED_SECS = 5;
@@ -1157,12 +1158,12 @@ const MDK_TIPS = [
   { w: 1, text: 'Daily Challenges give you 50% more XP.', de: 'Tagesrätsel geben dir 50 % mehr XP.' },
   { w: 1, text: 'Missed a day? Play past Daily Challenges from the calendar.', de: 'Einen Tag verpasst? Spiel alte Tagesrätsel im Kalender nach.' },
   { w: 1, text: 'Hearts are shared across all levels. Place your cats with care!', de: 'Herzen gelten für alle Levels. Setz deine Katzen mit Bedacht!' },
-  { w: 1, text: 'Fun fact: cats sleep 12 to 16 hours a day.', de: 'Fun Fact: Katzen schlafen 12 bis 16 Stunden am Tag.' },
-  { w: 1, text: 'Fun fact: a group of kittens is called a kindle.', de: 'Fun Fact: Ein Wurf Kätzchen heißt auf Englisch „kindle“.' },
-  { w: 1, text: 'Fun fact: every cat\'s nose print is unique, like a fingerprint.', de: 'Fun Fact: Jeder Katzennasenabdruck ist einzigartig, wie ein Fingerabdruck.' },
-  { w: 1, text: 'Fluffing the pillows…', de: 'Kissen werden aufgeschüttelt…' },
-  { w: 1, text: 'Warming up the yarn…', de: 'Wolle wird vorgewärmt…' },
-  { w: 1, text: 'Waking up the kittens…', de: 'Kätzchen werden geweckt…' }
+  { w: 1, text: 'Fun fact: cats sleep 12 to 16 hours a day. Sleep well tonight, too!', de: 'Fun Fact: Katzen schlafen 12 bis 16 Stunden am Tag. Schlaf du auch gut!' },
+  { w: 1, text: 'A cool, dark and quiet room helps you sleep better.', de: 'Ein kühles, dunkles und ruhiges Zimmer hilft dir, besser zu schlafen.' },
+  { w: 1, text: 'Going to bed at the same time every night helps you sleep better.', de: 'Jeden Abend zur gleichen Zeit ins Bett zu gehen hilft dir, besser zu schlafen.' },
+  { w: 1, text: 'Turn your screen brightness down in the evening. Your eyes will thank you.', de: 'Stell abends die Bildschirmhelligkeit runter. Deine Augen danken es dir.' },
+  { w: 1, text: 'Breathe in slowly, breathe out slowly. Just like a sleepy cat.', de: 'Langsam einatmen, langsam ausatmen. Genau wie eine schläfrige Katze.' },
+  { w: 1, text: 'Cozy puzzle, warm blanket, sweet dreams…', de: 'Gemütliches Rätsel, warme Decke, süße Träume…' }
 ];
 /* paw-print transition only when going to Daily or Settings; other screens just slide in */
 const MDK_NAV_FX = { daily: 'paws', settings: 'paws' };
@@ -1229,7 +1230,7 @@ const MDK_I18N = {
     outTextLevel: 'Watch an ad to get 3 hearts and keep playing this level.', outTextHome: 'You need hearts to play. Watch an ad to get 3 hearts.',
     quitLevel: 'Quit level', notNow: 'Not now', plusHint: '+1 hint', playToday: 'Play Today', completed: 'Completed',
     alreadySolved: 'Already solved. Pick another day!', codeEmpty: 'Please enter a code.', codeBad: 'That code is not valid.',
-    codeUsed: 'This code has already been redeemed.', rewardEarned: 'Reward earned! Close the ad to collect it.', nextAd: 'Next ad starting…',
+    codeUsed: 'This code has already been redeemed.', codeStop: 'Ads are back on.', codeStopNone: 'Ads are already on.', rewardEarned: 'Reward earned! Close the ad to collect it.', nextAd: 'Next ad starting…',
     today: ', today', dayCompleted: ', completed', notYet: ', not yet available',
     diff: { Easy: 'Easy', Medium: 'Medium', Hard: 'Hard', Expert: 'Expert' },
     kinds: { row: 'row', column: 'column', color: 'color' },
@@ -1305,7 +1306,7 @@ const MDK_I18N = {
     outTextLevel: 'Sieh dir eine Werbung an, um 3 Herzen zu erhalten und dieses Level weiterzuspielen.', outTextHome: 'Du brauchst Herzen zum Spielen. Sieh dir eine Werbung an, um 3 Herzen zu erhalten.',
     quitLevel: 'Level beenden', notNow: 'Nicht jetzt', plusHint: '+1 Tipp', playToday: 'Heute spielen', completed: 'Erledigt',
     alreadySolved: 'Schon gelöst. Wähl einen anderen Tag!', codeEmpty: 'Bitte gib einen Code ein.', codeBad: 'Dieser Code ist ungültig.',
-    codeUsed: 'Dieser Code wurde bereits eingelöst.', rewardEarned: 'Belohnung verdient! Schließ die Werbung, um sie zu erhalten.', nextAd: 'Nächste Werbung startet…',
+    codeUsed: 'Dieser Code wurde bereits eingelöst.', codeStop: 'Die Werbung ist wieder aktiv.', codeStopNone: 'Die Werbung ist bereits aktiv.', rewardEarned: 'Belohnung verdient! Schließ die Werbung, um sie zu erhalten.', nextAd: 'Nächste Werbung startet…',
     today: ', heute', dayCompleted: ', gelöst', notYet: ', noch nicht verfügbar',
     diff: { Easy: 'Leicht', Medium: 'Mittel', Hard: 'Schwer', Expert: 'Experte' },
     kinds: { row: 'Reihe', column: 'Spalte', color: 'Farbe' },
@@ -1532,6 +1533,7 @@ class Component extends DCLogic {
         if (saved) MDK_SAVE_FIELDS.forEach(k => { if (saved[k] !== undefined) this.state[k] = k === 'settings' ? Object.assign({}, this.state.settings, saved[k]) : saved[k]; });
       } catch (e) {}
     }
+    if (!this.state.lang) this.state.tipIdx = 0;
   }
 
   /* current language: the saved choice, or the one picked on the language page */
@@ -2196,7 +2198,7 @@ class Component extends DCLogic {
   /* ---------- render ---------- */
   renderVals() {
     const s = this.state, g = s.game, n = g.n;
-    const lang = this.lang(), T = MDK_I18N[lang], tr = (k, ...a) => this.tr(k, ...a);
+    const lang = this.lang(), firstLoad = s.screen === 'loading' && !s.lang, T = MDK_I18N[firstLoad ? 'en' : lang], tr = (k, ...a) => this.tr(k, ...a);
     const pal = (MDK_BOARDS.find(b => b.id === s.board) || MDK_BOARDS[0]).colors;
     const skinIdx = Math.max(0, MDK_SKIN_IDS.indexOf(s.skin));
     const gap = n <= 6 ? 6 : n <= 8 ? 5 : 4;
@@ -2455,7 +2457,7 @@ class Component extends DCLogic {
       loadStars: loadStars,
       tipA: s.tip % 2 === 0,
       tipB: s.tip % 2 === 1,
-      tipText: (MDK_TIPS[s.tipIdx] || MDK_TIPS[0])[lang === 'de' ? 'de' : 'text'],
+      tipText: (MDK_TIPS[s.tipIdx] || MDK_TIPS[0])[lang === 'de' && !firstLoad ? 'de' : 'text'],
       tipStyle: 'position: absolute; left: 0; top: 0; width: 330px; height: 92px; display: flex; align-items: center; justify-content: center; font-size: 21px; line-height: 1.35; font-weight: 800; color: #4E3B36; text-wrap: balance; animation: mdkTipIn 0.7s ease-out 0.5s both',
       loadFillStyle: 'position: absolute; left: 0; top: 0; height: 20px; display: block; border-radius: 10px; background: linear-gradient(180deg, #FFA457 0%, #F4701F 100%); box-shadow: inset 0 -3px 0 rgba(200, 80, 15, 0.35); animation: mdkLoadFill ' + (MDK_LOAD_MS / 1000) + 's cubic-bezier(.45, .05, .4, 1) both',
 
@@ -2648,6 +2650,10 @@ class Component extends DCLogic {
       redeem: () => {
         const code = (this.state.code || '').trim().toLowerCase();
         if (!code) { this.setState({ codeMsg: this.tr('codeEmpty'), codeOk: false }); return; }
+        if (code === MDK_CODE_STOP) {
+          if (!this.state.adsRemoved) { this.sfx('tap'); this.setState({ codeMsg: this.tr('codeStopNone'), codeOk: true }); return; }
+          this.sfx('tap'); this.setState({ adsRemoved: false, code: '', codeMsg: this.tr('codeStop'), codeOk: true }); return;
+        }
         if (code !== MDK_CODE) { this.sfx('redeemBad'); this.setState({ codeMsg: this.tr('codeBad'), codeOk: false }); return; }
         if (this.state.adsRemoved) { this.setState({ codeMsg: this.tr('codeUsed'), codeOk: true }); return; }
         this.sfx('redeem');
