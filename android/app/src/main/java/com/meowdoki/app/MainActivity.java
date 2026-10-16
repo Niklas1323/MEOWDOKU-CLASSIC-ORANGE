@@ -77,11 +77,42 @@ public class MainActivity extends Activity {
         return px / getResources().getDisplayMetrics().density;
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         installCrashReporter();
+        // If the last start never finished (the app died, even in native code), show why first, before
+        // anything that might crash again, and offer to start without ads so we can tell what causes it.
+        boolean unfinished = startMarker().exists();
+        String report = previousReport(unfinished);
+        if (report == null) { startGame(false); return; }
+        try {
+            new AlertDialog.Builder(this)
+                    .setTitle("MEOWDOKI wurde beim letzten Start beendet")
+                    .setMessage(report.length() > 3500 ? report.substring(0, 3500) : report)
+                    .setCancelable(false)
+                    .setPositiveButton("Starten", (d, w) -> startGame(false))
+                    .setNegativeButton("Ohne Werbung starten", (d, w) -> startGame(true))
+                    .setNeutralButton("Bericht kopieren", (d, w) -> {
+                        ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                        if (cm != null) cm.setPrimaryClip(ClipData.newPlainText("MEOWDOKI report", report));
+                        startGame(false);
+                    })
+                    .show();
+        } catch (Throwable t) {
+            startGame(false);
+        }
+    }
+
+    private boolean safeMode = false;
+    private static long lastRendererRestart = 0;
+
+    @SuppressLint("SetJavaScriptEnabled")
+    private void startGame(boolean withoutAds) {
+        safeMode = withoutAds;
+        try (FileOutputStream out = new FileOutputStream(startMarker())) {
+            out.write(String.valueOf(System.currentTimeMillis()).getBytes(StandardCharsets.UTF_8));
+        } catch (Throwable ignored) { }
         if (Build.VERSION.SDK_INT >= 28) {
             // draw the game behind the camera cutout too (no black band at the top)
             android.view.WindowManager.LayoutParams lp = getWindow().getAttributes();
@@ -117,13 +148,21 @@ public class MainActivity extends Activity {
             }
 
             @Override
+            public void onPageFinished(WebView view, String url) {
+                // the game has loaded: this start counts as successful
+                view.postDelayed(() -> startMarker().delete(), 4000);
+            }
+
+            @Override
             public boolean onRenderProcessGone(WebView view, android.webkit.RenderProcessGoneDetail detail) {
                 // The web engine crashed or was killed (e.g. low memory): keep the app alive and reload the game.
                 String why = Build.VERSION.SDK_INT >= 26 && detail != null && detail.didCrash() ? "crashed" : "was stopped by the system (low memory?)";
                 try (FileOutputStream out = new FileOutputStream(crashFile())) {
                     out.write(("The game engine " + why + ".\nDevice: " + Build.MANUFACTURER + " " + Build.MODEL + ", Android " + Build.VERSION.RELEASE).getBytes(StandardCharsets.UTF_8));
                 } catch (Throwable ignored) { }
-                recreate();
+                long now = System.currentTimeMillis();
+                if (now - lastRendererRestart > 15000) { lastRendererRestart = now; recreate(); }
+                else finish();
                 return true;
             }
         });
@@ -142,12 +181,68 @@ public class MainActivity extends Activity {
         });
         webView.loadUrl("https://appassets.androidplatform.net/App.dc.html");
 
+        if (safeMode) return;
         try {
             gatherConsentThenInitAds();
         } catch (Throwable t) {
             initAds();
         }
-        showPreviousCrashIfAny();
+    }
+
+    private File startMarker() { return new File(getFilesDir(), "start_unfinished.txt"); }
+
+    /* What happened last time: our own crash report, Android's record of why the process ended
+       (Android 11+, also covers native crashes) and the versions that matter. Null if all was fine. */
+    private String previousReport(boolean unfinished) {
+        StringBuilder sb = new StringBuilder();
+        File f = crashFile();
+        if (f.exists()) {
+            try {
+                ByteArrayOutputStream buf = new ByteArrayOutputStream();
+                try (FileInputStream in = new FileInputStream(f)) {
+                    byte[] b = new byte[4096];
+                    int r;
+                    while ((r = in.read(b)) > 0) buf.write(b, 0, r);
+                }
+                sb.append(new String(buf.toByteArray(), StandardCharsets.UTF_8)).append("\n\n");
+            } catch (Throwable ignored) { }
+            f.delete();
+        }
+        if (!unfinished && sb.length() == 0) return null;
+        if (Build.VERSION.SDK_INT >= 30) {
+            try {
+                android.app.ActivityManager am = (android.app.ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+                java.util.List<android.app.ApplicationExitInfo> list = am.getHistoricalProcessExitReasons(getPackageName(), 0, 3);
+                for (android.app.ApplicationExitInfo x : list) {
+                    sb.append("Exit: ").append(exitReason(x.getReason())).append(" (").append(x.getStatus()).append(")");
+                    if (x.getDescription() != null) sb.append(" - ").append(x.getDescription());
+                    sb.append(" @ ").append(new java.util.Date(x.getTimestamp())).append("\n");
+                }
+            } catch (Throwable t) { sb.append("Exit info: ").append(t).append("\n"); }
+        }
+        sb.append("\nDevice: ").append(Build.MANUFACTURER).append(" ").append(Build.MODEL)
+                .append(", Android ").append(Build.VERSION.RELEASE).append(" (SDK ").append(Build.VERSION.SDK_INT).append(")")
+                .append("\nABIs: ").append(java.util.Arrays.toString(Build.SUPPORTED_ABIS));
+        try {
+            if (Build.VERSION.SDK_INT >= 26) {
+                android.content.pm.PackageInfo wv = WebView.getCurrentWebViewPackage();
+                sb.append("\nWebView: ").append(wv == null ? "none" : wv.packageName + " " + wv.versionName);
+            }
+        } catch (Throwable ignored) { }
+        try {
+            sb.append("\nPlay services: ").append(getPackageManager().getPackageInfo("com.google.android.gms", 0).versionName);
+        } catch (Throwable t) { sb.append("\nPlay services: missing"); }
+        return sb.toString();
+    }
+
+    private static String exitReason(int r) {
+        switch (r) {
+            case 1: return "EXIT_SELF"; case 2: return "SIGNALED"; case 3: return "LOW_MEMORY";
+            case 4: return "CRASH (Java)"; case 5: return "CRASH_NATIVE"; case 6: return "ANR";
+            case 7: return "INITIALIZATION_FAILURE"; case 8: return "PERMISSION_CHANGE";
+            case 9: return "EXCESSIVE_RESOURCE_USAGE"; case 10: return "USER_REQUESTED";
+            case 11: return "USER_STOPPED"; case 12: return "DEPENDENCY_DIED"; default: return "OTHER " + r;
+        }
     }
 
     // ---------- crash report (shown on the next start, so testers can send it) ----------
@@ -171,21 +266,6 @@ public class MainActivity extends Activity {
                 + " (SDK " + Build.VERSION.SDK_INT + ")\n\n" + sw;
     }
 
-    private void showPreviousCrashIfAny() {
-        File f = crashFile();
-        if (!f.exists()) return;
-        try {
-            ByteArrayOutputStream buf = new ByteArrayOutputStream();
-            try (FileInputStream in = new FileInputStream(f)) {
-                byte[] b = new byte[4096];
-                int r;
-                while ((r = in.read(b)) > 0) buf.write(b, 0, r);
-            }
-            String text = new String(buf.toByteArray(), StandardCharsets.UTF_8);
-            f.delete();
-            showReport("MEOWDOKI crashed last time", text);
-        } catch (Throwable ignored) { }
-    }
 
     private void showError(String message, Throwable t) {
         showReport("MEOWDOKI can't start", message + "\n\n" + describe(t));
