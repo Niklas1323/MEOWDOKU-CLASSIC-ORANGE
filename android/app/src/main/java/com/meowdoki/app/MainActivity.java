@@ -67,6 +67,16 @@ public class MainActivity extends Activity {
     private boolean adShowing = false;
     private volatile boolean personalized = true;
 
+    private volatile float safeTopDp = 0;
+
+    /* height of the status bar / camera cutout in CSS pixels (dp); the larger of the two */
+    private float statusBarDp(int cutoutPx) {
+        int px = cutoutPx;
+        int id = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (id > 0) px = Math.max(px, getResources().getDimensionPixelSize(id));
+        return px / getResources().getDisplayMetrics().density;
+    }
+
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +128,18 @@ public class MainActivity extends Activity {
             }
         });
         setContentView(webView);
+        // keep the game below the front camera / status bar area: measure it and tell the page
+        safeTopDp = statusBarDp(0);
+        webView.setOnApplyWindowInsetsListener((v, insets) -> {
+            int px = 0;
+            if (Build.VERSION.SDK_INT >= 28 && insets.getDisplayCutout() != null) px = insets.getDisplayCutout().getSafeInsetTop();
+            float dp = statusBarDp(px);
+            if (Math.abs(dp - safeTopDp) > 0.5f) {
+                safeTopDp = dp;
+                v.post(() -> webView.evaluateJavascript("window.__meowSafe && window.__meowSafe(" + safeTopDp + ")", null));
+            }
+            return v.onApplyWindowInsets(insets);
+        });
         webView.loadUrl("https://appassets.androidplatform.net/App.dc.html");
 
         try {
@@ -273,6 +295,11 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public void showAd(String kind, String adUnitId, String requestId) {
             runOnUiThread(() -> MainActivity.this.showAd(kind, adUnitId, requestId));
+        }
+
+        @JavascriptInterface
+        public float safeTop() {
+            return safeTopDp;
         }
 
         @JavascriptInterface
