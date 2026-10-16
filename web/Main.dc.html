@@ -1752,6 +1752,7 @@ class Component extends DCLogic {
   }
   sfx(kind) {
     this.interacted = true;
+    this.vib(kind);
     if (!this.state.settings.sfx) return;
     const N = m => 440 * Math.pow(2, (m - 69) / 12);
     if (kind === 'tap') { this.tone(700, 0.07, 'sine', 0.07, 0, 1050); this.noiseHit(0, 0.015, 4200, 0.02); }
@@ -1773,6 +1774,23 @@ class Component extends DCLogic {
     /* the redeem-code sounds stay as they were */
     if (kind === 'redeem') [523, 659, 784, 1047].forEach((f, i) => this.tone(f, 0.25, 'sine', 0.12, i * 0.11));
     if (kind === 'redeemBad') { this.tone(180, 0.22, 'square', 0.05); this.tone(140, 0.25, 'square', 0.04, 0.1); }
+  }
+  /* vibration patterns: on, off, on, … in milliseconds (off with the Vibration switch) */
+  vib(kind) {
+    if (!this.state.settings.vibration) return;
+    const P = { tap: [12], tab: [12], unmark: [12], pop: [14], mark: [18], cat: [30], coin: [22], hint: [18, 60, 18],
+      wrong: [55, 80, 55], win: [35, 70, 35, 70, 90], unlock: [25, 60, 25, 60, 70], redeem: [30, 70, 90] }[kind];
+    if (!P) return;
+    let t = 0;
+    P.forEach((ms, i) => {
+      if (i % 2 === 0) { if (t) { const d = t; this.later(() => this.pulse(ms), d); } else this.pulse(ms); }
+      t += ms;
+    });
+  }
+  pulse(ms) {
+    const nat = mdkNative();
+    if (nat && nat.vibrate) { try { nat.vibrate(ms); } catch (e) {} return; }
+    if (typeof navigator !== 'undefined' && navigator.vibrate) { try { navigator.vibrate(ms); } catch (e) {} }
   }
   buzz() {
     const nat = mdkNative();
@@ -2012,7 +2030,6 @@ class Component extends DCLogic {
     cells[i] = 'w';
     const hearts = Math.max(0, this.state.hearts - 1);
     this.sfx('wrong');
-    this.buzz();
     const lossKey = this.state.lossKey + 1;
     this.setState({
       hearts: hearts, lossKey: lossKey, lossOn: true,
@@ -2268,6 +2285,7 @@ class Component extends DCLogic {
         const settings = Object.assign({}, this.state.settings, { [k]: !this.state.settings[k] });
         this.setState({ settings: settings });
         if (settings.sfx) this.tone(520, 0.08, 'triangle', 0.08);
+        if (k === 'vibration' && settings.vibration) this.pulse(40);
       });
     });
     sw.personalized = switchFor(!!s.personalized, () => { this.sfx('tap'); const v = !this.state.personalized; this.setState({ personalized: v }); const nat = mdkNative(); if (nat && nat.setPersonalized) { try { nat.setPersonalized(v); } catch (e) {} } });
