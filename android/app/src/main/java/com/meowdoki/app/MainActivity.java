@@ -21,6 +21,7 @@ import android.webkit.WebViewClient;
 import androidx.annotation.NonNull;
 import androidx.webkit.WebViewAssetLoader;
 
+import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
@@ -54,6 +55,7 @@ public class MainActivity extends Activity {
     private ConsentInformation consentInformation;
     private final AtomicBoolean adsInitialized = new AtomicBoolean(false);
     private boolean adShowing = false;
+    private volatile boolean personalized = true;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -130,7 +132,14 @@ public class MainActivity extends Activity {
         initAds();
         final Activity activity = this;
         final String unit = unitFor(kind, realId);
-        final AdRequest request = new AdRequest.Builder().build();
+        AdRequest.Builder builder = new AdRequest.Builder();
+        if (!personalized) {
+            // The player switched off personalized ads in the game: request non-personalized ads.
+            Bundle extras = new Bundle();
+            extras.putString("npa", "1");
+            builder.addNetworkExtrasBundle(AdMobAdapter.class, extras);
+        }
+        final AdRequest request = builder.build();
         final boolean[] earned = {false};
 
         final FullScreenContentCallback rewardCallback = new FullScreenContentCallback() {
@@ -173,6 +182,11 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public void showAd(String kind, String adUnitId, String requestId) {
             runOnUiThread(() -> MainActivity.this.showAd(kind, adUnitId, requestId));
+        }
+
+        @JavascriptInterface
+        public void setPersonalized(boolean on) {
+            personalized = on;
         }
 
         /** Opens Google's privacy options form when the user's region requires it. Returns false otherwise. */
