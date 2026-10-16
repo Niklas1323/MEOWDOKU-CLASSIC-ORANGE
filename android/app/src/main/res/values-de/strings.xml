@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_streak">MEOWDOKI Serie</string>
+    <string name="widget_play">MEOWDOKI spielen</string>
+    <string name="widget_daily">MEOWDOKI Tagesrätsel</string>
+    <string name="widget_sleep">MEOWDOKI vor dem Schlafen</string>
+    <string name="widget_desc_streak">Deine Serie und das heutige Ziel</string>
+    <string name="widget_desc_play">Deine Katze und dein nächstes Level</string>
+    <string name="widget_desc_daily">Das heutige Tagesrätsel</string>
+    <string name="widget_desc_sleep">Ruhige Rätsel zum Abschalten</string>
+</resources>

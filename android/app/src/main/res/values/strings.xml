@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_streak">MEOWDOKI streak</string>
+    <string name="widget_play">MEOWDOKI play</string>
+    <string name="widget_daily">MEOWDOKI Daily Challenge</string>
+    <string name="widget_sleep">MEOWDOKI before bed</string>
+    <string name="widget_desc_streak">Your streak and today\'s goal</string>
+    <string name="widget_desc_play">Your cat and your next level</string>
+    <string name="widget_desc_daily">Today\'s Daily Challenge</string>
+    <string name="widget_desc_sleep">Cozy puzzles to unwind</string>
+</resources>

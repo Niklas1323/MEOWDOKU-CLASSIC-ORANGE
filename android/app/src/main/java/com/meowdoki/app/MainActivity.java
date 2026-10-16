@@ -446,6 +446,15 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
+        // hand the latest progress to the home-screen widgets
+        if (webView != null) {
+            webView.evaluateJavascript("(function(){try{return localStorage.getItem('meowdoki.save.v1')}catch(e){return null}})()", value -> {
+                try {
+                    if (value == null || "null".equals(value)) return;
+                    WidgetData.store(getApplicationContext(), new org.json.JSONArray("[" + value + "]").getString(0));
+                } catch (Throwable ignored) { }
+            });
+        }
         // stop the music when the player switches to another app (but not while one of our ads is on screen)
         if (webView != null && !adShowing) {
             webView.evaluateJavascript("window.__meowSetActive && window.__meowSetActive(false)", null);

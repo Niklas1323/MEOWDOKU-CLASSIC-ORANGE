@@ -4,16 +4,30 @@ plugins {
 
 android {
     namespace 'com.meowdoki.app'
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId 'com.meowdoki.app'
         minSdk 23
-        targetSdk 34
-        versionCode 1
+        targetSdk 36
+        // every GitHub build gets a higher number (Google Play needs a new versionCode for each upload)
+        versionCode((System.getenv('GITHUB_RUN_NUMBER') ?: '1') as int)
         versionName '1.0'
         // Google AdMob app ID (real). Ad unit IDs are passed from the game; see MainActivity.
         manifestPlaceholders = [admobAppId: 'ca-app-pub-8181395204701342~8914114286']
+    }
+
+    // Release signing: the upload key comes from environment variables (GitHub secrets in CI), never from the repo.
+    def keystorePath = System.getenv('MEOWDOKI_KEYSTORE')
+    signingConfigs {
+        if (keystorePath) {
+            upload {
+                storeFile file(keystorePath)
+                storePassword System.getenv('MEOWDOKI_KEYSTORE_PASSWORD')
+                keyAlias System.getenv('MEOWDOKI_KEY_ALIAS') ?: 'meowdoki'
+                keyPassword System.getenv('MEOWDOKI_KEY_PASSWORD') ?: System.getenv('MEOWDOKI_KEYSTORE_PASSWORD')
+            }
+        }
     }
 
     buildTypes {
@@ -24,7 +38,12 @@ android {
         release {
             buildConfigField 'boolean', 'USE_TEST_ADS', 'false'
             minifyEnabled false
+            if (keystorePath) signingConfig signingConfigs.upload
         }
+    }
+
+    lint {
+        checkReleaseBuilds false
     }
 
     buildFeatures {
@@ -38,7 +57,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.webkit:webkit:1.11.0'
-    implementation 'com.google.android.gms:play-services-ads:23.3.0'
-    implementation 'com.google.android.ump:user-messaging-platform:3.0.0'
+    implementation 'androidx.webkit:webkit:1.12.1'
+    implementation 'com.google.android.gms:play-services-ads:24.4.0'
+    implementation 'com.google.android.ump:user-messaging-platform:3.2.0'
 }

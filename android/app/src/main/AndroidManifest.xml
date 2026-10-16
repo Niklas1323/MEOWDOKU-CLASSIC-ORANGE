@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:label="MEOWDOKI"
         android:theme="@style/Theme.Meowdoki"
-        android:hardwareAccelerated="true">
+        android:hardwareAccelerated="true"
+        android:enableOnBackInvokedCallback="false">
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
@@ -37,5 +38,54 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- home-screen widgets (see Widgets.java) -->
+        <receiver
+            android:name=".Widgets$Streak"
+            android:exported="false"
+            android:label="@string/widget_streak">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_streak" />
+        </receiver>
+
+        <receiver
+            android:name=".Widgets$Play"
+            android:exported="false"
+            android:label="@string/widget_play">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_play" />
+        </receiver>
+
+        <receiver
+            android:name=".Widgets$Daily"
+            android:exported="false"
+            android:label="@string/widget_daily">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_daily" />
+        </receiver>
+
+        <receiver
+            android:name=".Widgets$Sleep"
+            android:exported="false"
+            android:label="@string/widget_sleep">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_sleep" />
+        </receiver>
     </application>
 </manifest>
