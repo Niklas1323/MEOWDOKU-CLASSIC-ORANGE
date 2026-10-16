@@ -1,0 +1,31 @@
+name: Build iOS app (check)
+
+on:
+  push:
+    paths:
+      - 'ios/**'
+      - '.github/workflows/ios.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate the Xcode project
+        run: cd ios && xcodegen generate
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      # Builds for the iPhone simulator without signing: proves the app compiles (no Apple account needed).
+      - name: Build (simulator, Debug)
+        run: |
+          cd ios
+          xcodebuild -project MEOWDOKI.xcodeproj -scheme MEOWDOKI \
+            -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
+            -configuration Debug CODE_SIGNING_ALLOWED=NO build

@@ -1,0 +1,3 @@
+/* German texts for the system dialogs (the English ones are in Info.plist) */
+"CFBundleDisplayName" = "MEOWDOKI";
+"NSUserTrackingUsageDescription" = "MEOWDOKI zeigt Werbung, damit das Spiel kostenlos bleibt. Wenn du es erlaubst, passt die Werbung besser zu dir. Spielen kannst du so oder so.";

@@ -1,0 +1,64 @@
+# XcodeGen project for the iPhone/iPad version of MEOWDOKI.
+# Generate the Xcode project with:  cd ios && xcodegen generate
+name: MEOWDOKI
+
+options:
+  bundleIdPrefix: com.meowdoki
+  deploymentTarget:
+    iOS: "15.0"
+  developmentLanguage: en
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+
+packages:
+  GoogleMobileAds:
+    url: https://github.com/googleads/swift-package-manager-google-mobile-ads
+    from: 12.0.0
+  GoogleUserMessagingPlatform:
+    url: https://github.com/googleads/swift-package-manager-google-user-messaging-platform
+    from: 3.0.0
+
+targets:
+  MEOWDOKI:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - path: MEOWDOKI
+    dependencies:
+      - package: GoogleMobileAds
+      - package: GoogleUserMessagingPlatform
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.meowdoki.app
+        PRODUCT_NAME: MEOWDOKI
+        INFOPLIST_FILE: MEOWDOKI/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.0"
+        OTHER_LDFLAGS: ["$(inherited)", "-ObjC"]
+        CODE_SIGN_STYLE: Automatic
+        # the script below copies the game files into the app, it must be allowed to read them
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+    postBuildScripts:
+      # The game itself is the same web page as in the Android app: copy
+      # android/app/src/main/assets into the app as the folder "web".
+      - name: Copy game files (web)
+        basedOnDependencyAnalysis: false
+        showEnvVars: false
+        script: |
+          set -e
+          SRC="${SRCROOT}/../android/app/src/main/assets"
+          DST="${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/web"
+          if [ ! -f "${SRC}/App.dc.html" ]; then
+            echo "error: game files not found in ${SRC}"
+            exit 1
+          fi
+          rm -rf "${DST}"
+          cp -R "${SRC}" "${DST}"
+    scheme: {}
