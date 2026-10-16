@@ -105,6 +105,17 @@ public class MainActivity extends Activity {
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                 return assetLoader.shouldInterceptRequest(request.getUrl());
             }
+
+            @Override
+            public boolean onRenderProcessGone(WebView view, android.webkit.RenderProcessGoneDetail detail) {
+                // The web engine crashed or was killed (e.g. low memory): keep the app alive and reload the game.
+                String why = Build.VERSION.SDK_INT >= 26 && detail != null && detail.didCrash() ? "crashed" : "was stopped by the system (low memory?)";
+                try (FileOutputStream out = new FileOutputStream(crashFile())) {
+                    out.write(("The game engine " + why + ".\nDevice: " + Build.MANUFACTURER + " " + Build.MODEL + ", Android " + Build.VERSION.RELEASE).getBytes(StandardCharsets.UTF_8));
+                } catch (Throwable ignored) { }
+                recreate();
+                return true;
+            }
         });
         setContentView(webView);
         webView.loadUrl("https://appassets.androidplatform.net/App.dc.html");

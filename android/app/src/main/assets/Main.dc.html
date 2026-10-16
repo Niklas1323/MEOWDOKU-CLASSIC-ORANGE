@@ -79,7 +79,7 @@ body{margin:0}
     <svg viewBox="0 0 24 24" aria-hidden="true" style="{{ls.style}}"><path d="M12 1.5c.7 5.4 3.1 7.8 8.5 8.5-5.4.7-7.8 3.1-8.5 8.5-.7-5.4-3.1-7.8-8.5-8.5 5.4-.7 7.8-3.1 8.5-8.5z" fill="{{ls.fill}}"></path></svg>
   </sc-for>
   <svg width="350" height="96" viewBox="0 0 350 96" aria-hidden="true" style="position: absolute; left: 20px; top: 122px; display: block; overflow: visible; animation: mdkPopIn 0.6s cubic-bezier(.2, 1.3, .4, 1) 0.1s both"><defs><linearGradient id="mdkLogoG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D2782C"></stop><stop offset="1" stop-color="#7E3A15"></stop></linearGradient></defs><text x="175" y="74" text-anchor="middle" textLength="322" lengthAdjust="spacingAndGlyphs" font-family="Nunito, 'Trebuchet MS', sans-serif" font-size="66" font-weight="900" fill="#E9C9A6" transform="translate(0 5)">MEOWDOKI</text><text x="175" y="74" text-anchor="middle" textLength="322" lengthAdjust="spacingAndGlyphs" font-family="Nunito, 'Trebuchet MS', sans-serif" font-size="66" font-weight="900" fill="url(#mdkLogoG)" stroke="#FFF8EE" stroke-width="9" stroke-linejoin="round" paint-order="stroke">MEOWDOKI</text></svg>
-  <span style="position: absolute; left: 0; right: 0; top: 222px; display: block; font-size: 17px; font-weight: 800; letter-spacing: 0.4px; color: #B4531A; animation: mdkFade 0.6s 0.35s both">Cozy cats · clever puzzles</span>
+  <span style="position: absolute; left: 0; right: 0; top: 222px; display: block; font-size: 17px; font-weight: 800; letter-spacing: 0.4px; color: #B4531A; animation: mdkFade 0.6s 0.35s both">{{T.tagline}}</span>
 
   <span aria-hidden="true" style="position: absolute; left: 45px; top: 286px; width: 300px; height: 230px; display: block; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.5) 45%, rgba(255, 255, 255, 0) 70%)"></span>
   <span aria-hidden="true" style="position: absolute; left: 50px; top: 446px; width: 290px; height: 76px; display: block; border-radius: 50%; background: radial-gradient(ellipse at 50% 35%, #FFC690 0%, #F7A562 60%, #EE8E46 100%); box-shadow: inset 0 -6px 0 rgba(196, 96, 30, 0.35), 0 10px 18px rgba(186, 104, 40, 0.25)"></span>
@@ -116,7 +116,36 @@ body{margin:0}
       </span>
     </sc-if>
   </span>
-  <span style="position: absolute; left: 0; right: 0; top: 734px; display: block; font-size: 14px; font-weight: 900; letter-spacing: 2px; color: #A8826A">LOADING</span>
+  <span style="position: absolute; left: 0; right: 0; top: 734px; display: block; font-size: 14px; font-weight: 900; letter-spacing: 2px; color: #A8826A">{{T.loading}}</span>
+</div>
+</sc-if>
+
+<!-- ============ LANGUAGE (first start) ============ -->
+<sc-if value="{{isLang}}" hint-placeholder-val="{{false}}">
+<div style="position: absolute; left: 0; top: 0; width: 390px; height: 900px; overflow: hidden; text-align: center; color: #2B1A14; background: radial-gradient(ellipse 340px 260px at 50% 33%, #FFFCF6 0%, rgba(255, 252, 246, 0) 100%), linear-gradient(180deg, #FFF3E2 0%, #FDE6C8 56%, #F9CF9E 100%); animation: {{screenAnim}}">
+  <sc-for list="{{loadStars}}" as="ls" hint-placeholder-count="0">
+    <svg viewBox="0 0 24 24" aria-hidden="true" style="{{ls.style}}"><path d="M12 1.5c.7 5.4 3.1 7.8 8.5 8.5-5.4.7-7.8 3.1-8.5 8.5-.7-5.4-3.1-7.8-8.5-8.5 5.4-.7 7.8-3.1 8.5-8.5z" fill="{{ls.fill}}"></path></svg>
+  </sc-for>
+  <svg width="350" height="96" viewBox="0 0 350 96" aria-hidden="true" style="position: absolute; left: 20px; top: 86px; display: block; overflow: visible; animation: mdkPopIn 0.6s cubic-bezier(.2, 1.3, .4, 1) 0.1s both"><defs><linearGradient id="mdkLogoL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D2782C"></stop><stop offset="1" stop-color="#7E3A15"></stop></linearGradient></defs><text x="175" y="74" text-anchor="middle" textLength="322" lengthAdjust="spacingAndGlyphs" font-family="Nunito, 'Trebuchet MS', sans-serif" font-size="66" font-weight="900" fill="#E9C9A6" transform="translate(0 5)">MEOWDOKI</text><text x="175" y="74" text-anchor="middle" textLength="322" lengthAdjust="spacingAndGlyphs" font-family="Nunito, 'Trebuchet MS', sans-serif" font-size="66" font-weight="900" fill="url(#mdkLogoL)" stroke="#FFF8EE" stroke-width="9" stroke-linejoin="round" paint-order="stroke">MEOWDOKI</text></svg>
+  <span aria-hidden="true" style="position: absolute; left: 85px; top: 200px; width: 220px; height: 220px; display: block; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.55) 45%, rgba(255, 255, 255, 0) 70%)"></span>
+  <span aria-hidden="true" style="position: absolute; left: 100px; top: 226px; width: 190px; height: 166px; overflow: hidden; display: block; animation: mdkPopIn 0.6s cubic-bezier(.2, 1.3, .4, 1) 0.25s both, mdkBob 1.8s ease-in-out 0.9s infinite">
+    <img src="/img/e5c1bbbd3d34642479a6162c71da749c.png" alt="" style="position: absolute; top: 0; left: {{langFaceX}}px; width: 2660px; height: 166px; max-width: none">
+  </span>
+  <h1 style="position: absolute; left: 20px; right: 20px; top: 424px; margin: 0; font-size: 28px; line-height: 36px; font-weight: 900; animation: mdkRise 0.5s 0.3s both">{{T.langTitle}}</h1>
+  <div role="radiogroup" aria-label="{{T.language}}" style="position: absolute; left: 27px; top: 484px; width: 336px; display: flex; flex-direction: column; gap: 14px">
+    <sc-for list="{{langOpts}}" as="lo" hint-placeholder-count="2">
+      <button role="radio" aria-checked="{{lo.checked}}" onClick="{{lo.pick}}" style="{{lo.card}}">
+        <span style="flex: none; width: 60px; height: 40px; border-radius: 8px; overflow: hidden; display: block; box-shadow: 0 2px 6px rgba(90, 50, 20, 0.22), 0 0 0 1px rgba(90, 50, 20, 0.10)"><sc-if value="{{lo.isEn}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 60 40" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" aria-hidden="true" style="display: block"><rect width="60" height="40" fill="#012169"></rect><path d="M0 0 60 40M60 0 0 40" stroke="#FFFFFF" stroke-width="8"></path><path d="M0 0 60 40M60 0 0 40" stroke="#C8102E" stroke-width="2.6"></path><path d="M30 0v40M0 20h60" stroke="#FFFFFF" stroke-width="12"></path><path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="7"></path></svg></sc-if><sc-if value="{{lo.isDe}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 5 3" preserveAspectRatio="none" width="100%" height="100%" aria-hidden="true" style="display: block"><rect width="5" height="1" fill="#000000"></rect><rect y="1" width="5" height="1" fill="#DD0000"></rect><rect y="2" width="5" height="1" fill="#FFCE00"></rect></svg></sc-if></span>
+        <span style="flex: 1; min-width: 0; text-align: left; font-size: 26px; font-weight: 800">{{lo.name}}</span>
+        <span aria-hidden="true" style="{{lo.check}}"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </button>
+    </sc-for>
+  </div>
+  <button onClick="{{langContinue}}" style="position: absolute; left: 27px; top: 708px; width: 336px; height: 76px; padding: 0 0 5px; border: none; border-radius: 38px; background: linear-gradient(180deg, #FF9A47 0%, #FA7E2C 50%, #F4701F 100%); box-shadow: inset 0 -6px 0 #DD5F17, inset 0 3px 0 rgba(255, 255, 255, 0.26), 0 8px 18px rgba(207, 94, 26, 0.32); display: flex; align-items: center; justify-content: center; gap: 14px; color: #FFFFFF; cursor: pointer; animation: mdkPopIn 0.5s cubic-bezier(.2, 1.3, .4, 1) 0.45s both">
+    <span style="font-size: 28px; font-weight: 900; text-shadow: 0 2px 0 rgba(196, 82, 16, 0.22)">{{T.cont}}</span>
+    <svg width="26" height="30" viewBox="0 0 44 52" aria-hidden="true"><path d="M6 8.5c0-4 4.3-6.4 7.7-4.3l25 15.6c3.2 2 3.2 6.6 0 8.6l-25 15.6C10.3 46.1 6 43.6 6 39.6z" fill="#FFFFFF"></path></svg>
+  </button>
+  <p style="position: absolute; left: 30px; right: 30px; top: 802px; margin: 0; font-size: 15px; line-height: 1.4; font-weight: 700; color: #A8826A">{{T.langNote}}</p>
 </div>
 </sc-if>
 
@@ -140,44 +169,44 @@ body{margin:0}
     <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M11 1.2c.7 3.9 3.4 5.6 5.6 8.2 1.9 2.3 2.9 4.7 2.9 7.3 0 4.7-3.8 8.1-8.5 8.1S2.5 21.4 2.5 16.7c0-3 1.4-5.4 3.4-7.2.3 1.9 1.2 3.1 2.6 3.7C8 9.2 8.7 4.6 11 1.2z" fill="{{flameOuter}}"></path><path d="M11.3 12.4c.4 2 1.9 3.1 2.9 4.5.8 1.1 1.2 2.2 1.2 3.3 0 2.4-1.9 4.1-4.3 4.1S6.8 22.6 6.8 20.2c0-1.6.8-2.9 1.9-3.9.2.9.7 1.6 1.4 1.9-.1-2 .3-4 1.2-5.8z" fill="{{flameInner}}"></path></svg>
     <span style="font-size: 20px; font-weight: 900; line-height: 1">{{goalStreak}}</span>
   </button>
-  <button aria-label="Settings" onClick="{{goSettings}}" style="position: absolute; left: 330px; top: 34px; width: 48px; height: 48px; padding: 0; border: none; border-radius: 50%; background: radial-gradient(circle at 50% 40%, #FFFBF4 0%, #FDF1E1 100%); box-shadow: 0 4px 12px rgba(178, 116, 56, 0.20); display: flex; align-items: center; justify-content: center; cursor: pointer">
+  <button aria-label="{{T.settings}}" onClick="{{goSettings}}" style="position: absolute; left: 330px; top: 34px; width: 48px; height: 48px; padding: 0; border: none; border-radius: 50%; background: radial-gradient(circle at 50% 40%, #FFFBF4 0%, #FDF1E1 100%); box-shadow: 0 4px 12px rgba(178, 116, 56, 0.20); display: flex; align-items: center; justify-content: center; cursor: pointer">
     <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><g fill="#8E5A3B"><circle cx="12" cy="12" r="7.3"></circle><circle cx="12" cy="4.4" r="3.1"></circle><circle cx="12" cy="19.6" r="3.1"></circle><circle cx="4.4" cy="12" r="3.1"></circle><circle cx="19.6" cy="12" r="3.1"></circle><circle cx="6.6" cy="6.6" r="3.1"></circle><circle cx="17.4" cy="17.4" r="3.1"></circle><circle cx="6.6" cy="17.4" r="3.1"></circle><circle cx="17.4" cy="6.6" r="3.1"></circle></g><g fill="#FDF4E8"><circle cx="12" cy="12" r="5.2"></circle><circle cx="12" cy="4.4" r="1.05"></circle><circle cx="12" cy="19.6" r="1.05"></circle><circle cx="4.4" cy="12" r="1.05"></circle><circle cx="19.6" cy="12" r="1.05"></circle><circle cx="6.6" cy="6.6" r="1.05"></circle><circle cx="17.4" cy="17.4" r="1.05"></circle><circle cx="6.6" cy="17.4" r="1.05"></circle><circle cx="17.4" cy="6.6" r="1.05"></circle></g><circle cx="12" cy="12" r="2.5" fill="none" stroke="#8E5A3B" stroke-width="1.9"></circle></svg>
   </button>
 
   <button onClick="{{goPlay}}" aria-label="{{playLabel}}" style="position: absolute; left: 23px; top: 446px; width: 344px; height: 104px; padding: 0 0 6px; border: none; border-radius: 36px; background: linear-gradient(180deg, #FF9A47 0%, #FA7E2C 48%, #F4701F 100%); box-shadow: inset 0 -7px 0 #DD5F17, inset 0 3px 0 rgba(255, 255, 255, 0.28), 0 9px 18px rgba(207, 94, 26, 0.30); display: flex; align-items: center; justify-content: center; gap: 34px; color: #FFFFFF; cursor: pointer">
     <svg width="44" height="52" viewBox="0 0 44 52" aria-hidden="true"><path d="M6 8.5c0-4 4.3-6.4 7.7-4.3l25 15.6c3.2 2 3.2 6.6 0 8.6l-25 15.6C10.3 46.1 6 43.6 6 39.6z" fill="#FFFFFF"></path></svg>
-    <span style="font-size: 52px; font-weight: 800; letter-spacing: 0.5px; line-height: 1; text-shadow: 0 2px 0 rgba(196, 82, 16, 0.25)">Play</span>
+    <span style="font-size: 52px; font-weight: 800; letter-spacing: 0.5px; line-height: 1; text-shadow: 0 2px 0 rgba(196, 82, 16, 0.25)">{{T.play}}</span>
     <span aria-hidden="true" style="position: absolute; right: 16px; top: -12px; padding: 4px 11px; border-radius: 14px; background: #FFF8EE; color: #E0681A; font-size: 15px; font-weight: 900; box-shadow: 0 3px 8px rgba(207, 94, 26, 0.25)">{{playBadge}}</span>
   </button>
 
   <button onClick="{{goDaily}}" style="position: absolute; left: 25px; top: 566px; width: 340px; height: 93px; padding: 0; border: none; border-radius: 32px; background: linear-gradient(180deg, #FFF8EC 0%, #FEF0DA 100%); box-shadow: inset 0 -4px 0 rgba(232, 196, 150, 0.55), 0 6px 14px rgba(186, 128, 66, 0.20); cursor: pointer; color: #2B1A14">
     <svg width="48" height="51" viewBox="0 0 48 51" aria-hidden="true" style="position: absolute; left: 34px; top: 21px"><rect x="3" y="8" width="42" height="40" rx="7" fill="#FFFDF8" stroke="#7A4536" stroke-width="2.6"></rect><path d="M3 15a7 7 0 0 1 7-7h28a7 7 0 0 1 7 7v5H3z" fill="#E8463D" stroke="#7A4536" stroke-width="2.6" stroke-linejoin="round"></path><rect x="12" y="2" width="5.5" height="11" rx="2.75" fill="#7A4536"></rect><rect x="30.5" y="2" width="5.5" height="11" rx="2.75" fill="#7A4536"></rect><rect x="10" y="25" width="7.5" height="7" rx="1.6" fill="#E8463D"></rect><rect x="20.3" y="25" width="7.5" height="7" rx="1.6" fill="#F3A043"></rect><rect x="30.5" y="25" width="7.5" height="7" rx="1.6" fill="#E8463D"></rect><rect x="10" y="35" width="7.5" height="7" rx="1.6" fill="#F3A043"></rect><rect x="20.3" y="35" width="7.5" height="7" rx="1.6" fill="#E8463D"></rect></svg>
-    <span style="position: absolute; left: 108px; top: 0; height: 93px; display: flex; align-items: center; font-size: 26px; font-weight: 800; letter-spacing: -0.2px">Daily Challenge</span>
+    <span style="position: absolute; left: 108px; top: 0; height: 93px; display: flex; align-items: center; font-size: 26px; font-weight: 800; letter-spacing: -0.2px">{{T.dailyChallenge}}</span>
   </button>
 
   <button onClick="{{goSkins}}" style="position: absolute; left: 25px; top: 676px; width: 340px; height: 95px; padding: 0; border: none; border-radius: 32px; background: linear-gradient(180deg, #FFF3DE 0%, #FDE8C8 100%); box-shadow: inset 0 -4px 0 rgba(232, 190, 136, 0.55), 0 6px 14px rgba(186, 128, 66, 0.20); cursor: pointer; color: #2B1A14">
     <span style="position: absolute; left: 27px; top: 20px; width: 62px; height: 54px; overflow: hidden; display: block">
       <img src="/img/e5c1bbbd3d34642479a6162c71da749c.png" alt="" style="position: absolute; top: 0; left: {{homeFaceX}}px; width: 868px; height: 54px; max-width: none">
     </span>
-    <span style="position: absolute; left: 148px; top: 0; height: 95px; display: flex; align-items: center; font-size: 26px; font-weight: 800">Skins</span>
+    <span style="position: absolute; left: 148px; top: 0; height: 95px; display: flex; align-items: center; font-size: 26px; font-weight: 800">{{T.skins}}</span>
   </button>
 
-  <nav aria-label="Main" style="position: absolute; left: 0; top: 796px; width: 390px; height: 104px; background: linear-gradient(180deg, #FFF8EE 0%, #FCF0E2 100%); border-radius: 30px 30px 0 0; box-shadow: 0 -5px 18px rgba(186, 134, 82, 0.16); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0 12px; box-sizing: border-box">
+  <nav aria-label="{{T.mainNav}}" style="position: absolute; left: 0; top: 796px; width: 390px; height: 104px; background: linear-gradient(180deg, #FFF8EE 0%, #FCF0E2 100%); border-radius: 30px 30px 0 0; box-shadow: 0 -5px 18px rgba(186, 134, 82, 0.16); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0 12px; box-sizing: border-box">
     <button aria-current="page" onClick="{{goHome}}" style="border: none; background: none; padding: 11px 0 0; display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; color: #F2731D; font-size: 17px; font-weight: 800">
       <svg width="44" height="42" viewBox="0 0 38 36" aria-hidden="true"><path d="M5 17.5 19 4.5l14 13" fill="none" stroke="#F2731D" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8.5 15.5V31a2.5 2.5 0 0 0 2.5 2.5h5.5V24h5v9.5H27a2.5 2.5 0 0 0 2.5-2.5V15.5L19 6z" fill="#F98A30"></path><rect x="26" y="5" width="4" height="8" rx="1.2" fill="#F2731D"></rect></svg>
-      <span>Home</span>
+      <span>{{T.navHome}}</span>
     </button>
     <button onClick="{{goDaily}}" style="border: none; background: none; padding: 12px 0 0; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; color: #85766B; font-size: 17px; font-weight: 700">
       <svg width="42" height="40" viewBox="0 0 38 36" aria-hidden="true"><rect x="6" y="6.5" width="26" height="25" rx="5" fill="none" stroke="#A39486" stroke-width="2.6"></rect><path d="M6 13.5h26" stroke="#A39486" stroke-width="2.6"></path><path d="M12.5 3.5v6M25.5 3.5v6" stroke="#A39486" stroke-width="2.6" stroke-linecap="round"></path><g fill="#A39486"><rect x="11" y="17.5" width="4" height="4" rx="1"></rect><rect x="17" y="17.5" width="4" height="4" rx="1"></rect><rect x="23" y="17.5" width="4" height="4" rx="1"></rect><rect x="11" y="23.5" width="4" height="4" rx="1"></rect><rect x="17" y="23.5" width="4" height="4" rx="1"></rect></g></svg>
-      <span>Daily</span>
+      <span>{{T.navDaily}}</span>
     </button>
     <button onClick="{{goSkins}}" style="border: none; background: none; padding: 12px 0 0; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; color: #85766B; font-size: 17px; font-weight: 700">
       <svg width="42" height="40" viewBox="0 0 38 36" aria-hidden="true"><path d="M7 9.5 9.5 3l7 5.2a17 17 0 0 1 5 0L28.5 3 31 9.5c1.6 2.5 2.4 5.2 2.4 8.2 0 8-6.4 13.8-14.4 13.8S4.6 25.7 4.6 17.7c0-3 .8-5.7 2.4-8.2z" fill="#F4E8DC" stroke="#A39486" stroke-width="2.6" stroke-linejoin="round"></path><ellipse cx="13.2" cy="18.2" rx="2.1" ry="2.5" fill="#A39486"></ellipse><ellipse cx="24.8" cy="18.2" rx="2.1" ry="2.5" fill="#A39486"></ellipse><path d="M17.4 22.6h3.2L19 24.4z" fill="#A39486"></path><path d="M16 25.6c1.4 1.2 4.6 1.2 6 0" fill="none" stroke="#A39486" stroke-width="1.8" stroke-linecap="round"></path></svg>
-      <span>Skins</span>
+      <span>{{T.navSkins}}</span>
     </button>
     <button onClick="{{goSettings}}" style="border: none; background: none; padding: 12px 0 0; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; color: #85766B; font-size: 17px; font-weight: 700">
       <svg width="42" height="40" viewBox="0 0 24 24" aria-hidden="true"><g fill="#A39486"><circle cx="12" cy="12" r="7.3"></circle><circle cx="12" cy="4.4" r="3.1"></circle><circle cx="12" cy="19.6" r="3.1"></circle><circle cx="4.4" cy="12" r="3.1"></circle><circle cx="19.6" cy="12" r="3.1"></circle><circle cx="6.6" cy="6.6" r="3.1"></circle><circle cx="17.4" cy="17.4" r="3.1"></circle><circle cx="6.6" cy="17.4" r="3.1"></circle><circle cx="17.4" cy="6.6" r="3.1"></circle></g><g fill="#FCF2E5"><circle cx="12" cy="12" r="5.2"></circle><circle cx="12" cy="4.4" r="1.05"></circle><circle cx="12" cy="19.6" r="1.05"></circle><circle cx="4.4" cy="12" r="1.05"></circle><circle cx="19.6" cy="12" r="1.05"></circle><circle cx="6.6" cy="6.6" r="1.05"></circle><circle cx="17.4" cy="17.4" r="1.05"></circle><circle cx="6.6" cy="17.4" r="1.05"></circle><circle cx="17.4" cy="6.6" r="1.05"></circle></g><circle cx="12" cy="12" r="2.5" fill="none" stroke="#A39486" stroke-width="1.9"></circle></svg>
-      <span>Settings</span>
+      <span>{{T.navSettings}}</span>
     </button>
   </nav>
 </div>
@@ -217,7 +246,7 @@ body{margin:0}
     <div aria-hidden="true" style="{{scene.frontStyle}}"></div>
   </sc-if>
 
-  <button aria-label="Back" onClick="{{goBack}}" style="position: absolute; left: 10px; top: 48px; width: 46px; height: 46px; padding: 0; border: none; border-radius: 50%; background: rgba(255, 250, 242, 0.78); box-shadow: 0 2px 8px rgba(150, 100, 60, 0.16); display: flex; align-items: center; justify-content: center; cursor: pointer">
+  <button aria-label="{{T.back}}" onClick="{{goBack}}" style="position: absolute; left: 10px; top: 48px; width: 46px; height: 46px; padding: 0; border: none; border-radius: 50%; background: rgba(255, 250, 242, 0.78); box-shadow: 0 2px 8px rgba(150, 100, 60, 0.16); display: flex; align-items: center; justify-content: center; cursor: pointer">
     <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4.5 7.5 12l7.5 7.5" fill="none" stroke="#2B1A14" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
   </button>
   <h1 style="{{titleStyle}}">{{gameTitle}}</h1>
@@ -247,7 +276,7 @@ body{margin:0}
         <p style="margin: 0; font-size: 15px; line-height: 1.35; font-weight: 800; color: #3A2924">{{coachText}}</p>
         <div style="display: flex; gap: 8px; justify-content: flex-end">
           <sc-if value="{{coachShowSkip}}" hint-placeholder-val="{{true}}">
-            <button onClick="{{coachSkip}}" style="height: 30px; padding: 0 10px; border: none; background: none; color: #A08A7C; font-size: 14px; font-weight: 800; cursor: pointer">Skip</button>
+            <button onClick="{{coachSkip}}" style="height: 30px; padding: 0 10px; border: none; background: none; color: #A08A7C; font-size: 14px; font-weight: 800; cursor: pointer">{{T.skip}}</button>
           </sc-if>
           <sc-if value="{{coachHasNext}}" hint-placeholder-val="{{true}}">
             <button onClick="{{coachNext}}" style="height: 32px; padding: 0 16px; border: none; border-radius: 16px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -3px 0 #DD5F17; color: #FFFFFF; font-size: 15px; font-weight: 900; cursor: pointer">{{coachNextLabel}}</button>
@@ -275,7 +304,7 @@ body{margin:0}
   <sc-if value="{{showHintBtn}}" hint-placeholder-val="{{true}}">
   <button onClick="{{useHint}}" aria-label="{{hintLabel}}" style="position: absolute; left: 16px; top: 628px; width: 142px; height: 54px; padding: 0 0 3px; border: none; border-radius: 27px; background: linear-gradient(180deg, #FFF8E2 0%, #FFEBC2 100%); box-shadow: inset 0 -4px 0 rgba(236, 184, 96, 0.55), inset 0 0 0 2px rgba(246, 199, 126, 0.75), 0 6px 14px rgba(170, 110, 40, 0.22); display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; color: #3A2924; animation: mdkRise 0.5s cubic-bezier(.2, 1.25, .4, 1) 0.25s both">
     <svg width="30" height="33" viewBox="0 0 24 26" aria-hidden="true"><path d="M12 1.6a7.4 7.4 0 0 0-4.4 13.4c.8.6 1.2 1.4 1.2 2.3v.9h6.4v-.9c0-.9.4-1.7 1.2-2.3A7.4 7.4 0 0 0 12 1.6z" fill="#FFD23C" stroke="#E6A813" stroke-width="1.1"></path><path d="M8.6 5.4a4.6 4.6 0 0 1 3.4-1.6" stroke="#FFF6C9" stroke-width="1.6" stroke-linecap="round" fill="none"></path><rect x="8.6" y="18.9" width="6.8" height="2.2" rx="1.1" fill="#A1928A"></rect><rect x="9.3" y="21.6" width="5.4" height="2.2" rx="1.1" fill="#8C7D75"></rect></svg>
-    <span style="font-size: 21px; font-weight: 900">Hint</span>
+    <span style="font-size: 21px; font-weight: 900">{{T.hint}}</span>
     <span aria-hidden="true" style="{{hintBadgeStyle}}">{{hintBadge}}</span>
   </button>
   </sc-if>
@@ -335,10 +364,10 @@ body{margin:0}
         <button onClick="{{doubleRewards}}" style="position: absolute; left: 27px; top: 614px; width: 336px; height: 76px; padding: 0 0 5px; border: none; border-radius: 38px; overflow: hidden; background: linear-gradient(180deg, #FF9A47 0%, #FA7E2C 50%, #F4701F 100%); box-shadow: inset 0 -6px 0 #DD5F17, inset 0 3px 0 rgba(255, 255, 255, 0.26), 0 8px 18px rgba(207, 94, 26, 0.32); display: flex; align-items: center; justify-content: center; gap: 12px; color: #FFFFFF; cursor: pointer; animation: mdkPopIn 0.5s cubic-bezier(.2, 1.3, .4, 1) 0.7s both">
           <span aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 60px; height: 100%; background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0)); animation: mdkShine 2.6s ease-in-out 1.4s infinite"></span>
           <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="4" fill="#FFFFFF"></rect><path d="M10 8.8v6.4l5.4-3.2z" fill="#F4701F"></path></svg>
-          <span style="font-size: 25px; font-weight: 900; letter-spacing: -0.2px; text-shadow: 0 2px 0 rgba(196, 82, 16, 0.22)">Double rewards</span>
+          <span style="font-size: 25px; font-weight: 900; letter-spacing: -0.2px; text-shadow: 0 2px 0 rgba(196, 82, 16, 0.22)">{{T.doubleRewards}}</span>
           <span style="padding: 3px 10px; border-radius: 13px; background: rgba(255, 255, 255, 0.25); font-size: 15px; font-weight: 900">{{doubleAdsText}}</span>
         </button>
-        <button onClick="{{noThanks}}" style="position: absolute; left: 95px; top: 700px; width: 200px; height: 48px; border: none; border-radius: 24px; background: transparent; color: #85766B; font-size: 19px; font-weight: 800; cursor: pointer; animation: mdkFade 0.4s 1.1s both">No thanks</button>
+        <button onClick="{{noThanks}}" style="position: absolute; left: 95px; top: 700px; width: 200px; height: 48px; border: none; border-radius: 24px; background: transparent; color: #85766B; font-size: 19px; font-weight: 800; cursor: pointer; animation: mdkFade 0.4s 1.1s both">{{T.noThanks}}</button>
       </sc-if>
       <sc-if value="{{cp.collected}}" hint-placeholder-val="{{false}}">
         <button onClick="{{cpPrimary}}" style="position: absolute; left: 27px; top: 614px; width: 336px; height: 76px; padding: 0 0 5px; border: none; border-radius: 38px; background: linear-gradient(180deg, #FF9A47 0%, #FA7E2C 50%, #F4701F 100%); box-shadow: inset 0 -6px 0 #DD5F17, inset 0 3px 0 rgba(255, 255, 255, 0.26), 0 8px 18px rgba(207, 94, 26, 0.32); display: flex; align-items: center; justify-content: center; gap: 14px; color: #FFFFFF; cursor: pointer; animation: mdkPopIn 0.45s cubic-bezier(.2, 1.3, .4, 1) both">
@@ -349,7 +378,7 @@ body{margin:0}
       </sc-if>
 
       <div style="position: absolute; left: 0; right: 0; top: 786px; display: flex; flex-direction: column; align-items: center; gap: 8px">
-        <span style="font-size: 13px; font-weight: 900; letter-spacing: 1.5px; color: #B08E76">YOUR BALANCE</span>
+        <span style="font-size: 13px; font-weight: 900; letter-spacing: 1.5px; color: #B08E76">{{T.yourBalance}}</span>
         <div style="display: flex; gap: 10px">
           <span style="height: 38px; padding: 0 14px 0 10px; border-radius: 19px; background: rgba(255, 250, 242, 0.92); box-shadow: 0 3px 10px rgba(170, 110, 50, 0.16); display: flex; align-items: center; gap: 6px; font-size: 19px; font-weight: 900">
             <svg width="24" height="22" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21s-8.6-5.2-10.6-10.3C.1 7.1 2.2 2.6 6.5 2.2c2.3-.2 4.1.9 5.5 2.9 1.4-2 3.2-3.1 5.5-2.9 4.3.4 6.4 4.9 5.1 8.5C20.6 15.8 12 21 12 21z" fill="#F23C3C"></path></svg>
@@ -371,19 +400,19 @@ body{margin:0}
 <sc-if value="{{isDaily}}" hint-placeholder-val="{{false}}">
 <div style="position: absolute; inset: 0; animation: {{screenAnim}}">
   <img src="/img/aee2339edae2499e021e42f8960abd88.webp" alt="" style="position: absolute; left: 0; top: 0; width: 390px; height: 900px; display: block">
-  <button aria-label="Back" onClick="{{goHomeBack}}" style="position: absolute; left: 7px; top: 49px; width: 48px; height: 48px; padding: 0; border: none; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+  <button aria-label="{{T.back}}" onClick="{{goHomeBack}}" style="position: absolute; left: 7px; top: 49px; width: 48px; height: 48px; padding: 0; border: none; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
     <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4.5 7.5 12l7.5 7.5" fill="none" stroke="#2B1A14" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
   </button>
-  <h1 style="position: absolute; left: 60px; top: 53px; width: 270px; margin: 0; text-align: center; font-size: 29px; line-height: 40px; font-weight: 800; letter-spacing: -0.3px">Daily Challenge</h1>
+  <h1 style="position: absolute; left: 60px; top: 53px; width: 270px; margin: 0; text-align: center; font-size: 29px; line-height: 40px; font-weight: 800; letter-spacing: -0.3px">{{T.dailyChallenge}}</h1>
   <div aria-hidden="true" style="position: absolute; left: 165px; top: 184px; width: 62px; text-align: center; color: #FFFFFF; font-size: 25px; line-height: 30px; font-weight: 900; text-shadow: 0 1px 0 rgba(190, 90, 20, 0.45); animation: mdkPopIn 0.5s 0.3s both">{{streak}}</div>
-  <div style="position: absolute; left: 95px; top: 229px; width: 202px; text-align: center; color: #FFFFFF; font-size: 23px; line-height: 32px; font-weight: 800; text-shadow: 0 1px 0 rgba(190, 90, 20, 0.35)"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">{{streak}} </span>Day Streak!</div>
+  <div style="position: absolute; left: 95px; top: 229px; width: 202px; text-align: center; color: #FFFFFF; font-size: 23px; line-height: 32px; font-weight: 800; text-shadow: 0 1px 0 rgba(190, 90, 20, 0.35)"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%)">{{streak}} </span>{{dayStreakText}}</div>
 
-  <section aria-label="Calendar" style="position: absolute; left: 10px; top: 288px; width: 370px; height: 316px; border-radius: 22px; background: linear-gradient(180deg, #FEF7ED 0%, #FDF2E5 100%); box-shadow: 0 6px 18px rgba(170, 120, 70, 0.16)">
-    <button aria-label="Previous month" onClick="{{prevMonth}}" style="position: absolute; left: 9px; top: 6px; width: 44px; height: 46px; padding: 0; border: none; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+  <section aria-label="{{T.calendar}}" style="position: absolute; left: 10px; top: 288px; width: 370px; height: 316px; border-radius: 22px; background: linear-gradient(180deg, #FEF7ED 0%, #FDF2E5 100%); box-shadow: 0 6px 18px rgba(170, 120, 70, 0.16)">
+    <button aria-label="{{T.prevMonth}}" onClick="{{prevMonth}}" style="position: absolute; left: 9px; top: 6px; width: 44px; height: 46px; padding: 0; border: none; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
       <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="#2B1A14" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     </button>
     <h2 style="position: absolute; left: 60px; top: 12px; width: 250px; margin: 0; text-align: center; font-size: 22px; line-height: 34px; font-weight: 800">{{monthLabel}}</h2>
-    <button aria-label="Next month" onClick="{{nextMonth}}" aria-disabled="{{nextDisabled}}" style="{{nextMonthStyle}}">
+    <button aria-label="{{T.nextMonth}}" onClick="{{nextMonth}}" aria-disabled="{{nextDisabled}}" style="{{nextMonthStyle}}">
       <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="#2B1A14" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     </button>
     <div style="position: absolute; left: 2.6px; top: 63px; width: 365.4px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); text-align: center">
@@ -419,19 +448,19 @@ body{margin:0}
 <!-- ============ SKINS ============ -->
 <sc-if value="{{isSkins}}" hint-placeholder-val="{{false}}">
 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, #FCEFDF 0%, #FCEEDD 100%); animation: {{screenAnim}}">
-  <button aria-label="Back" onClick="{{goHomeBack}}" style="position: absolute; left: 7px; top: 49px; width: 48px; height: 48px; padding: 0; border: none; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+  <button aria-label="{{T.back}}" onClick="{{goHomeBack}}" style="position: absolute; left: 7px; top: 49px; width: 48px; height: 48px; padding: 0; border: none; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
     <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4.5 7.5 12l7.5 7.5" fill="none" stroke="#2B1A14" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
   </button>
-  <h1 style="position: absolute; left: 95px; top: 53px; width: 200px; margin: 0; text-align: center; font-size: 30px; line-height: 40px; font-weight: 800">Skins</h1>
+  <h1 style="position: absolute; left: 95px; top: 53px; width: 200px; margin: 0; text-align: center; font-size: 30px; line-height: 40px; font-weight: 800">{{T.skins}}</h1>
   <div role="img" aria-label="{{xpLabel}}" style="position: absolute; right: 12px; top: 54px; height: 36px; padding: 0 12px 0 6px; border-radius: 18px; background: #FFF8EE; box-shadow: 0 3px 8px rgba(190, 140, 90, 0.16), inset 0 -2px 0 rgba(232, 200, 160, 0.5); display: flex; align-items: center; gap: 5px">
     <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12.6" r="10.6" fill="#E59422"></circle><circle cx="12" cy="11.6" r="10.6" fill="#FFC93F"></circle><circle cx="12" cy="11.6" r="8.3" fill="#FFD866"></circle><g fill="#E08A1E"><path d="M12 11.4c-2.2 0-4.2 2.2-4.2 4.1 0 1.3 1 2 2.2 2 .8 0 1.4-.4 2-.4s1.2.4 2 .4c1.2 0 2.2-.7 2.2-2 0-1.9-2-4.1-4.2-4.1z"></path><ellipse cx="7.3" cy="10.6" rx="1.3" ry="1.6"></ellipse><ellipse cx="10" cy="7.6" rx="1.4" ry="1.8"></ellipse><ellipse cx="14" cy="7.6" rx="1.4" ry="1.8"></ellipse><ellipse cx="16.7" cy="10.6" rx="1.3" ry="1.6"></ellipse></g></svg>
     <span style="font-size: 18px; font-weight: 900">{{xp}}</span>
   </div>
 
-  <div role="tablist" aria-label="Skin type" style="position: absolute; left: 18px; top: 121px; width: 354px; height: 52px; box-sizing: border-box; border-radius: 26px; background: #FFF8EE; box-shadow: inset 0 0 0 1px rgba(232, 208, 180, 0.6), 0 3px 8px rgba(190, 140, 90, 0.10); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); animation: mdkRise 0.5s cubic-bezier(.2, 1.2, .4, 1) 0.05s both">
+  <div role="tablist" aria-label="{{T.skinType}}" style="position: absolute; left: 18px; top: 121px; width: 354px; height: 52px; box-sizing: border-box; border-radius: 26px; background: #FFF8EE; box-shadow: inset 0 0 0 1px rgba(232, 208, 180, 0.6), 0 3px 8px rgba(190, 140, 90, 0.10); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); animation: mdkRise 0.5s cubic-bezier(.2, 1.2, .4, 1) 0.05s both">
     <span aria-hidden="true" style="{{tabPill}}"></span>
-    <button role="tab" aria-selected="{{tabCatsSel}}" onClick="{{tabCats}}" style="{{tabCatsStyle}}">Cats</button>
-    <button role="tab" aria-selected="{{tabBoardsSel}}" onClick="{{tabBoards}}" style="{{tabBoardsStyle}}">Boards</button>
+    <button role="tab" aria-selected="{{tabCatsSel}}" onClick="{{tabCats}}" style="{{tabCatsStyle}}">{{T.cats}}</button>
+    <button role="tab" aria-selected="{{tabBoardsSel}}" onClick="{{tabBoards}}" style="{{tabBoardsStyle}}">{{T.boards}}</button>
   </div>
 
   <div style="position: absolute; left: 0; top: 182px; width: 390px; bottom: 0; overflow-y: auto; overflow-x: hidden">
@@ -444,10 +473,10 @@ body{margin:0}
             </span>
             <span style="position: absolute; left: 0; right: 0; top: 133px; text-align: center; font-size: 19px; line-height: 26px; font-weight: 700; color: #3A2924">{{k.name}}</span>
             <sc-if value="{{k.selected}}" hint-placeholder-val="{{false}}">
-              <span style="position: absolute; left: 18px; top: 166px; width: 137px; height: 33px; border-radius: 17px; background: linear-gradient(180deg, #84CB80, #6DB86A); color: #FFFFFF; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 -2px 0 rgba(60, 130, 60, 0.35)">Selected</span>
+              <span style="position: absolute; left: 18px; top: 166px; width: 137px; height: 33px; border-radius: 17px; background: linear-gradient(180deg, #84CB80, #6DB86A); color: #FFFFFF; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 -2px 0 rgba(60, 130, 60, 0.35)">{{T.selected}}</span>
             </sc-if>
             <sc-if value="{{k.selectable}}" hint-placeholder-val="{{false}}">
-              <span style="position: absolute; left: 18px; top: 166px; width: 137px; height: 33px; border-radius: 17px; background: rgba(255, 255, 255, 0.75); color: #3F7A3C; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 2px #84CB80">Select</span>
+              <span style="position: absolute; left: 18px; top: 166px; width: 137px; height: 33px; border-radius: 17px; background: rgba(255, 255, 255, 0.75); color: #3F7A3C; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 2px #84CB80">{{T.select}}</span>
             </sc-if>
             <sc-if value="{{k.locked}}" hint-placeholder-val="{{true}}">
               <span style="{{k.priceStyle}}">
@@ -458,7 +487,7 @@ body{margin:0}
             <sc-if value="{{k.next}}" hint-placeholder-val="{{false}}">
               <span style="position: absolute; left: 8px; top: 8px; height: 26px; padding: 0 9px 0 5px; border-radius: 13px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -2px 0 #DD5F17, 0 2px 6px rgba(207, 94, 26, 0.3); color: #FFFFFF; font-size: 13px; font-weight: 900; display: flex; align-items: center; gap: 4px">
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="4" fill="#FFFFFF"></rect><path d="M10 8.8v6.4l5.4-3.2z" fill="#F4701F"></path></svg>
-                Watch ads
+                {{T.watchAds}}
               </span>
             </sc-if>
           </button>
@@ -476,10 +505,10 @@ body{margin:0}
             </span>
             <span style="position: absolute; left: 0; right: 0; top: 133px; text-align: center; font-size: 19px; line-height: 26px; font-weight: 700; color: #3A2924">{{b.name}}</span>
             <sc-if value="{{b.selected}}" hint-placeholder-val="{{false}}">
-              <span style="position: absolute; left: 18px; top: 166px; width: 137px; height: 33px; border-radius: 17px; background: linear-gradient(180deg, #84CB80, #6DB86A); color: #FFFFFF; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 -2px 0 rgba(60, 130, 60, 0.35)">Selected</span>
+              <span style="position: absolute; left: 18px; top: 166px; width: 137px; height: 33px; border-radius: 17px; background: linear-gradient(180deg, #84CB80, #6DB86A); color: #FFFFFF; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 -2px 0 rgba(60, 130, 60, 0.35)">{{T.selected}}</span>
             </sc-if>
             <sc-if value="{{b.selectable}}" hint-placeholder-val="{{false}}">
-              <span style="position: absolute; left: 18px; top: 166px; width: 137px; height: 33px; border-radius: 17px; background: rgba(255, 255, 255, 0.75); color: #3F7A3C; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 2px #84CB80">Select</span>
+              <span style="position: absolute; left: 18px; top: 166px; width: 137px; height: 33px; border-radius: 17px; background: rgba(255, 255, 255, 0.75); color: #3F7A3C; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 0 2px #84CB80">{{T.select}}</span>
             </sc-if>
             <sc-if value="{{b.locked}}" hint-placeholder-val="{{true}}">
               <span style="{{b.priceStyle}}">
@@ -490,7 +519,7 @@ body{margin:0}
             <sc-if value="{{b.next}}" hint-placeholder-val="{{false}}">
               <span style="position: absolute; left: 8px; top: 8px; height: 26px; padding: 0 9px 0 5px; border-radius: 13px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -2px 0 #DD5F17, 0 2px 6px rgba(207, 94, 26, 0.3); color: #FFFFFF; font-size: 13px; font-weight: 900; display: flex; align-items: center; gap: 4px">
                 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="4" fill="#FFFFFF"></rect><path d="M10 8.8v6.4l5.4-3.2z" fill="#F4701F"></path></svg>
-                Watch ads
+                {{T.watchAds}}
               </span>
             </sc-if>
           </button>
@@ -504,49 +533,61 @@ body{margin:0}
 <!-- ============ SETTINGS ============ -->
 <sc-if value="{{isSettings}}" hint-placeholder-val="{{false}}">
 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, #FCF0E0 0%, #FBEEDD 100%); animation: {{screenAnim}}">
-  <button aria-label="Back" onClick="{{goHomeBack}}" style="position: absolute; left: 7px; top: 49px; width: 48px; height: 48px; padding: 0; border: none; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+  <button aria-label="{{T.back}}" onClick="{{goHomeBack}}" style="position: absolute; left: 7px; top: 49px; width: 48px; height: 48px; padding: 0; border: none; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
     <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4.5 7.5 12l7.5 7.5" fill="none" stroke="#2B1A14" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
   </button>
-  <h1 style="position: absolute; left: 92px; top: 53px; width: 204px; margin: 0; text-align: center; font-size: 30px; line-height: 40px; font-weight: 800">Settings</h1>
+  <h1 style="position: absolute; left: 60px; top: 53px; width: 270px; margin: 0; text-align: center; font-size: 30px; line-height: 40px; font-weight: 800">{{T.settings}}</h1>
 
   <div style="position: absolute; left: 14px; top: 120px; width: 361px; bottom: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 24px; padding-bottom: 24px; box-sizing: border-box">
+    <section style="border-radius: 20px; background: #FEF9F0; box-shadow: 0 3px 12px rgba(190, 140, 90, 0.10); padding: 11px 0 4px; animation: mdkRise 0.5s cubic-bezier(.2, 1.2, .4, 1) 0.02s both">
+      <h2 style="margin: 0; padding: 0 13px; font-size: 23px; line-height: 26px; font-weight: 800">{{T.language}}</h2>
+      <div role="radiogroup" aria-label="{{T.language}}" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 12px 12px 10px">
+        <sc-for list="{{langOpts}}" as="lo" hint-placeholder-count="2">
+          <button role="radio" aria-checked="{{lo.checked}}" onClick="{{lo.set}}" style="{{lo.pill}}">
+            <span style="flex: none; width: 36px; height: 24px; border-radius: 5px; overflow: hidden; display: block; box-shadow: 0 1px 3px rgba(90, 50, 20, 0.25)"><sc-if value="{{lo.isEn}}" hint-placeholder-val="{{true}}"><svg viewBox="0 0 60 40" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" aria-hidden="true" style="display: block"><rect width="60" height="40" fill="#012169"></rect><path d="M0 0 60 40M60 0 0 40" stroke="#FFFFFF" stroke-width="8"></path><path d="M0 0 60 40M60 0 0 40" stroke="#C8102E" stroke-width="2.6"></path><path d="M30 0v40M0 20h60" stroke="#FFFFFF" stroke-width="12"></path><path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="7"></path></svg></sc-if><sc-if value="{{lo.isDe}}" hint-placeholder-val="{{false}}"><svg viewBox="0 0 5 3" preserveAspectRatio="none" width="100%" height="100%" aria-hidden="true" style="display: block"><rect width="5" height="1" fill="#000000"></rect><rect y="1" width="5" height="1" fill="#DD0000"></rect><rect y="2" width="5" height="1" fill="#FFCE00"></rect></svg></sc-if></span>
+            <span style="min-width: 0; white-space: nowrap">{{lo.name}}</span>
+          </button>
+        </sc-for>
+      </div>
+    </section>
+
     <section style="border-radius: 20px; background: #FEF9F0; box-shadow: 0 3px 12px rgba(190, 140, 90, 0.10); padding: 11px 0 4px; animation: mdkRise 0.5s cubic-bezier(.2, 1.2, .4, 1) 0.05s both">
-      <h2 style="margin: 0; padding: 0 13px; font-size: 23px; line-height: 26px; font-weight: 800">Audio</h2>
+      <h2 style="margin: 0; padding: 0 13px; font-size: 23px; line-height: 26px; font-weight: 800">{{T.audio}}</h2>
       <div style="height: 63px; display: flex; align-items: center; padding: 0 12px 0 19px; gap: 22px">
         <svg width="33" height="33" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-left: -2px; margin-right: -1px"><path d="M9 17.6V6.4l10.6-2.6v11.4" fill="none" stroke="#2D1B16" stroke-width="2.3" stroke-linejoin="round"></path><path d="M9 6.4l10.6-2.6v3.4L9 9.8z" fill="#2D1B16"></path><ellipse cx="6.4" cy="17.8" rx="3.1" ry="2.6" fill="#2D1B16"></ellipse><ellipse cx="17" cy="15.4" rx="3.1" ry="2.6" fill="#2D1B16"></ellipse></svg>
-        <span style="flex: 1; font-size: 20px; font-weight: 600">Music</span>
-        <button role="switch" aria-label="Music" aria-checked="{{sw.music.on}}" onClick="{{sw.music.tap}}" style="{{sw.music.track}}"><span style="{{sw.music.knob}}"></span></button>
+        <span style="flex: 1; font-size: 20px; font-weight: 600">{{T.music}}</span>
+        <button role="switch" aria-label="{{T.music}}" aria-checked="{{sw.music.on}}" onClick="{{sw.music.tap}}" style="{{sw.music.track}}"><span style="{{sw.music.knob}}"></span></button>
       </div>
       <div style="height: 63px; display: flex; align-items: center; padding: 0 12px 0 19px; gap: 22px; background-image: linear-gradient(#F0E3D4, #F0E3D4); background-size: calc(100% - 71px) 1px; background-position: 71px 0; background-repeat: no-repeat">
         <svg width="33" height="33" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-left: -2px; margin-right: -1px"><path d="M2.5 9.2h4l5.3-4.3v14.2l-5.3-4.3h-4z" fill="#2D1B16" stroke="#2D1B16" stroke-width="1.2" stroke-linejoin="round"></path><path d="M15 8.6a4.8 4.8 0 0 1 0 6.8M17.9 6a8.6 8.6 0 0 1 0 12" fill="none" stroke="#2D1B16" stroke-width="2.2" stroke-linecap="round"></path></svg>
-        <span style="flex: 1; font-size: 20px; font-weight: 600">Sound Effects</span>
-        <button role="switch" aria-label="Sound Effects" aria-checked="{{sw.sfx.on}}" onClick="{{sw.sfx.tap}}" style="{{sw.sfx.track}}"><span style="{{sw.sfx.knob}}"></span></button>
+        <span style="flex: 1; font-size: 20px; font-weight: 600">{{T.sfx}}</span>
+        <button role="switch" aria-label="{{T.sfx}}" aria-checked="{{sw.sfx.on}}" onClick="{{sw.sfx.tap}}" style="{{sw.sfx.track}}"><span style="{{sw.sfx.knob}}"></span></button>
       </div>
       <div style="height: 63px; display: flex; align-items: center; padding: 0 12px 0 19px; gap: 22px; background-image: linear-gradient(#F0E3D4, #F0E3D4); background-size: calc(100% - 71px) 1px; background-position: 71px 0; background-repeat: no-repeat">
         <svg width="33" height="33" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-left: -2px; margin-right: -1px"><rect x="7.4" y="3" width="9.2" height="18" rx="2.2" fill="none" stroke="#2D1B16" stroke-width="2.1"></rect><path d="M10.6 17.6h2.8" stroke="#2D1B16" stroke-width="1.8" stroke-linecap="round"></path><path d="M3.6 8.2v2M3.6 13.8v2M20.4 8.2v2M20.4 13.8v2M1.4 11v2M22.6 11v2" stroke="#2D1B16" stroke-width="1.8" stroke-linecap="round"></path></svg>
-        <span style="flex: 1; font-size: 20px; font-weight: 600">Vibration</span>
-        <button role="switch" aria-label="Vibration" aria-checked="{{sw.vibration.on}}" onClick="{{sw.vibration.tap}}" style="{{sw.vibration.track}}"><span style="{{sw.vibration.knob}}"></span></button>
+        <span style="flex: 1; font-size: 20px; font-weight: 600">{{T.vibration}}</span>
+        <button role="switch" aria-label="{{T.vibration}}" aria-checked="{{sw.vibration.on}}" onClick="{{sw.vibration.tap}}" style="{{sw.vibration.track}}"><span style="{{sw.vibration.knob}}"></span></button>
       </div>
     </section>
 
     <section style="border-radius: 20px; background: #FEF9F0; box-shadow: 0 3px 12px rgba(190, 140, 90, 0.10); padding: 11px 0 4px; animation: mdkRise 0.5s cubic-bezier(.2, 1.2, .4, 1) 0.12s both">
-      <h2 style="margin: 0; padding: 0 13px; font-size: 23px; line-height: 26px; font-weight: 800">Gameplay</h2>
+      <h2 style="margin: 0; padding: 0 13px; font-size: 23px; line-height: 26px; font-weight: 800">{{T.gameplay}}</h2>
       <button onClick="{{openHowTo}}" style="width: 100%; height: 63px; border: none; background: none; display: flex; align-items: center; padding: 0 15px 0 19px; gap: 22px; cursor: pointer; color: #2B1A14; text-align: left">
         <svg width="33" height="33" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-left: -2px; margin-right: -1px"><circle cx="12" cy="12" r="10.4" fill="#2D1B16"></circle><path d="M9.2 9.2a2.9 2.9 0 1 1 4.3 2.5c-.9.5-1.5 1.1-1.5 2.1v.5" fill="none" stroke="#FEF9F0" stroke-width="2.1" stroke-linecap="round"></path><circle cx="12" cy="17.4" r="1.3" fill="#FEF9F0"></circle></svg>
-        <span style="flex: 1; font-size: 20px; font-weight: 600">How to Play</span>
+        <span style="flex: 1; font-size: 20px; font-weight: 600">{{T.howTo}}</span>
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="#2D1B16" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </button>
     </section>
 
     <section style="border-radius: 20px; background: #FEF9F0; box-shadow: 0 3px 12px rgba(190, 140, 90, 0.10); padding: 11px 0 4px; animation: mdkRise 0.5s cubic-bezier(.2, 1.2, .4, 1) 0.19s both">
-      <h2 style="margin: 0; padding: 0 13px; font-size: 23px; line-height: 26px; font-weight: 800">Account</h2>
+      <h2 style="margin: 0; padding: 0 13px; font-size: 23px; line-height: 26px; font-weight: 800">{{T.account}}</h2>
       <button onClick="{{openRedeem}}" style="width: 100%; height: 63px; border: none; background: none; display: flex; align-items: center; padding: 0 15px 0 19px; gap: 22px; cursor: pointer; color: #2B1A14; text-align: left">
         <svg width="33" height="33" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-left: -2px; margin-right: -1px"><path d="M5.2 4.4 8.4 6.6a9 9 0 0 1 7.2 0l3.2-2.2.7 4.4a8.6 8.6 0 0 1 1.7 2.6c-1.3.4-1.9 1.4-1.9 2.6s.6 2.2 1.9 2.6c-1.2 3.6-5 5.4-9.2 5.4s-8-1.8-9.2-5.4c1.3-.4 1.9-1.4 1.9-2.6s-.6-2.2-1.9-2.6a8.6 8.6 0 0 1 1.7-2.6z" fill="none" stroke="#2D1B16" stroke-width="2" stroke-linejoin="round"></path><path d="M9.4 12.8h5.2M9.4 15.6h3.4" stroke="#2D1B16" stroke-width="1.8" stroke-linecap="round"></path><circle cx="9.3" cy="10" r="1" fill="#2D1B16"></circle><circle cx="14.7" cy="10" r="1" fill="#2D1B16"></circle></svg>
-        <span style="flex: 1; font-size: 20px; font-weight: 600; white-space: nowrap">Redeem Code</span>
+        <span style="flex: 1; font-size: 20px; font-weight: 600; white-space: nowrap">{{T.redeemCode}}</span>
         <sc-if value="{{adsRemoved}}" hint-placeholder-val="{{false}}">
           <span style="display: flex; align-items: center; gap: 4px; padding: 4px 9px 4px 6px; border-radius: 14px; background: #FDE3E3; color: #B42328; font-size: 13px; font-weight: 800; white-space: nowrap; animation: mdkPopIn 0.4s both">
             <svg width="15" height="14" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21s-8.6-5.2-10.6-10.3C.1 7.1 2.2 2.6 6.5 2.2c2.3-.2 4.1.9 5.5 2.9 1.4-2 3.2-3.1 5.5-2.9 4.3.4 6.4 4.9 5.1 8.5C20.6 15.8 12 21 12 21z" fill="#F23C3C"></path></svg>
-            Ad-free
+            {{T.adFree}}
           </span>
         </sc-if>
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="flex: none"><path d="M9 5l7 7-7 7" fill="none" stroke="#2D1B16" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
@@ -554,20 +595,20 @@ body{margin:0}
     </section>
 
     <section style="border-radius: 20px; background: #FEF9F0; box-shadow: 0 3px 12px rgba(190, 140, 90, 0.10); padding: 11px 0 4px; animation: mdkRise 0.5s cubic-bezier(.2, 1.2, .4, 1) 0.26s both">
-      <h2 style="margin: 0; padding: 0 13px; font-size: 23px; line-height: 26px; font-weight: 800">Privacy</h2>
+      <h2 style="margin: 0; padding: 0 13px; font-size: 23px; line-height: 26px; font-weight: 800">{{T.privacy}}</h2>
       <button onClick="{{openPrivacy}}" style="width: 100%; height: 63px; border: none; background: none; display: flex; align-items: center; padding: 0 15px 0 19px; gap: 22px; cursor: pointer; color: #2B1A14; text-align: left">
         <svg width="33" height="33" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-left: -2px; margin-right: -1px"><path d="M12 2.4 4.2 5.4v5.8c0 5 3.3 8.9 7.8 10.4 4.5-1.5 7.8-5.4 7.8-10.4V5.4z" fill="none" stroke="#2D1B16" stroke-width="2.1" stroke-linejoin="round"></path><path d="M8.6 12.2l2.4 2.4 4.6-4.8" fill="none" stroke="#2D1B16" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        <span style="flex: 1; font-size: 20px; font-weight: 600">Privacy Policy</span>
+        <span style="flex: 1; font-size: 20px; font-weight: 600">{{T.privacyPolicy}}</span>
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="#2D1B16" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </button>
       <button onClick="{{openTerms}}" style="width: 100%; height: 63px; border: none; background: none; display: flex; align-items: center; padding: 0 15px 0 19px; gap: 22px; cursor: pointer; color: #2B1A14; text-align: left; background-image: linear-gradient(#F0E3D4, #F0E3D4); background-size: calc(100% - 71px) 1px; background-position: 71px 0; background-repeat: no-repeat">
         <svg width="33" height="33" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-left: -2px; margin-right: -1px"><path d="M6.4 2.6h7.8l4.6 4.6v12.4a1.8 1.8 0 0 1-1.8 1.8H6.4a1.8 1.8 0 0 1-1.8-1.8V4.4a1.8 1.8 0 0 1 1.8-1.8z" fill="none" stroke="#2D1B16" stroke-width="2.1" stroke-linejoin="round"></path><path d="M14 2.8v4.6h4.6M8.2 12h7.6M8.2 15.4h7.6M8.2 8.6h3" fill="none" stroke="#2D1B16" stroke-width="1.8" stroke-linecap="round"></path></svg>
-        <span style="flex: 1; font-size: 20px; font-weight: 600">Terms of Service</span>
+        <span style="flex: 1; font-size: 20px; font-weight: 600">{{T.terms}}</span>
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="#2D1B16" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </button>
       <button onClick="{{openAdPrivacy}}" style="width: 100%; height: 63px; border: none; background: none; display: flex; align-items: center; padding: 0 15px 0 19px; gap: 22px; cursor: pointer; color: #2B1A14; text-align: left; background-image: linear-gradient(#F0E3D4, #F0E3D4); background-size: calc(100% - 71px) 1px; background-position: 71px 0; background-repeat: no-repeat">
         <svg width="33" height="33" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; margin-left: -2px; margin-right: -1px"><path d="M3 7.5h11M18 7.5h3M3 16.5h3M10 16.5h11" stroke="#2D1B16" stroke-width="2.1" stroke-linecap="round"></path><circle cx="16" cy="7.5" r="2.4" fill="none" stroke="#2D1B16" stroke-width="2.1"></circle><circle cx="8" cy="16.5" r="2.4" fill="none" stroke="#2D1B16" stroke-width="2.1"></circle></svg>
-        <span style="flex: 1; font-size: 20px; font-weight: 600">Ad Privacy Choices</span>
+        <span style="flex: 1; font-size: 20px; font-weight: 600">{{T.adPrivacy}}</span>
         <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="#2D1B16" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </button>
     </section>
@@ -600,7 +641,7 @@ body{margin:0}
       <sc-if value="{{un.ads}}" hint-placeholder-val="{{true}}">
         <button onClick="{{un.watch}}" style="width: 100%; height: 56px; border: none; border-radius: 28px; background: #FFFFFF; box-shadow: inset 0 0 0 2.5px #F4873A, 0 3px 8px rgba(207, 94, 26, 0.14); color: #D9611A; font-size: 20px; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer">
           <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="4" fill="#F4873A"></rect><path d="M10 8.8v6.4l5.4-3.2z" fill="#FFFFFF"></path></svg>
-          Watch ads
+          {{T.watchAds}}
         </button>
         <sc-if value="{{un.hasProgress}}" hint-placeholder-val="{{false}}">
           <div aria-label="{{un.progressLabel}}" role="img" style="display: flex; gap: 7px">
@@ -610,39 +651,39 @@ body{margin:0}
           </div>
         </sc-if>
       </sc-if>
-      <button onClick="{{closeModal}}" style="height: 44px; padding: 0 24px; border: none; border-radius: 22px; background: transparent; color: #6A5852; font-size: 18px; font-weight: 800; cursor: pointer">Close</button>
+      <button onClick="{{closeModal}}" style="height: 44px; padding: 0 24px; border: none; border-radius: 22px; background: transparent; color: #6A5852; font-size: 18px; font-weight: 800; cursor: pointer">{{T.close}}</button>
     </div>
   </div>
 </sc-if>
 
 <sc-if value="{{showHints}}" hint-placeholder-val="{{false}}">
   <div style="position: absolute; inset: 0; z-index: 35; background: rgba(84, 48, 24, 0.40); display: flex; align-items: center; justify-content: center; animation: mdkFade 0.2s ease-out">
-    <div role="dialog" aria-modal="true" aria-label="Out of hints" style="width: 320px; box-sizing: border-box; padding: 24px 22px 18px; background: linear-gradient(180deg, #FFF9EF 0%, #FEF0DC 100%); border-radius: 30px; box-shadow: 0 18px 40px rgba(120, 70, 30, 0.30); display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; animation: mdkPopIn 0.4s cubic-bezier(.2, 1.3, .4, 1)">
+    <div role="dialog" aria-modal="true" aria-label="{{T.outOfHints}}" style="width: 320px; box-sizing: border-box; padding: 24px 22px 18px; background: linear-gradient(180deg, #FFF9EF 0%, #FEF0DC 100%); border-radius: 30px; box-shadow: 0 18px 40px rgba(120, 70, 30, 0.30); display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; animation: mdkPopIn 0.4s cubic-bezier(.2, 1.3, .4, 1)">
       <svg width="58" height="63" viewBox="0 0 24 26" aria-hidden="true"><path d="M12 1.6a7.4 7.4 0 0 0-4.4 13.4c.8.6 1.2 1.4 1.2 2.3v.9h6.4v-.9c0-.9.4-1.7 1.2-2.3A7.4 7.4 0 0 0 12 1.6z" fill="#FFD23C" stroke="#E6A813" stroke-width="1.1"></path><path d="M8.6 5.4a4.6 4.6 0 0 1 3.4-1.6" stroke="#FFF6C9" stroke-width="1.6" stroke-linecap="round" fill="none"></path><rect x="8.6" y="18.9" width="6.8" height="2.2" rx="1.1" fill="#A1928A"></rect><rect x="9.3" y="21.6" width="5.4" height="2.2" rx="1.1" fill="#8C7D75"></rect></svg>
-      <h2 style="margin: 0; font-size: 26px; font-weight: 900">Out of hints</h2>
-      <p style="margin: 0 0 6px; font-size: 16px; font-weight: 600; color: #6A5852">Get another hint to keep going.</p>
+      <h2 style="margin: 0; font-size: 26px; font-weight: 900">{{T.outOfHints}}</h2>
+      <p style="margin: 0 0 6px; font-size: 16px; font-weight: 600; color: #6A5852">{{T.outOfHintsSub}}</p>
       <button onClick="{{buyHint}}" aria-disabled="{{hintBuyDisabled}}" style="{{hintBuyStyle}}">
         <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12.6" r="10.6" fill="#E59422"></circle><circle cx="12" cy="11.6" r="10.6" fill="#FFC93F"></circle><circle cx="12" cy="11.6" r="8.3" fill="#FFD866"></circle><g fill="#E08A1E"><path d="M12 11.4c-2.2 0-4.2 2.2-4.2 4.1 0 1.3 1 2 2.2 2 .8 0 1.4-.4 2-.4s1.2.4 2 .4c1.2 0 2.2-.7 2.2-2 0-1.9-2-4.1-4.2-4.1z"></path><ellipse cx="7.3" cy="10.6" rx="1.3" ry="1.6"></ellipse><ellipse cx="10" cy="7.6" rx="1.4" ry="1.8"></ellipse><ellipse cx="14" cy="7.6" rx="1.4" ry="1.8"></ellipse><ellipse cx="16.7" cy="10.6" rx="1.3" ry="1.6"></ellipse></g></svg>
         <span>{{hintBuyLabel}}</span>
       </button>
       <button onClick="{{watchHintAd}}" style="width: 100%; height: 56px; border: none; border-radius: 28px; background: #FFFFFF; box-shadow: inset 0 0 0 2.5px #F4873A, 0 3px 8px rgba(207, 94, 26, 0.14); color: #D9611A; font-size: 20px; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer">
         <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="4" fill="#F4873A"></rect><path d="M10 8.8v6.4l5.4-3.2z" fill="#FFFFFF"></path></svg>
-        Watch ad · +1 hint
+        {{T.watchAdHint}}
       </button>
-      <button onClick="{{closeModal}}" style="height: 44px; padding: 0 24px; border: none; border-radius: 22px; background: transparent; color: #6A5852; font-size: 18px; font-weight: 800; cursor: pointer">Close</button>
+      <button onClick="{{closeModal}}" style="height: 44px; padding: 0 24px; border: none; border-radius: 22px; background: transparent; color: #6A5852; font-size: 18px; font-weight: 800; cursor: pointer">{{T.close}}</button>
     </div>
   </div>
 </sc-if>
 
 <sc-if value="{{showOut}}" hint-placeholder-val="{{false}}">
   <div style="position: absolute; inset: 0; z-index: 35; background: rgba(84, 48, 24, 0.42); display: flex; align-items: center; justify-content: center; animation: mdkFade 0.25s ease-out">
-    <div role="dialog" aria-modal="true" aria-label="Out of hearts" style="width: 320px; box-sizing: border-box; padding: 24px 22px 18px; background: linear-gradient(180deg, #FFF9EF 0%, #FEF0DC 100%); border-radius: 30px; box-shadow: 0 18px 40px rgba(120, 70, 30, 0.30); display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; animation: mdkPopIn 0.45s cubic-bezier(.2, 1.3, .4, 1)">
+    <div role="dialog" aria-modal="true" aria-label="{{T.outOfHearts}}" style="width: 320px; box-sizing: border-box; padding: 24px 22px 18px; background: linear-gradient(180deg, #FFF9EF 0%, #FEF0DC 100%); border-radius: 30px; box-shadow: 0 18px 40px rgba(120, 70, 30, 0.30); display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; animation: mdkPopIn 0.45s cubic-bezier(.2, 1.3, .4, 1)">
       <svg width="70" height="64" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21s-8.6-5.2-10.6-10.3C.1 7.1 2.2 2.6 6.5 2.2c2.3-.2 4.1.9 5.5 2.9 1.4-2 3.2-3.1 5.5-2.9 4.3.4 6.4 4.9 5.1 8.5C20.6 15.8 12 21 12 21z" fill="#D9CBBE"></path><path d="M12.2 5.4 10.4 9.6l2.6 1.6-1.8 4.6" fill="none" stroke="#FFF8EF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-      <h2 style="margin: 0; font-size: 27px; font-weight: 900">Out of hearts</h2>
+      <h2 style="margin: 0; font-size: 27px; font-weight: 900">{{T.outOfHearts}}</h2>
       <p style="margin: 0 0 6px; font-size: 16px; line-height: 1.4; font-weight: 600; color: #6A5852">{{outText}}</p>
       <button onClick="{{watchHeartsAd}}" style="width: 100%; height: 62px; padding: 0 0 4px; border: none; border-radius: 31px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17, 0 6px 12px rgba(207, 94, 26, 0.28); color: #FFFFFF; font-size: 21px; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer">
         <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="4" fill="#FFFFFF"></rect><path d="M10 8.8v6.4l5.4-3.2z" fill="#F4701F"></path></svg>
-        <span>Watch ad</span>
+        <span>{{T.watchAd}}</span>
         <span style="display: flex; align-items: center; gap: 4px; padding: 3px 10px 3px 7px; border-radius: 14px; background: rgba(255, 255, 255, 0.25); font-size: 17px">
           <svg width="18" height="17" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21s-8.6-5.2-10.6-10.3C.1 7.1 2.2 2.6 6.5 2.2c2.3-.2 4.1.9 5.5 2.9 1.4-2 3.2-3.1 5.5-2.9 4.3.4 6.4 4.9 5.1 8.5C20.6 15.8 12 21 12 21z" fill="#FFFFFF"></path></svg>3
         </span>
@@ -654,9 +695,10 @@ body{margin:0}
 
 <sc-if value="{{showHowTo}}" hint-placeholder-val="{{false}}">
   <div style="position: absolute; inset: 0; z-index: 35; background: rgba(84, 48, 24, 0.40); display: flex; align-items: flex-end; animation: mdkFade 0.2s ease-out">
-    <div role="dialog" aria-modal="true" aria-label="How to Play" style="width: 100%; box-sizing: border-box; padding: 18px 22px 26px; background: #FEF9F0; border-radius: 30px 30px 0 0; box-shadow: 0 -10px 30px rgba(120, 70, 30, 0.25); display: flex; flex-direction: column; gap: 12px; animation: mdkSheet 0.4s cubic-bezier(.2, 1.1, .4, 1)">
+    <div role="dialog" aria-modal="true" aria-label="{{T.howTo}}" style="width: 100%; box-sizing: border-box; padding: 18px 22px 26px; background: #FEF9F0; border-radius: 30px 30px 0 0; box-shadow: 0 -10px 30px rgba(120, 70, 30, 0.25); display: flex; flex-direction: column; gap: 12px; animation: mdkSheet 0.4s cubic-bezier(.2, 1.1, .4, 1)">
       <div style="width: 44px; height: 5px; border-radius: 3px; background: #E5D5C4; align-self: center"></div>
-      <h2 style="margin: 0; font-size: 26px; font-weight: 900">How to Play</h2>
+      <h2 style="margin: 0; font-size: 26px; font-weight: 900">{{T.howTo}}</h2>
+      <sc-if value="{{isEn}}" hint-placeholder-val="{{true}}">
       <ul class="mdk-doc" style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.5; font-weight: 600; color: #4E3B36">
         <li>Place exactly one cat in every row, every column and every color area.</li>
         <li>Cats need their space: they can never touch, not even diagonally.</li>
@@ -668,25 +710,39 @@ body{margin:0}
         <li>Stuck? A hint places a correct cat for you.</li>
         <li>Finish levels to earn XP and get hearts back. Spend XP on new cats and boards.</li>
       </ul>
-      <button onClick="{{playTutorial}}" style="height: 52px; border: none; border-radius: 26px; background: #FFFFFF; box-shadow: inset 0 0 0 2.5px #F4873A; color: #D9611A; font-size: 19px; font-weight: 900; cursor: pointer">Play the tutorial</button>
-      <button onClick="{{closeModal}}" style="height: 56px; border: none; border-radius: 28px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17; color: #FFFFFF; font-size: 21px; font-weight: 800; cursor: pointer; padding-bottom: 4px">Got it</button>
+      </sc-if>
+      <sc-if value="{{isDe}}" hint-placeholder-val="{{false}}">
+      <ul class="mdk-doc" style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.5; font-weight: 600; color: #4E3B36">
+        <li>Setz genau eine Katze in jede Reihe, jede Spalte und jede Farbfläche.</li>
+        <li>Katzen brauchen Platz: Sie dürfen sich nie berühren, auch nicht diagonal.</li>
+        <li><strong>Tippe</strong> auf ein Feld, um es mit ✕ zu markieren. Tippe noch einmal, um es zu löschen.</li>
+        <li><strong>Tippe doppelt</strong> auf ein Feld, um eine Katze zu setzen.</li>
+        <li>Du musst nie raten: Markiere die Felder, auf denen keine Katze sein kann, und es gibt immer ein Feld, auf dem eine sein muss.</li>
+        <li>Jedes Level startet mit einer Hilfe: einer Katze, die schon steht, oder einer Farbfläche, die nur ein Feld groß ist.</li>
+        <li>Eine falsche Katze kostet ein Herz. Die Herzen gelten für alle Levels.</li>
+        <li>Du hängst fest? Ein Tipp setzt eine richtige Katze für dich.</li>
+        <li>Löse Levels, um XP zu verdienen und Herzen zurückzubekommen. Gib XP für neue Katzen und Bretter aus.</li>
+      </ul>
+      </sc-if>
+      <button onClick="{{playTutorial}}" style="height: 52px; border: none; border-radius: 26px; background: #FFFFFF; box-shadow: inset 0 0 0 2.5px #F4873A; color: #D9611A; font-size: 19px; font-weight: 900; cursor: pointer">{{T.playTutorial}}</button>
+      <button onClick="{{closeModal}}" style="height: 56px; border: none; border-radius: 28px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17; color: #FFFFFF; font-size: 21px; font-weight: 800; cursor: pointer; padding-bottom: 4px">{{T.gotIt}}</button>
     </div>
   </div>
 </sc-if>
 
 <sc-if value="{{showStreak}}" hint-placeholder-val="{{false}}">
   <div style="position: absolute; inset: 0; z-index: 35; background: rgba(84, 48, 24, 0.40); display: flex; align-items: flex-end; animation: mdkFade 0.2s ease-out">
-    <div role="dialog" aria-modal="true" aria-label="Your streak" style="width: 100%; box-sizing: border-box; padding: 16px 22px 24px; background: linear-gradient(180deg, #FFF7EA 0%, #FEF9F0 40%); border-radius: 30px 30px 0 0; box-shadow: 0 -10px 30px rgba(120, 70, 30, 0.25); display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; animation: mdkSheet 0.4s cubic-bezier(.2, 1.1, .4, 1)">
+    <div role="dialog" aria-modal="true" aria-label="{{T.yourStreak}}" style="width: 100%; box-sizing: border-box; padding: 16px 22px 24px; background: linear-gradient(180deg, #FFF7EA 0%, #FEF9F0 40%); border-radius: 30px 30px 0 0; box-shadow: 0 -10px 30px rgba(120, 70, 30, 0.25); display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; animation: mdkSheet 0.4s cubic-bezier(.2, 1.1, .4, 1)">
       <div style="width: 44px; height: 5px; border-radius: 3px; background: #E5D5C4"></div>
       <div style="position: relative; width: 104px; height: 122px">
         <svg width="104" height="122" viewBox="0 0 22 26" aria-hidden="true" style="{{bigFlameStyle}}"><path d="M11 1.2c.7 3.9 3.4 5.6 5.6 8.2 1.9 2.3 2.9 4.7 2.9 7.3 0 4.7-3.8 8.1-8.5 8.1S2.5 21.4 2.5 16.7c0-3 1.4-5.4 3.4-7.2.3 1.9 1.2 3.1 2.6 3.7C8 9.2 8.7 4.6 11 1.2z" fill="{{flameOuter}}"></path><path d="M11.3 12.4c.4 2 1.9 3.1 2.9 4.5.8 1.1 1.2 2.2 1.2 3.3 0 2.4-1.9 4.1-4.3 4.1S6.8 22.6 6.8 20.2c0-1.6.8-2.9 1.9-3.9.2.9.7 1.6 1.4 1.9-.1-2 .3-4 1.2-5.8z" fill="{{flameInner}}"></path></svg>
         <span style="position: absolute; left: 0; right: 0; top: 66px; font-size: 38px; line-height: 44px; font-weight: 900; color: #FFFFFF; text-shadow: 0 2px 0 rgba(170, 60, 10, 0.45)">{{goalStreak}}</span>
       </div>
       <h2 style="margin: 0; font-size: 28px; line-height: 1.1; font-weight: 900">{{streakTitle}}</h2>
-      <p style="margin: 0; font-size: 16px; line-height: 1.45; font-weight: 600; color: #6A5852">Solve 3 puzzles every day to keep your streak going. Levels and the Daily Challenge both count.</p>
+      <p style="margin: 0; font-size: 16px; line-height: 1.45; font-weight: 600; color: #6A5852">{{T.streakSub}}</p>
       <div style="width: 100%; box-sizing: border-box; padding: 14px 16px 16px; border-radius: 22px; background: #FFFFFF; box-shadow: 0 4px 14px rgba(190, 140, 90, 0.14); display: flex; flex-direction: column; gap: 12px">
         <div style="display: flex; justify-content: space-between; align-items: baseline">
-          <span style="font-size: 18px; font-weight: 800">Today's goal</span>
+          <span style="font-size: 18px; font-weight: 800">{{T.todaysGoal}}</span>
           <span style="font-size: 16px; font-weight: 800; color: #D9611A">{{goalText}}</span>
         </div>
         <div role="img" aria-label="{{goalLabel}}" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
@@ -709,48 +765,49 @@ body{margin:0}
           </span>
         </sc-for>
       </div>
-      <p style="margin: 2px 0 0; font-size: 15px; line-height: 1.4; font-weight: 700; color: #9A6A4E">A few calm puzzles before bed are a cozy way to unwind.</p>
-      <button onClick="{{streakPlay}}" style="width: 100%; height: 58px; border: none; border-radius: 29px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17, 0 6px 12px rgba(207, 94, 26, 0.28); color: #FFFFFF; font-size: 21px; font-weight: 900; cursor: pointer; padding-bottom: 4px">Play now</button>
-      <button onClick="{{closeModal}}" style="height: 44px; padding: 0 24px; border: none; border-radius: 22px; background: transparent; color: #6A5852; font-size: 18px; font-weight: 800; cursor: pointer">Close</button>
+      <p style="margin: 2px 0 0; font-size: 15px; line-height: 1.4; font-weight: 700; color: #9A6A4E">{{T.streakTip}}</p>
+      <button onClick="{{streakPlay}}" style="width: 100%; height: 58px; border: none; border-radius: 29px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17, 0 6px 12px rgba(207, 94, 26, 0.28); color: #FFFFFF; font-size: 21px; font-weight: 900; cursor: pointer; padding-bottom: 4px">{{T.playNow}}</button>
+      <button onClick="{{closeModal}}" style="height: 44px; padding: 0 24px; border: none; border-radius: 22px; background: transparent; color: #6A5852; font-size: 18px; font-weight: 800; cursor: pointer">{{T.close}}</button>
     </div>
   </div>
 </sc-if>
 
 <sc-if value="{{showRedeem}}" hint-placeholder-val="{{false}}">
   <div style="position: absolute; inset: 0; z-index: 35; background: rgba(84, 48, 24, 0.38); display: flex; align-items: center; justify-content: center; animation: mdkFade 0.2s ease-out">
-    <div role="dialog" aria-modal="true" aria-label="Redeem Code" style="width: 320px; box-sizing: border-box; padding: 24px; background: linear-gradient(180deg, #FFF9EF 0%, #FEF0DC 100%); border-radius: 28px; box-shadow: 0 18px 40px rgba(120, 70, 30, 0.30); display: flex; flex-direction: column; gap: 12px; animation: mdkPopIn 0.4s cubic-bezier(.2, 1.3, .4, 1)">
-      <h2 style="margin: 0; font-size: 24px; font-weight: 900; text-align: center">Redeem Code</h2>
-      <label for="mdk-code" style="font-size: 16px; font-weight: 700; color: #6A5852">Enter your code</label>
+    <div role="dialog" aria-modal="true" aria-label="{{T.redeemCode}}" style="width: 320px; box-sizing: border-box; padding: 24px; background: linear-gradient(180deg, #FFF9EF 0%, #FEF0DC 100%); border-radius: 28px; box-shadow: 0 18px 40px rgba(120, 70, 30, 0.30); display: flex; flex-direction: column; gap: 12px; animation: mdkPopIn 0.4s cubic-bezier(.2, 1.3, .4, 1)">
+      <h2 style="margin: 0; font-size: 24px; font-weight: 900; text-align: center">{{T.redeemCode}}</h2>
+      <label for="mdk-code" style="font-size: 16px; font-weight: 700; color: #6A5852">{{T.enterCode}}</label>
       <input id="mdk-code" value="{{code}}" onChange="{{onCode}}" autocomplete="off" autocapitalize="off" spellcheck="false" style="height: 52px; border-radius: 16px; border: 2px solid #EBD3B6; background: #FFFFFF; padding: 0 16px; font-size: 20px; font-weight: 700; color: #2B1A14; letter-spacing: 0.5px; outline: none">
       <sc-if value="{{hasCodeMsg}}" hint-placeholder-val="{{false}}">
         <p role="status" style="{{codeMsgStyle}}">{{codeMsg}}</p>
       </sc-if>
-      <button onClick="{{redeem}}" style="height: 56px; border: none; border-radius: 28px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17, 0 6px 12px rgba(207, 94, 26, 0.28); color: #FFFFFF; font-size: 21px; font-weight: 800; cursor: pointer; padding-bottom: 4px">Redeem</button>
-      <button onClick="{{closeModal}}" style="height: 48px; border: none; border-radius: 24px; background: transparent; color: #6A5852; font-size: 18px; font-weight: 800; cursor: pointer">Close</button>
+      <button onClick="{{redeem}}" style="height: 56px; border: none; border-radius: 28px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17, 0 6px 12px rgba(207, 94, 26, 0.28); color: #FFFFFF; font-size: 21px; font-weight: 800; cursor: pointer; padding-bottom: 4px">{{T.redeem}}</button>
+      <button onClick="{{closeModal}}" style="height: 48px; border: none; border-radius: 24px; background: transparent; color: #6A5852; font-size: 18px; font-weight: 800; cursor: pointer">{{T.close}}</button>
     </div>
   </div>
 </sc-if>
 
 <sc-if value="{{showAdPrivacy}}" hint-placeholder-val="{{false}}">
   <div style="position: absolute; inset: 0; z-index: 35; background: rgba(84, 48, 24, 0.38); display: flex; align-items: center; justify-content: center; animation: mdkFade 0.2s ease-out">
-    <div role="dialog" aria-modal="true" aria-label="Ad Privacy Choices" style="width: 330px; box-sizing: border-box; padding: 24px; background: linear-gradient(180deg, #FFF9EF 0%, #FEF0DC 100%); border-radius: 28px; box-shadow: 0 18px 40px rgba(120, 70, 30, 0.30); display: flex; flex-direction: column; gap: 14px; animation: mdkPopIn 0.4s cubic-bezier(.2, 1.3, .4, 1)">
-      <h2 style="margin: 0; font-size: 23px; font-weight: 900; text-align: center">Ad Privacy Choices</h2>
-      <p style="margin: 0; font-size: 16px; line-height: 1.5; font-weight: 600; color: #4E3B36">MEOWDOKI shows ads from Google AdMob. Choose whether your advertising ID may be used to show you ads based on your interests. You can change this at any time.</p>
+    <div role="dialog" aria-modal="true" aria-label="{{T.adPrivacy}}" style="width: 330px; box-sizing: border-box; padding: 24px; background: linear-gradient(180deg, #FFF9EF 0%, #FEF0DC 100%); border-radius: 28px; box-shadow: 0 18px 40px rgba(120, 70, 30, 0.30); display: flex; flex-direction: column; gap: 14px; animation: mdkPopIn 0.4s cubic-bezier(.2, 1.3, .4, 1)">
+      <h2 style="margin: 0; font-size: 23px; font-weight: 900; text-align: center">{{T.adPrivacy}}</h2>
+      <p style="margin: 0; font-size: 16px; line-height: 1.5; font-weight: 600; color: #4E3B36">{{T.adPrivacyText}}</p>
       <div style="display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 18px; background: #FFFFFF">
-        <span style="flex: 1; font-size: 18px; font-weight: 700">Personalized ads</span>
-        <button role="switch" aria-label="Personalized ads" aria-checked="{{sw.personalized.on}}" onClick="{{sw.personalized.tap}}" style="{{sw.personalized.track}}"><span style="{{sw.personalized.knob}}"></span></button>
+        <span style="flex: 1; font-size: 18px; font-weight: 700">{{T.personalizedAds}}</span>
+        <button role="switch" aria-label="{{T.personalizedAds}}" aria-checked="{{sw.personalized.on}}" onClick="{{sw.personalized.tap}}" style="{{sw.personalized.track}}"><span style="{{sw.personalized.knob}}"></span></button>
       </div>
-      <button onClick="{{closeModal}}" style="height: 54px; border: none; border-radius: 27px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17; color: #FFFFFF; font-size: 20px; font-weight: 800; cursor: pointer; padding-bottom: 4px">Save</button>
+      <button onClick="{{closeModal}}" style="height: 54px; border: none; border-radius: 27px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17; color: #FFFFFF; font-size: 20px; font-weight: 800; cursor: pointer; padding-bottom: 4px">{{T.save}}</button>
     </div>
   </div>
 </sc-if>
 
 <sc-if value="{{showPrivacy}}" hint-placeholder-val="{{false}}">
   <div style="position: absolute; inset: 0; z-index: 35; background: rgba(84, 48, 24, 0.38); display: flex; align-items: flex-end; animation: mdkFade 0.2s ease-out">
-    <div role="dialog" aria-modal="true" aria-label="Privacy Policy" style="width: 100%; height: 820px; box-sizing: border-box; padding: 18px 22px 24px; background: #FEF9F0; border-radius: 30px 30px 0 0; box-shadow: 0 -10px 30px rgba(120, 70, 30, 0.25); display: flex; flex-direction: column; gap: 10px; animation: mdkSheet 0.4s cubic-bezier(.2, 1.1, .4, 1)">
+    <div role="dialog" aria-modal="true" aria-label="{{T.privacyPolicy}}" style="width: 100%; height: 820px; box-sizing: border-box; padding: 18px 22px 24px; background: #FEF9F0; border-radius: 30px 30px 0 0; box-shadow: 0 -10px 30px rgba(120, 70, 30, 0.25); display: flex; flex-direction: column; gap: 10px; animation: mdkSheet 0.4s cubic-bezier(.2, 1.1, .4, 1)">
       <div style="width: 44px; height: 5px; border-radius: 3px; background: #E5D5C4; align-self: center"></div>
-      <h2 style="margin: 0; font-size: 26px; font-weight: 900">Privacy Policy</h2>
+      <h2 style="margin: 0; font-size: 26px; font-weight: 900">{{T.privacyPolicy}}</h2>
       <div class="mdk-doc" style="flex: 1; overflow-y: auto; font-size: 15px; line-height: 1.55; font-weight: 600; color: #4E3B36; padding-right: 4px">
+<sc-if value="{{isEn}}" hint-placeholder-val="{{true}}">
         <p style="color: #85766B">Last updated: 16 October 2026</p>
 <h3>1. Who is responsible</h3>
 <p>Responsible for the processing of personal data under the Swiss Federal Act on Data Protection (FADP) and, where it applies, the EU General Data Protection Regulation (GDPR):<br>Niklas<br>Wohnstadion Kirchenacker 1<br>8050 Oerlikon, Switzerland<br>Email: niklasrahm2301@gmail.com</p>
@@ -772,7 +829,7 @@ body{margin:0}
 <p><strong>Ads in the app:</strong></p>
 <ul>
   <li>Optional rewarded ads that you choose to watch, for example to double your level rewards, refill your hearts, get a hint, or unlock a cat or board.</li>
-  <li>A short full-screen ad after you finish a level if you do not choose to double your rewards. You can remove these ads with a valid code.</li>
+  <li>A short full-screen ad when you leave the reward screen after finishing a level. You can remove these ads with a valid code.</li>
 </ul>
 <p>We do not show ads before a level starts.</p>
 <p><strong>Data the ad network may process:</strong> your device's advertising ID, IP address, device and app information (such as device model, operating system, language and app version), information about the ads shown and your interactions with them, and an approximate location derived from your IP address.</p>
@@ -800,18 +857,71 @@ body{margin:0}
 <p>Game data is kept in the app's private storage, which other apps cannot access. Connections to the ad network are encrypted.</p>
 <h3>12. Changes to this policy</h3>
 <p>We will update this policy if the app or the legal situation changes. The current version is always available in the app.</p>
+</sc-if>
+<sc-if value="{{isDe}}" hint-placeholder-val="{{false}}">
+        <p style="color: #85766B">Stand: 16. Oktober 2026</p>
+<h3>1. Verantwortlicher</h3>
+<p>Verantwortlich für die Bearbeitung von Personendaten nach dem Schweizer Bundesgesetz über den Datenschutz (DSG) und, soweit anwendbar, nach der EU-Datenschutz-Grundverordnung (DSGVO):<br>Niklas<br>Wohnstadion Kirchenacker 1<br>8050 Oerlikon, Schweiz<br>E-Mail: niklasrahm2301@gmail.com</p>
+<h3>2. Zusammenfassung</h3>
+<ul>
+  <li>Du kannst MEOWDOKI ohne Konto spielen. Wir fragen nicht nach deinem Namen, deiner E-Mail-Adresse oder deiner Telefonnummer.</li>
+  <li>Dein Spielfortschritt, deine XP, Herzen, Tipps, freigeschalteten Inhalte und Einstellungen werden nur auf deinem Gerät gespeichert. Sie werden nicht an uns gesendet.</li>
+  <li>Die App zeigt Werbung von Google AdMob (das „Werbenetzwerk“). Das Werbenetzwerk bearbeitet Daten von deinem Gerät wie in Abschnitt 4 beschrieben.</li>
+  <li>Wir verwenden keine eigenen Analyse- oder Tracking-Tools und verkaufen deine Daten nicht.</li>
+</ul>
+<h3>3. Spieldaten auf deinem Gerät</h3>
+<p><strong>Was:</strong> Levelfortschritt, XP, Herzen und Tipps, Verlauf und Serie der Tagesrätsel, freigeschaltete und ausgewählte Katzen und Bretter, Fortschritt bei Freischaltungen per Werbung, deine Einstellungen (einschließlich der Sprache) und ob die Werbung mit einem Code entfernt wurde.</p>
+<p><strong>Warum:</strong> damit dein Fortschritt und deine Einstellungen gespeichert bleiben und das Spiel so funktioniert, wie du es erwartest. Diese Speicherung ist für das Spiel unbedingt erforderlich.</p>
+<p><strong>Rechtsgrundlage nach der DSGVO, soweit anwendbar:</strong> Art. 6 Abs. 1 lit. b DSGVO (Bereitstellung des von dir gewünschten Spiels).</p>
+<p><strong>Speicherdauer:</strong> bis du die App oder ihre Daten in den Einstellungen deines Geräts löschst. Wir können diese Daten nicht wiederherstellen, da wir sie nie erhalten.</p>
+<p>Codes werden in der App geprüft. Wenn du einen Code eingibst, werden keine Daten an uns gesendet.</p>
+<h3>4. Werbung</h3>
+<p><strong>Werbenetzwerk:</strong> Google AdMob. Für Nutzer im Europäischen Wirtschaftsraum (EWR) und in der Schweiz wird es von der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland, bereitgestellt, für alle anderen Nutzer von der Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA („Google“). Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>. Wie Google Daten aus Apps verwendet, die seine Dienste nutzen: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a>.</p>
+<p><strong>Werbung in der App:</strong></p>
+<ul>
+  <li>Freiwillige Werbung mit Belohnung, die du selbst startest, zum Beispiel um deine Level-Belohnung zu verdoppeln, Herzen aufzufüllen, einen Tipp zu erhalten oder eine Katze oder ein Brett freizuschalten.</li>
+  <li>Eine kurze Vollbildwerbung, wenn du nach einem gelösten Level den Bildschirm mit deiner Belohnung verlässt. Du kannst diese Werbung mit einem gültigen Code entfernen.</li>
+</ul>
+<p>Vor dem Start eines Levels zeigen wir keine Werbung.</p>
+<p><strong>Daten, die das Werbenetzwerk bearbeiten kann:</strong> die Werbe-ID deines Geräts, IP-Adresse, Geräte- und App-Informationen (etwa Gerätemodell, Betriebssystem, Sprache und App-Version), Informationen über die angezeigte Werbung und deine Interaktionen damit sowie einen aus deiner IP-Adresse abgeleiteten ungefähren Standort.</p>
+<p><strong>Zwecke:</strong> Werbung anzeigen, begrenzen, wie oft dieselbe Werbung erscheint, die Leistung von Werbung messen, Betrug und Missbrauch verhindern und, nur wenn du zustimmst, personalisierte Werbung auf Grundlage deiner Interessen anzeigen.</p>
+<p><strong>Deine Wahl:</strong> Personalisierte Werbung wird nur angezeigt, wenn du zustimmst. Wo es erforderlich ist (zum Beispiel im EWR, im Vereinigten Königreich und in der Schweiz), fragt dich das Einwilligungsformular von Google, wenn du die App zum ersten Mal öffnest. Du kannst deine Wahl jederzeit unter Einstellungen › Werbeeinstellungen ändern. Wenn du nicht zustimmst, kann das Werbenetzwerk weiterhin nicht personalisierte oder eingeschränkte Werbung anzeigen.</p>
+<p><strong>Rechtsgrundlage:</strong> Nach Schweizer Recht informieren wir dich über die Bearbeitung von Daten auf deinem Gerät für Werbung, und du kannst sie ablehnen (Art. 45c des Fernmeldegesetzes). Nach der DSGVO, soweit anwendbar: deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) für personalisierte Werbung und überall dort, wo das Gesetz eine Einwilligung zum Speichern oder Auslesen von Informationen auf deinem Gerät verlangt; ansonsten unser berechtigtes Interesse, die kostenlose App durch Werbung zu finanzieren (Art. 6 Abs. 1 lit. f DSGVO). Du kannst deine Einwilligung jederzeit widerrufen. Die bis dahin erfolgte Bearbeitung bleibt davon unberührt.</p>
+<p><strong>Verantwortung:</strong> Das Werbenetzwerk bearbeitet diese Daten als eigenständiger Verantwortlicher nach seiner eigenen Datenschutzerklärung.</p>
+<p>Du kannst deine Werbe-ID jederzeit in den Android-Einstellungen zurücksetzen oder löschen (meist unter Datenschutz › Werbung).</p>
+<h3>5. Bekanntgabe ins Ausland</h3>
+<p>Das Werbenetzwerk und seine Partner können Daten außerhalb der Schweiz und des EWR bearbeiten, insbesondere in den USA. Bietet ein Land keinen angemessenen Datenschutz, wie ihn der Schweizerische Bundesrat (oder nach der DSGVO die Europäische Kommission) anerkennt, werden Daten nur auf Grundlage geeigneter Garantien bekanntgegeben. Dazu gehören das Swiss-U.S. und das EU-U.S. Data Privacy Framework für zertifizierte Unternehmen oder Standardvertragsklauseln, die vom Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) und von der Europäischen Kommission anerkannt sind.</p>
+<h3>6. Google Play</h3>
+<p>Wenn du die App herunterlädst oder aktualisierst, bearbeitet Google Daten in eigener Verantwortung als Betreiber von Google Play. Google stellt uns Statistiken, etwa die Anzahl der Installationen, und Absturzberichte zur Verfügung. Diese ermöglichen es uns nicht, dich zu identifizieren.</p>
+<h3>7. Kontakt mit uns</h3>
+<p>Wenn du uns eine E-Mail schreibst, verwenden wir deine E-Mail-Adresse und deine Nachricht nur, um dir zu antworten. Wir löschen sie, sobald sie nicht mehr benötigt werden, es sei denn, wir sind gesetzlich zur Aufbewahrung verpflichtet. Nach der DSGVO, soweit anwendbar, ist die Rechtsgrundlage Art. 6 Abs. 1 lit. b DSGVO bei Fragen zur App und ansonsten Art. 6 Abs. 1 lit. f DSGVO (unser Interesse an der Beantwortung von Anfragen).</p>
+<h3>8. App-Berechtigungen</h3>
+<p>Die App verwendet Internet- und Netzwerkzugriff (zum Laden von Werbung), Vibration (für Vibrationsfeedback, das du in den Einstellungen ausschalten kannst) und die Berechtigung für die Werbe-ID (für Werbung). Sie fragt keinen Zugriff auf deinen Standort, deine Kontakte, deine Kamera, dein Mikrofon oder deine Dateien an.</p>
+<h3>9. Kinder</h3>
+<p>MEOWDOKI ist ein Spiel für ein allgemeines Publikum und richtet sich nicht an Kinder unter 13 Jahren. Wenn du jünger als 16 bist, frag bitte einen Elternteil oder eine erziehungsberechtigte Person, bevor du personalisierter Werbung zustimmst.</p>
+<h3>10. Deine Rechte</h3>
+<p>Nach dem DSG kannst du Auskunft darüber verlangen, ob und welche Personendaten wir über dich bearbeiten (Art. 25 DSG), die Berichtigung unrichtiger Daten verlangen, der Bearbeitung widersprechen und die Löschung deiner Daten verlangen (Art. 30 und 32 DSG) sowie die Herausgabe deiner Daten in einem gängigen elektronischen Format verlangen (Art. 28 DSG). Du kannst eine Einwilligung jederzeit widerrufen. Schreib uns dazu an niklasrahm2301@gmail.com.</p>
+<p>Wenn du im EWR oder im Vereinigten Königreich lebst, hast du zudem die Rechte nach Art. 15–21 DSGVO (Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch) und kannst dich bei einer Datenschutz-Aufsichtsbehörde beschweren (Art. 77 DSGVO).</p>
+<p>In der Schweiz ist die Aufsichtsbehörde der Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (EDÖB), Feldeggweg 1, 3003 Bern, <a href="https://www.edoeb.admin.ch">www.edoeb.admin.ch</a>.</p>
+<p>Da deine Spieldaten auf deinem Gerät bleiben und wir keine Werbedaten erhalten, die dich identifizieren, können wir dir in der Regel keine Daten zuordnen. Für Daten, die das Werbenetzwerk bearbeitet, kannst du dich auch direkt an das Werbenetzwerk wenden.</p>
+<h3>11. Sicherheit</h3>
+<p>Spieldaten werden im privaten Speicher der App aufbewahrt, auf den andere Apps nicht zugreifen können. Verbindungen zum Werbenetzwerk sind verschlüsselt.</p>
+<h3>12. Änderungen dieser Erklärung</h3>
+<p>Wir passen diese Erklärung an, wenn sich die App oder die Rechtslage ändert. Die aktuelle Version ist jederzeit in der App verfügbar.</p>
+</sc-if>
       </div>
-      <button onClick="{{closeModal}}" style="height: 56px; border: none; border-radius: 28px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17; color: #FFFFFF; font-size: 21px; font-weight: 800; cursor: pointer; padding-bottom: 4px">Done</button>
+      <button onClick="{{closeModal}}" style="height: 56px; border: none; border-radius: 28px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17; color: #FFFFFF; font-size: 21px; font-weight: 800; cursor: pointer; padding-bottom: 4px">{{T.done}}</button>
     </div>
   </div>
 </sc-if>
 
 <sc-if value="{{showTerms}}" hint-placeholder-val="{{false}}">
   <div style="position: absolute; inset: 0; z-index: 35; background: rgba(84, 48, 24, 0.38); display: flex; align-items: flex-end; animation: mdkFade 0.2s ease-out">
-    <div role="dialog" aria-modal="true" aria-label="Terms of Service" style="width: 100%; height: 820px; box-sizing: border-box; padding: 18px 22px 24px; background: #FEF9F0; border-radius: 30px 30px 0 0; box-shadow: 0 -10px 30px rgba(120, 70, 30, 0.25); display: flex; flex-direction: column; gap: 10px; animation: mdkSheet 0.4s cubic-bezier(.2, 1.1, .4, 1)">
+    <div role="dialog" aria-modal="true" aria-label="{{T.terms}}" style="width: 100%; height: 820px; box-sizing: border-box; padding: 18px 22px 24px; background: #FEF9F0; border-radius: 30px 30px 0 0; box-shadow: 0 -10px 30px rgba(120, 70, 30, 0.25); display: flex; flex-direction: column; gap: 10px; animation: mdkSheet 0.4s cubic-bezier(.2, 1.1, .4, 1)">
       <div style="width: 44px; height: 5px; border-radius: 3px; background: #E5D5C4; align-self: center"></div>
-      <h2 style="margin: 0; font-size: 26px; font-weight: 900">Terms of Service</h2>
+      <h2 style="margin: 0; font-size: 26px; font-weight: 900">{{T.terms}}</h2>
       <div class="mdk-doc" style="flex: 1; overflow-y: auto; font-size: 15px; line-height: 1.55; font-weight: 600; color: #4E3B36; padding-right: 4px">
+<sc-if value="{{isEn}}" hint-placeholder-val="{{true}}">
         <p style="color: #85766B">Last updated: 16 October 2026</p>
 <h3>1. Provider and scope</h3>
 <p>MEOWDOKI (the "App") is provided by Niklas, Wohnstadion Kirchenacker 1, 8050 Oerlikon, Switzerland, email: niklasrahm2301@gmail.com&nbsp; ("we", "us"). These Terms of Service apply to your use of the App. The terms of Google Play also apply to downloading the App.</p>
@@ -840,8 +950,39 @@ body{margin:0}
 <p>These Terms are governed by Swiss law, excluding its conflict-of-law rules and the UN Convention on Contracts for the International Sale of Goods. The place of jurisdiction is Zürich, Switzerland. If you are a consumer, you may also bring proceedings at your place of residence. Mandatory consumer protection rules and places of jurisdiction of the country where you have your habitual residence remain unaffected.</p>
 <h3>13. Contact</h3>
 <p>Questions about the App or these Terms: niklasrahm2301@gmail.com</p>
+</sc-if>
+<sc-if value="{{isDe}}" hint-placeholder-val="{{false}}">
+        <p style="color: #85766B">Stand: 16. Oktober 2026</p>
+<h3>1. Anbieter und Geltungsbereich</h3>
+<p>MEOWDOKI (die „App“) wird angeboten von Niklas, Wohnstadion Kirchenacker 1, 8050 Oerlikon, Schweiz, E-Mail: niklasrahm2301@gmail.com („wir“, „uns“). Diese Nutzungsbedingungen gelten für deine Nutzung der App. Für das Herunterladen der App gelten zudem die Bedingungen von Google Play.</p>
+<h3>2. Die App</h3>
+<p>Die App ist ein kostenloses Logikrätsel-Spiel, das durch Werbung finanziert wird. Durch das Lösen von Levels verdienst du XP und Herzen. XP kannst du für neue Katzen und Bretter ausgeben. Die nächste Katze oder das nächste Brett kannst du auch freischalten, indem du Werbung mit Belohnung ansiehst. Die App bietet keine Käufe mit echtem Geld an.</p>
+<h3>3. Nutzungsrecht</h3>
+<p>Wir räumen dir ein kostenloses, nicht ausschließliches, nicht übertragbares und widerrufliches Recht ein, die App auf deinen eigenen Geräten für persönliche, nicht kommerzielle Zwecke zu nutzen. Du darfst die App oder ihre Inhalte, einschließlich Grafiken, Figuren und Rätsel, weder kopieren, verkaufen noch verbreiten und die App weder dekompilieren noch verändern, sofern zwingendes Recht dies nicht erlaubt.</p>
+<h3>4. Fair Play</h3>
+<p>Bitte manipuliere die App nicht und verwende keine Cheats, Bots oder veränderten Versionen, um Belohnungen zu erhalten oder Werbung zu überspringen.</p>
+<h3>5. XP, Herzen, Tipps und freigeschaltete Inhalte</h3>
+<p>XP, Herzen, Tipps, freigeschaltete Katzen und Bretter sowie dein Spielfortschritt sind virtuell. Sie haben keinen Geldwert und können weder gegen Geld eingetauscht noch verkauft oder übertragen werden. Sie werden nur auf deinem Gerät gespeichert. Wenn du die App löschst oder das Gerät wechselst, können sie verloren gehen, und wir können sie nicht wiederherstellen. Wir können Preise, Belohnungen und andere Einstellungen der Spielbalance anpassen.</p>
+<h3>6. Werbung mit Belohnung und Codes</h3>
+<p><strong>Werbung mit Belohnung:</strong> Du erhältst die Belohnung, nachdem du die Werbung vollständig angesehen hast. Ob Werbung verfügbar ist, hängt vom Werbenetzwerk ab und ist nicht garantiert.</p>
+<p><strong>Codes:</strong> Wir können Codes bereitstellen, zum Beispiel um Werbung zu entfernen. Ein Code kann nur so verwendet werden, wie es bei seiner Ausgabe beschrieben ist. Er hat keinen Barwert und kann zeitlich oder in der Anzahl der Nutzungen begrenzt sein. „Werbung entfernen“ entfernt die kurzen Vollbildwerbungen nach Levels auf dem Gerät, auf dem der Code eingelöst wurde. Freiwillige Werbung mit Belohnung bleibt verfügbar.</p>
+<h3>7. Werbung</h3>
+<p>Werbung in der App wird von Dritten bereitgestellt. Wir sind nicht verantwortlich für den Inhalt von Werbung oder von Websites, die du darüber erreichst. Informationen zur Datenbearbeitung für Werbung findest du in unserer Datenschutzerklärung.</p>
+<h3>8. Verfügbarkeit und Änderungen</h3>
+<p>Die App wird kostenlos angeboten. Wir tun unser Bestes, damit sie reibungslos läuft, können aber nicht garantieren, dass sie immer verfügbar oder fehlerfrei ist. Wir können die App aktualisieren, Funktionen und Inhalte ändern oder entfernen oder die App einstellen.</p>
+<h3>9. Haftung</h3>
+<p>Wir haften für Schäden, die wir vorsätzlich oder grobfahrlässig verursachen. Soweit gesetzlich zulässig, ist jede weitere Haftung, insbesondere für leichte Fahrlässigkeit, ausgeschlossen. Dies schränkt weder unsere Haftung für Schäden an Leben, Körper oder Gesundheit noch unsere Haftung nach dem Schweizer Produktehaftpflichtgesetz oder eine andere Haftung ein, die nach zwingendem Recht nicht beschränkt werden kann.</p>
+<h3>10. Beendigung der Nutzung</h3>
+<p>Du kannst die Nutzung der App jederzeit beenden, indem du sie deinstallierst. Wir können dein Nutzungsrecht beenden, wenn du schwerwiegend gegen diese Bedingungen verstößt.</p>
+<h3>11. Änderungen dieser Bedingungen</h3>
+<p>Wir können diese Bedingungen aus einem triftigen Grund ändern, zum Beispiel bei einer Gesetzesänderung oder neuen Funktionen. Wir informieren dich in der App über Änderungen. Wenn du mit den Änderungen nicht einverstanden bist, kannst du die Nutzung der App beenden.</p>
+<h3>12. Anwendbares Recht und Gerichtsstand</h3>
+<p>Diese Bedingungen unterliegen Schweizer Recht unter Ausschluss des Kollisionsrechts und des Übereinkommens der Vereinten Nationen über Verträge über den internationalen Warenkauf (UN-Kaufrecht). Gerichtsstand ist Zürich, Schweiz. Wenn du Verbraucher bist, kannst du auch an deinem Wohnsitz klagen. Zwingende Verbraucherschutzvorschriften und Gerichtsstände des Landes, in dem du deinen gewöhnlichen Aufenthalt hast, bleiben unberührt.</p>
+<h3>13. Kontakt</h3>
+<p>Fragen zur App oder zu diesen Bedingungen: niklasrahm2301@gmail.com</p>
+</sc-if>
       </div>
-      <button onClick="{{closeModal}}" style="height: 56px; border: none; border-radius: 28px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17; color: #FFFFFF; font-size: 21px; font-weight: 800; cursor: pointer; padding-bottom: 4px">Done</button>
+      <button onClick="{{closeModal}}" style="height: 56px; border: none; border-radius: 28px; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17; color: #FFFFFF; font-size: 21px; font-weight: 800; cursor: pointer; padding-bottom: 4px">{{T.done}}</button>
     </div>
   </div>
 </sc-if>
@@ -864,23 +1005,23 @@ body{margin:0}
 
 <!-- ============ FULL-SCREEN AD (placeholder for the ad network) ============ -->
 <sc-if value="{{showAd}}" hint-placeholder-val="{{false}}">
-  <div role="dialog" aria-modal="true" aria-label="Advertisement" style="position: absolute; inset: 0; z-index: 50; background: #141012; color: #FFFFFF; animation: mdkFade 0.2s ease-out">
+  <div role="dialog" aria-modal="true" aria-label="{{T.advertisement}}" style="position: absolute; inset: 0; z-index: 50; background: #141012; color: #FFFFFF; animation: mdkFade 0.2s ease-out">
     <div style="position: absolute; left: 0; top: 0; width: 100%; height: 3px; background: rgba(255, 255, 255, 0.12)">
       <div style="{{adBarStyle}}"></div>
     </div>
-    <span style="position: absolute; left: 16px; top: 52px; padding: 3px 9px; border-radius: 6px; background: rgba(255, 255, 255, 0.16); font-size: 13px; font-weight: 900; letter-spacing: 0.6px">Ad</span>
+    <span style="position: absolute; left: 16px; top: 52px; padding: 3px 9px; border-radius: 6px; background: rgba(255, 255, 255, 0.16); font-size: 13px; font-weight: 900; letter-spacing: 0.6px">{{T.adTag}}</span>
     <sc-if value="{{adCounting}}" hint-placeholder-val="{{true}}">
       <span aria-label="{{adSecsLabel}}" style="position: absolute; right: 16px; top: 46px; width: 38px; height: 38px; border-radius: 50%; box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800">{{adSecs}}</span>
     </sc-if>
     <sc-if value="{{adCanClose}}" hint-placeholder-val="{{false}}">
-      <button aria-label="Close ad" onClick="{{closeAd}}" style="position: absolute; right: 12px; top: 42px; width: 46px; height: 46px; padding: 0; border: none; border-radius: 50%; background: rgba(255, 255, 255, 0.16); display: flex; align-items: center; justify-content: center; cursor: pointer; animation: mdkPopIn 0.3s both">
+      <button aria-label="{{T.closeAd}}" onClick="{{closeAd}}" style="position: absolute; right: 12px; top: 42px; width: 46px; height: 46px; padding: 0; border: none; border-radius: 50%; background: rgba(255, 255, 255, 0.16); display: flex; align-items: center; justify-content: center; cursor: pointer; animation: mdkPopIn 0.3s both">
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round"></path></svg>
       </button>
     </sc-if>
     <div style="position: absolute; left: 24px; right: 24px; top: 300px; height: 250px; border-radius: 22px; border: 2px dashed rgba(255, 255, 255, 0.22); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center">
       <svg width="54" height="54" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="4" fill="rgba(255,255,255,0.85)"></rect><path d="M10 8.8v6.4l5.4-3.2z" fill="#141012"></path></svg>
-      <span style="font-size: 20px; font-weight: 800">Full-screen ad</span>
-      <span style="font-size: 14px; font-weight: 600; opacity: 0.6; padding: 0 20px">Placeholder. The real Google AdMob ad appears here.</span>
+      <span style="font-size: 20px; font-weight: 800">{{T.fullAd}}</span>
+      <span style="font-size: 14px; font-weight: 600; opacity: 0.6; padding: 0 20px">{{T.adPlaceholder}}</span>
       <span style="font-size: 11px; font-weight: 700; opacity: 0.45; padding: 0 16px; word-break: break-all">{{adUnitText}}</span>
     </div>
     <sc-if value="{{adRewarded}}" hint-placeholder-val="{{false}}">
@@ -900,7 +1041,7 @@ body{margin:0}
 
 <!-- ============ HEART (ads removed) ============ -->
 <sc-if value="{{showHeart}}" hint-placeholder-val="{{false}}">
-  <button onClick="{{closeHeart}}" aria-label="Ads removed. Tap to continue." style="position: absolute; inset: 0; z-index: 60; border: none; padding: 0; background: radial-gradient(circle at 50% 44%, rgba(255, 236, 228, 0.97) 0%, rgba(252, 226, 214, 0.95) 45%, rgba(84, 48, 24, 0.45) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; cursor: pointer; animation: mdkFade 0.25s ease-out">
+  <button onClick="{{closeHeart}}" aria-label="{{T.adsRemovedAria}}" style="position: absolute; inset: 0; z-index: 60; border: none; padding: 0; background: radial-gradient(circle at 50% 44%, rgba(255, 236, 228, 0.97) 0%, rgba(252, 226, 214, 0.95) 45%, rgba(84, 48, 24, 0.45) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; cursor: pointer; animation: mdkFade 0.25s ease-out">
     <span style="position: relative; width: 190px; height: 176px; display: block; animation: mdkHeartIn 0.7s cubic-bezier(.2, 1.4, .4, 1) both">
       <span style="position: absolute; inset: 0; display: block; animation: mdkBeat 1.3s ease-in-out 0.7s infinite">
         <svg width="190" height="176" viewBox="0 0 24 22" aria-hidden="true"><defs><linearGradient id="mdkHeartGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6B6B"></stop><stop offset="1" stop-color="#E5252D"></stop></linearGradient></defs><path d="M12 21.2s-8.7-5.2-10.7-10.4C0 7.1 2.2 2.4 6.5 2c2.3-.2 4.1.9 5.5 2.9 1.4-2 3.2-3.1 5.5-2.9 4.3.4 6.5 5.1 5.2 8.8C20.7 16 12 21.2 12 21.2z" fill="#B71C24" transform="translate(0 0.5)"></path><path d="M12 21s-8.6-5.2-10.6-10.3C.1 7.1 2.2 2.6 6.5 2.2c2.3-.2 4.1.9 5.5 2.9 1.4-2 3.2-3.1 5.5-2.9 4.3.4 6.4 4.9 5.1 8.5C20.6 15.8 12 21 12 21z" fill="url(#mdkHeartGrad)"></path><ellipse cx="7.2" cy="6.6" rx="2.6" ry="1.6" fill="#FFFFFF" opacity="0.7" transform="rotate(-30 7.2 6.6)"></ellipse><circle cx="4.7" cy="9.2" r="0.7" fill="#FFFFFF" opacity="0.6"></circle></svg>
@@ -909,8 +1050,8 @@ body{margin:0}
         <svg width="22" height="20" viewBox="0 0 24 22" aria-hidden="true" style="{{mh.style}}"><path d="M12 21s-8.6-5.2-10.6-10.3C.1 7.1 2.2 2.6 6.5 2.2c2.3-.2 4.1.9 5.5 2.9 1.4-2 3.2-3.1 5.5-2.9 4.3.4 6.4 4.9 5.1 8.5C20.6 15.8 12 21 12 21z" fill="#F23C3C"></path></svg>
       </sc-for>
     </span>
-    <span style="font-size: 30px; font-weight: 900; color: #2B1A14; animation: mdkRise 0.5s 0.35s both">Ads removed!</span>
-    <span style="font-size: 17px; font-weight: 700; color: #6A5852; animation: mdkRise 0.5s 0.45s both">Thank you for playing MEOWDOKI</span>
+    <span style="font-size: 30px; font-weight: 900; color: #2B1A14; animation: mdkRise 0.5s 0.35s both">{{T.adsRemoved}}</span>
+    <span style="font-size: 17px; font-weight: 700; color: #6A5852; animation: mdkRise 0.5s 0.45s both">{{T.thanks}}</span>
   </button>
 </sc-if>
 
@@ -920,37 +1061,37 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"start":{"editor":"enum","options":["home","loading","level","complete","daily","skins","settings"],"default":"home"},"$preview":{"width":390,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"start":{"editor":"enum","options":["home","loading","lang","level","complete","daily","skins","settings"],"default":"home"},"$preview":{"width":390,"height":900}}'>
 const MDK_LEVELS = ["5|t|-1|caaaaccabbccaaaceedeceeee|24031","5|g|10|caadbcaddbccdbbeedddeeddd|24031","5|t|-1|bbbbabbbbaddbceddeeeddeee|41302","5|g|7|ccbaacbbadccbddcedddeeddd|42031","5|t|-1|bbaccbbcccdddceddccedeeee|20314","6|g|20|aaaaccdcbbccdcccccddddffeeeddfedddff|135204","6|t|-1|aaccccabbcccaaccccfdeeeefffffeffffff|024153","6|g|20|aaaaabaaabbbeaddbceddddceeefdfefffff|135204","6|t|-1|ccdddaccdbbeccdddeccdddecccfeefffffe|530241","6|g|2|caaabdccdabdcddaddcddddfceefffccefff|240315","6|t|-1|caaabbccebbbceebbfceeedfceeeefeeeeef|130425","6|g|22|bbcaaabcccdaecccdfeceddfeeefffeeeeff|302415","6|t|-1|bbaaaabbbaaadbbbccddddcceeedcceefddd|415302","6|g|33|bbbbaabbfbaabfffcabddfcaeddfcceddffc|514203","6|t|-1|aaaaaacaacbbccaccbecccdbecdddbeddfdd|251403","6|g|3|baaaaabaaaaacccaadceaafdceffffeeefff|302514","6|t|-1|dbbaaedbddaedddcfedffffeffeeeeffffee|413052","6|g|11|aaaabbaccbbbaaccddaeccddaeffffeeffff|052413","7|t|-1|aaaabeeddbbbbedddbceeddddeeedffffeedfffffeddddgge|0241635","7|g|38|bbbccaabbdcccaeedcccaeedffcgeffffcgeeffffgffffffg|5142036","7|t|-1|bbbccaabcccffacccccffccceefdgceeeffgggeffgggggggg|5036241","7|g|22|aacccccdadcbbbdddccbbdddfffbdeeeffbggeeffbgggfffb|0641352","7|t|-1|cccccaacdcdbaacdddaafeeedddfeeeeedfeggegffggggggg|6403152","7|g|11|aaaaaaaabbabbbbbbbbbcddbeebcddbeeegdfeegegdffeggg|2460315","7|t|-1|daaddccddabdccdddddcedddfdeefdffddeffffffeggffffe|1352640","7|g|48|bbbbeaaccbbeeeccbbbeefcddbeefdddeeefffffgeffggggg|5302416","7|t|-1|caaabbbcccaebecddaeeecdddddecdeeedegfgeeeeggggeee|2504613","7|g|18|aaabbbbaabbcbbaaaacccadcccecdddddeefdfffeefffggee|2641503","7|t|-1|ddaaaaabddafaabdgffccddgffccdggffcedgfffffdggffff|3051642","7|g|46|bbbbaaabbbbcaabbbbccaebbddcceeddgcceeffgccefffggg|6153024","7|t|-1|bbbbbbabbbbeccbbdeecgddddeggdddeeggfedeeegfeeeggg|6251304","7|g|20|bbbaaccbbbbbccddbeeccdgbbeccgggeeecffgeeccggggeec|4260513","7|t|-1|ddbbbbaddbbbccdbbdcccdddddeedfeeeeedfffffeddddfgg|6240315","7|g|14|ccaabbbccccbdbccccbdbcecddddeeeeeddgefefddggfffff|3605241","7|t|-1|ffcccbaffcbbbdfccbbbdfbbbdddfeeeeddfffeedgffffegg|6314205","8|g|42|bbdaaaaebddceeeebdcccceefdddeeeefdfeefeefffeffggfffffffgfhhfgggg|40536271","8|t|-1|ccccaaaacccaabbacccccbffgdccbbbfgdgcceffgggcccffgggcgggghhgggggg|46315720","8|g|49|ccaaadeecbbdddeecccddeeecchddeeegghhdeeegghdddefgghhddefgghhhhhh|42035716","8|t|-1|aaaaaaaadbbeeeeedbbceeeeddbbeddddddeeedddddddddfhhhggfffhhhhhhhh|61305742","8|g|17|cccaaaeeccbbeeeecccchheecccddhegffcdhhegfffffhggffffhhggfhhhhggg|53146072","8|t|-1|ccbeeaddccbeedddccceeeedffceehhdffceeehhfffeeghhffffgghhhhhhhhhh|52073146","8|g|59|cccccaaacbbbccaacbbbbccabbddbbaaebbddaaaebedffaaeeedddgahhhhdgga|71520463","8|t|-1|aaddddccdabdccccddddddecddffdeeedhhffeeeghhfeeeegghffeheghhhhhhe|02746315","8|g|52|bbbbbaaabbcbbbbbbbccbcbgbdcccccgbdggeeggbdfgeeggddfgggggddhhhhhg|70315246","8|t|-1|aaaaabbeaaacbbbeccccbbbegcddebeegggeeeeegffgeeeeggggggeeggghgggg|46027153","8|g|45|aaaaaabbfdddbbbbfdddddccfdfdfcccfffffeeeggffffffggffffhhggfhhhhh|24617503","8|t|-1|eaabbbffeaabbbffecebffffecebdfffeeefffffhhhfhfhfhggghhhfhhhhhhhh|25140736","8|g|57|aabbbdddccccbbddccceebddccccebddccceeeedhcceefffhhhheffghhhhhhgg|04263571","8|t|-1|cfffeaaacffeeaabcfdeehhhffddehehffdeeeehffddeeehfffgehehfgggghhh|57024136","8|g|20|aabbbbbbacccbcbbaaaccccbeaddccbbeaffccbbeafffccceaahhgggaaaahhgg|16420375","8|t|-1|caaaaaabccacbbbbccccccbbcccddcddcddddddeccggdfdeccgddhhhggggdhhh|14037526","8|g|24|dddaaaaadddabbecdddaheecdfddheecdfdhheeeffhhhheehhhggheehhhgggee|35706142","8|t|-1|bbbbaaccbcbbbcccccccccchcfdfcchhffffecchffffechhffgghhhhfhhhhhhh|50624137","8|g|5|ddaaaabbddacccebdccceeegddccccegdcceeeegfcccceegfcheeeggcchheeeg|57314062","8|t|-1|cccbbbaacbbbbbaaccaaaaaaccaaedaacfaeedggcfffdddgcccfdddgcccfhddg|62053174","9|g|29|cccccccacbbbdccaacbddddcccceedcccccdeedddddddeidfffddgeiidddddgiihhhhdggiiiihhhhg|716204853","9|t|-1|bbbbbaaaabbcbbaaddbccbbaaddbccddddddccedhhdddciedhfddgciidhhdhgiiiiihhhhiiiiiiiih|731425860","9|g|68|aaaaaaiiiaeaafaibieeccfffbieeefddffigeefffffiggeffhffihgegfhfiihggghhfiihhhhhffii|072416358","9|t|-1|aaaaaaaaaccebbdadaccebddddaccebddddaceeedddaaceedddhhfcigidhhhfciiidddhhcidddhhhh|640538271","9|g|24|cccccccaacdcbcccaacddbbbcaacdfffcceacdfffceeacggfffffaggghfffaagghhhffffgiiihffff|836175042","9|t|-1|ggaaaaaaaggggabaaacgggabbbacccgdffbaeeggggffaeiggfffaaiiggghffaiihhghfhaiiihhhhha|850416372","9|g|61|cccbbeaaaccebeedaaceeeeedaaceggeddaaeegeeeddaeegeffgaaeeggffgggehhgggghiehhhhhhhi|630514728","9|t|-1|ddaddddbecdddddfbeccdffdfeeccddffffecddfffeeecdgcffffhcggccfhfhccgcchhhhcccchhhii|270364158","9|g|73|caaaaaaddcccaabbddcccadddddceeaaedddcceeeeeddieeeefedfiegffffffiiggggffhiiiffffhh|460735281","9|t|-1|aaahcccddaaahccdbdaahhccdddeaahgcddfeaahggfffhahhggfffhahhhgggghhhhhhhggiihhhgggg|274608531","9|g|56|aaaabbbbbagggbbbccaggggbcccaggddbbbcgggeeebccffggheeccgggghhhhhgghhhiiiigiiiiiiii|168350247","9|t|-1|aaaddfbbfaddddffbfaddcccfffddddccggfeeccccgffeccggggffeeccccggiheeccccgieecciiiii|275318604","9|g|11|abbbbbbbbaabefbbccbbbeffffcddbeeeffcdbbbehfffdgbbehffiggggehhiigghhhhiiihhhiiiiii|028146357","9|t|-1|bbdccccaabdddceccaddddceeeadedeeeeeaeeeefeieifffffiiiifggfffiiifggfifiihffgiiiiii|704253186","9|g|60|bbbbbbbaabcccccccgccdddccggddfdgggghdffddgeehdffdggeehddfdgggehddddhhhhhddiiiihhh|805371642","9|t|-1|ccccgafbbicccgffbfiiicgffffiddggfefhiggggfefhigggffeehiggggeehhiiiihhhhhiiiiiiiii|573164280","9|g|56|aaaaaaaaaabbbbbbbbbbdbfbcbcbdddffcccggfffeechgggffeehhgiggeeehhgiihehhhhgiihhhhhh|058364271","9|t|-1|bbaaaaaacbeeddaaccbbeeddaccbbbedddccbbbeedddcbfgeeddccbfggddcccbffgghcccbfighhhhc|708641352","9|g|74|bbbbbbbaabbbdddbbabbddcccaabdddddcafdddedddafddeeedfffdiiiiiffgiiihhiffgiiihhhhhg|705136842","9|t|-1|aacddddbbacccdddbdcciccddbdccicdddddciiieddeeciifeeeehgiffeeehhiiiiihhhhiiiiiiihh|174683052","10|g|15|bbbbbbbbaabcccbbabbabcbbbbaaaabcdddgaaaebcdddgeeeeccccfgeeeecfccfggeehcfffffffehciiffiffeejjiiiiiiee|8513746920","10|t|-1|ffeaaeeebbffeeeeeeebcfeeefeeeicfedffeeeifffffeegeiffjjffggeihffjjgggiihhfjggiggihffjggiigijjjjiiiiii|4903857162","10|g|54|ccccaaaaddccccbbaaadcfcccdadadffcccdddadffeecgddddffeefggdddffffffgiidfhhfjfffidffhfjjffidfjjjjjjjjd|7509246183","10|t|-1|caacccbbbbccacbbbbdbccccbbbbdbccccbfbbddceeeeffffdceeffffdddeeeeffddgdeeeehffggdeeiehffgddiiieejfgdd|1709368425","10|g|76|aaaaaaaaahbaeaacccahbaeeaaccchbeeeadddchbeeeeffdhhbeeeffffhhbegehfffhheeghhhhhhhegghhhjjiiegghhhhjii|3085142697","10|t|-1|haaaaaeeeehfaabaabeehfaabbbbcehffdbffbcehhfbbfeeeehhffffeegehhhhhhhggehjjhjjjegehhjhiijeeejjjjjjjjjj|1483627059","10|g|72|aaaddceebbddaddceeebdddddcceeedhddfeeeeedhdffggegedhhfffgggeddhfffffgeddhffifggfdjhhfifggfdjjhffffff|0963748251","10|t|-1|ehabbbbbbdehhcccccbdeehhcfccddehhhcffccdehhfffffcfhhhhffifcfhgghhfifffiiihhfififiiiiiiiiifijjjiiffff|2869051473","10|g|64|iaadddddddiiiiccdddbiicccddbbbiiiiddddbjihiieeddfjihhheeddfjihhiggddjjiihigggjjjiiiijjgjjjjjjjjjjjjj|1937584206","10|t|-1|bbbbbbcaccbeecccccccffececjdccffeeecjdddfiieeejjjjffiiiejjjjffieeegghjfiieeehhhjfiieeeehjjeeeeejjjjj|7039416825","10|g|22|aaaabbbbbbaaaaabbbbbaacccccbedfaacaaceedffaaacceecfaaaaccccchhacccggccjhjjiggjccjjjjijjjjcjjjjjjjjjj|3529706148","10|t|-1|aaaaaaaaaeabbbbbbaaeabbdddccaeabbddcccceabbddddceeafbbbbbcceffbgbbbbeeffggghheeiggggggheeiggggggjeee|0274813596","10|g|28|bbbbbbbaacddffcbccccdeffccchccdeffchhhhceeefccchhceggfficihcgggffiiihhgigffiihhhgiiiiiiiihiiiijjjjjh|7580241936","10|t|-1|cccfeeeaaebcffeeeeaecccfdddeeeccffddeegecffddeeggeccffdggggehcfggggeeehhhhhgggggjhhhhhhgigjjhhhiiiii|7025936481","10|g|59|cccddbbbaacccddbbbbacddddffbbbddhhddffffdhhhhddeefdhhhhheeefdggghhhhhfjgghhggiffjggghgiiffjjjgggffff|8504791362","10|t|-1|bbbbbbbbacbbbbccccccbbcccececcbdcceeceecbdcceeeeecbdddffeeccbbgfffeeccgbgffiehhcgbggfieiiigggggiiijj|8031642759","10|g|41|caacbdddggccccbddfggcecccdffggceeccdffggeeeccddffgeccccffffgefffffffggeefhhhfiiiefffhjfffieeeejjjjjj|2405168397","10|t|-1|cccaaddbbbcccddddddbcgggggdeddhgeeeeeeddhgeegggefdhggegggffdhhgeegggffhhggggjgffhhggihjjffhhhhhhjjff|3908275146","10|g|92|aaaaccccbbcaccccebbbcaacceeebbcacceebebdcaceeebbbdcaceeebbfdccceggffffcchhjjjjjjcjjhjiijjjjjjjjiiijj|1709485362","10|t|-1|ffccccceeaffcbceeeeafdddccdehhfdfddddehhffffdjjehhffffdjjhhifffggjjhiiffjgjjhhiifjjgjjiiiiffjjjjjjjj|9351704682","10|g|2|eaaaaabbbbeaaacabgggeeaacaadggeaaccaaddgeehhaaaddgeeehaaffggeeehhjjjggeehhhhjggjieeehhjggjiieehjjjjj|2648179305","10|t|-1|aaaaabbbbbccaabbbbbbcaacbbdbbbccccccdddbeecccccddbjjcccfcddbjgffcfffhhjjjfffhhhhjfffffffihjjjfiiiiii|4937051682","10|g|92|bbbbbbbaaadbccbbbbaadeecccbggaddeeggggaadfeeeeggggjfffegggggjhhhhgggggjjjjhhhgggijjjhhhhhhiijjjjjjjh|9741538602","10|t|-1|aaccccbbbbadcccbbbbbdddcccbbbbddddddbddbedddedbdbbeedeedddbfeeeegggddfeegggghdffeegihhhddfeeiiiihjff|1852094637","10|g|93|hhhhbbbaaahhhebbbbachheebbbccchhegbfcccdheegbfcfddheegbfffffheggbffffihhjiiiifiijhjiijiiiijjjjjjiiii|8479152063"];
 const MDK_DAILY = ["7|t|-1|aaaaabbaddabbbddaaaccddaeeeeddeeeeedfeeegedeeeege|2460315","7|g|8|bbbbbbabbcccbabdddcfabddddffedddddfeddddffegggggf|6142053","7|g|14|aaaaaaaabbdddacbbbdeacfffdeaccfffeecffffefcggffff|5204631","7|g|21|bbbaaeedbbbaeedcbbceedccccceddffffeffffffgfgggggg|3140625","7|g|37|ddddaccdbbbacedfbcccedfffccedffcceedffeeegffffffg|4130526","7|t|-1|bbdaaccbddaaccbddacccddddcggddffcegddffccgfffcccg|3041526","7|g|4|ceeaaaacebbbaaceeeddaffeegdafeeeggaffeeegafeeeggg|4205316","7|g|27|aaaaaabfffadbbcffedddccfeeddffffeedffgggedggggggd|2506413","7|g|45|cbbddaaccbbddaccccddaedddddfeeddggfggdgggfggggggf|5204163","7|g|4|ebbbaaaebaaaaaecccdaaeecdddaecccffaeeccfffeggggff|4135062","7|t|-1|bbbbaccbccccccdeeeeecdddddeeggdeeeeggdeffeggggfee|4061352","7|g|19|bbbaaccbccccccggcdccfgdcdcffgdddeefgddggffggggfff|3051462","7|g|36|caabeeecbbbbeecddbeeeffddfeefffffgeffffgggfffgggg|2403615","7|t|-1|aaaaaaaadbdeeaadddeecaddffecggdffeegggfffegggggfe|4261530","7|g|37|ccaabbdccabbbdccdbdddcddddddedffdggefffdggffffdgg|3514026","7|t|-1|ffffeaafbfeeaafbdeeacfbdeeagfgggeegfggggegggggggg|5162403","7|g|11|cbaabddcbbbbddcccbcddcfcccddcfceeddfffffdffgggfff|2405361","7|g|26|bbcaaaabbcddddbeccdddbeccddfeeecccfeeeccgfeeecggf|3025164","7|g|46|bddaaccbdddcccddddddcdfdeeccdfffeegfffeeegfffeggg|3062514","7|g|38|aaaaaacaabbaacaddddacdddfcccgfdfcecgfdfceegffffff|4261530","7|t|-1|bbbaabbbbbbbbedbbbceedbbeeeefbfeggeffffgggfffffgg|3140625","7|g|41|bbbbaaabbbbbaabbcbccabbcccdabecgddfbeggfffbggggff|4025163","7|g|24|baaaaaabbbaaaaebbdffceebdfcceggdfffggdddffggdffff|4263051","7|g|5|bbbaaacbbbbaccbbeecccebedcccebedddceeegffceeggccc|5163042","7|t|-1|aabccccabbbbbcabbbbccdbgbeecbbgbeffgbgbgffggggggg|1350462","7|g|21|bbbaaaadbbafaadffffacddeefccdddeffcddgffffddgffff|4160352","7|g|11|ccccaaacdcbbbbcdddbbeddddebeffddeeeffggegefggggge|6402513","7|g|43|bbbaaaabcccccdcccdccdgddddddggdeggdgddeggfgggggff|4025361","7|t|-1|aaaaaccaaaaccbaaacccbeccccdbeccggfbccggfffccggggg|1635042","7|g|2|aaaaaabacccbabfffcbbbddffffbddfeefgdffffggddfffgg|2630415","7|g|26|cbbddaacbbbddaccbffdaeefffdaegfgffaggfggaagggggaa|6315024","7|g|32|baaaaccbbaacccbbbccecbbbbeedfbbeeddffeeeddfeeeggd|2036415","7|t|-1|dbbbaacdbbbbbcdddbcccdddbbbcdbbbeecdbffeccdgfeeec|4260531","7|g|17|faaccccfaaacbcfddccbcfdddeccfffdeeegffffeeggggggg|2531640","7|t|-1|eeeeeadbeeeaadeeeccddegegcddegeggfdggegffgggggggg|5036241","7|g|33|ccbbbaaccbccceccccccecddcecefdcceeeffffffeffggfee|6241503","7|g|22|aaaccccaaaabbcadddddcaddeddcdddedfcdddeffcdggeefc|0461352","7|g|5|baaaaaabbdcaaebbdcaaebddeaeebddeeeeddffffeffffgge|5031624","7|g|23|ddaadbbddadddbcddddbbcddeeeecddfefecfffffeffgggge|3602415","7|t|-1|aaaaaagbaccccgdddddcgffddeggffffeegffgfffgfgggggg|3052416","7|g|12|aagccbbaagcbbbdfgcbebdfggbeeffggbeefffgbbbggggggb|1530624","7|t|-1|eeaaaaceedabbceedcccceedddcceeecddceggccfcegggccc|2463051","7|g|19|aacccccabbccccabcccccffddceefddccceffdfeeeffffgge|0253614","7|g|31|aaaaaaaacceabbaaceaadeeeeeedffeeeddfeeedddffeeggd|1526304","7|g|9|bbbaaaabdbbbbcddbfffcdbbbbffdbbebbffffefffggfffff|4260351","7|t|-1|acccccbccbbbbbdcccfebddgffebdggfeeeggfffeeggggffe|0531642","7|t|-1|aaaaaaeccaaabecgaaadecggaddeggaaeeegaafeffggfffff|2504631","7|g|16|ccaadddbccadddbccccddcccecddccfeeddfffeedgfeeeggg|3026415","7|g|17|aaabbbbcccbccbcgccccbcgecfdbcgeefddcgfffffcgggggg|0635241","7|g|10|aabbbbdcabbbbdcafbbbdfffbdddfffeeddfffffggfffffgg|1306425","7|t|-1|ebbbcadebecccdeeeccddecccdddeeecccdeeeefcdggfffcc|5136240","7|g|46|baaaaaabbaacacbaaacccbbdccccbgdcggefgggggeffffgee|3152604","7|t|-1|bbbaaadbbbbaddbaaaadcbgaddddbgedggdbgedgffbgggggf|3064251","7|g|15|ccaaaaacbbbaaaccbbbadccbddddccccddecfffddegggfddd|5314620","7|g|6|bbbbbaaggccbbaggccccageeeedageffddagfffdddggfffff|6425130","7|t|-1|ddbacccdbbbcceddddgceffdggeeffgggeeffgggggggggggg|3152604","7|g|40|cccaaaabcaafaabccffffbeeeefdeeffffdeggfgfdeggggfd|4026153","7|g|43|ccaadddccccdbbcgggddbcggddbbcgbbbbecggbfeecgbbfee|2503641","7|g|33|caaaaaacdddddbccddbbbdddddeefddeeeefdgggeedddggge|2613504","7|g|3|aaaaaaaabbaaaabbdcacabbdcccfeeddfffdeddddfdddggdd|3152064","7|g|44|ccaaaaacccebbaccceebbceeeddgceeegggffffgggggggggg|6415302","7|g|11|aacccccabbbbbcbbbdddcbbbddddgegddddgegdfffggggggf|0463152","7|g|4|baaaaaabaaaacafdaaccafddaacefdddggeffdddgefgggggg|4052613","7|t|-1|aacbbbbcacbcbbcacbccgcccccdgcfceddgcfggdggccggggg|0625314","7|g|44|bbbbaacbbdbbbcgbdbcccggddcccgeedddcgefffdcgggfddc|5063142","7|g|33|dbbacccdbbaceedbccccedbdceeedddddeefddddegffffdeg|3142506","7|t|-1|dccabeedcccbbeddccbeeddddeeeddeeefedfffffedffggff|3520614","7|g|10|accccccacbbbccdbbddcgddddeegdfffeegddfffegdddffgg|0351426","7|g|17|cccccaabbccdaabcccddabcccddaeecccddeefccgdeefgggg|6135024","7|t|-1|aaaabffaaadbbfccddbbfeedddbfeeeffffeefffffgeeefff|3514260","7|g|0|aacbbbdaccdbddaacddddafggeddffgeeddffggdddggggggd|0426315","7|t|-1|eeeeeaaebeeaaabbbeeacbbeedacffeeeagfggggggfgggggg|5164203","7|g|11|acccbddacccbddccbbbdecbbbbdeccceeeeccccggfgggggff|0415362","7|g|39|daacbbfdccccbfdcccbbfddcccffdggccfeggggffegffffff|2531640","7|g|47|eeaaaaaebaaaaaebbdaccebddagceeddaggeeeffggeeefggg|4162035","7|g|25|aaaaaabaabbbbbacdddbbdcdfdebdddfdeedgefeeeggeeeee|2514630","7|g|24|ddddaaadbdcaacdbbccccddbdcceddddddeffddggeffgggge|4153602","7|g|29|aaaagggebbdccgebddccgeeddgggeedffggeefffggefffggg|0253146","7|g|40|ebaaaccebbafccebddfcceeddffceeeefffegeffffegfffff|4263051","7|t|-1|bbbaaaabbbaaaafbbbacafbddacafbbeeeafbffffafffgaaa|6152403","7|g|41|ccaaaffccaabbfgcccfffgggffdfgggeddfggeeeefggfffff|2415360","7|g|35|aaaaaabddcccbbdddceebdddccebdddceebfdddeggffffeeg|2531406","7|g|33|bbbbaaabbbbbaabfffcccbbfddcebbfddeeggffdeegggfeee|4163520","7|g|15|cbbaaaacbbbaaaccebbaacceddafceeddffcggdffgggggggg|6314250","7|g|9|bbaaaacbbbbbccbebdbcceeddbcceeffccceefffcceggffcc|5263041","7|g|40|cccccaadddcbbbddcccbbdeeegfbeeeegffgegggffggggfff|6420351","7|g|28|eeaafffeeeffbfeccccbfeeedcffeeedfffeeeddgfeeedggf|2513064","7|g|21|ddaaaaaddacabbdddccccdgdceeedggccceggfffffgggggff|2530641","7|g|35|aaaacccbbaacccaaaeccgaddeccgdddeecgffgggggfffgggg|3152406","7|t|-1|bbbaaaabbbbaaabcbbbaaeccbddaebbbddaeebffdaeegffda|6315042","7|t|-1|eaabcccebbbccceebbfcfeedffffeeefffgffeffggffffggg|1352046","7|g|21|ddaaabbddddbbbddddbbcdeddbcceeeeeeeegegeffegggggg|2460351","7|t|-1|bbbbbaabaaaaaebaacaaebaacddebaeeeeebgeefeebgeeeee|6035241","7|g|22|bbccccabbbccaabdbdcceddddceeddfcceeddffeeeggfeeee|6241530","7|g|16|aaacbddecccbbdeccbbddecbbdddeccccddgggccfdggggcff|1426053","7|g|11|aaabbbbdabbbcbdabccccdbbeceedeeeeeeddeeffgddegggg|1460253","7|t|-1|cccabbbcccbbbdecgbdddeggddfdeegggfdgegfffdgggggfd|3516042","7|g|39|dbbbaacdbbbcccdbbccccdddccffeddcfffeggffffggggggf|5362041","7|t|-1|baaccccbacccccfaffcccfaafccdfeafffdfaafgfgffffggg|2046135","7|g|27|aaacbbcafacbbcfffccccffffeddfdfdeedfddddddfggggdd|1536402","7|t|-1|bbbabeebcbbbedfccceedfeeceedffeeeggffeffggffffggg|3026415","7|g|0|aaabbccaabbbecbbbeeecdddeeecgdddeeegdffeeeggfffee|0462531","7|g|3|ccaabbbccaabbdccceeedffcedddffceeedfccegegggggggg|3516402","7|g|45|eeeaabbceeabbbcceeebbggeggddggeeggdfggeggdfgggggd|4615203","7|g|39|aaaacccaaaccbbaaacccfaddfcffaddfffeadddffeggfffff|2531640","7|t|-1|bbdddaabbbdaaaccbddddcdddeddceddeddceeeeffceeegff|5203164","7|g|1|aaaaabdaaacabdecccaddeecddddecccdddeecfdgdfffffgg|1524036","7|g|19|aaabbbbabbbbccaadbbccaadbbccaddbccefddbceeffffgge|1352604","7|g|42|ddacbccddacbbcdccccccdddceccdddceeegggcfeegggffff|2531640","7|g|5|bbaaaacdbaaaacdddaeacdddaeacddfaeggfffaeggffggggg|5162403","7|g|37|accccccaabbccedddccceddffeeeddffeeefdfeeggfffeeeg|0351426","7|g|3|bbaaaaadbbccccddcccgcdddecggffdeeggfddggggddggggg|3162405","7|g|18|bbbccaabbbccccbccccddffceeedffeegggffeegggfeegggg|5146203","7|g|23|dddaaabccdadbbccddddbcddeeebcdfeeeecffeeggccfeeeg|3502416","7|g|26|aaaddbbacccdbbacccdbbecddddbeccccdbgccffffggfffff|2635041","7|g|8|cccaaaabbcacddbcccccdbbbbcddbgeecddbggeeefgggeeff|4135260","7|g|9|aaabbccaabbcccbbbbcddeeggffdeegggffeggffffeggggff|0246153","7|g|2|aaaaacbaaaaacbaaacacedaccccedffcceedffffeeddddggg|2630514","7|g|37|aabbbbdaabbfbdcbbfffdccbfdddfbbffdeffffeeefgggggg|1304625","7|g|2|aaabbbbacaaebbacaeebdaaeeebdaeegeegfffgeggggggggg|2516403"];
 
 const MDK_SKINS = [
-  { id: 'orange', name: 'Orange Tabby', bg: '#FFF6EA', price: 0 },
-  { id: 'black', name: 'Black Cat', bg: '#E9D5FB', price: 150 },
-  { id: 'white', name: 'White Cat', bg: '#EDE3F8', price: 250 },
-  { id: 'calico', name: 'Calico', bg: '#FCD9CD', price: 350 },
-  { id: 'gray', name: 'Gray Cat', bg: '#DAF0DF', price: 450 },
-  { id: 'siamese', name: 'Siamese', bg: '#FDE8C8', price: 600 },
-  { id: 'cream', name: 'Cream Tabby', bg: '#FFF0D2', price: 750 },
-  { id: 'chocolate', name: 'Chocolate', bg: '#F3E1D3', price: 900 },
-  { id: 'blue', name: 'Blue Tabby', bg: '#DCE8F6', price: 1100 },
-  { id: 'lilac', name: 'Lilac Point', bg: '#ECE5F7', price: 1300 },
-  { id: 'strawberry', name: 'Strawberry', bg: '#FCDDE7', price: 1500 },
-  { id: 'blueberry', name: 'Blueberry', bg: '#DEE3FB', price: 1800 },
-  { id: 'mint', name: 'Mint Tabby', bg: '#DDF5EA', price: 2100 },
-  { id: 'golden', name: 'Golden Cat', bg: '#FFF1C9', price: 2400 }
+  { id: 'orange', name: 'Orange Tabby', de: 'Oranger Tiger', bg: '#FFF6EA', price: 0 },
+  { id: 'black', name: 'Black Cat', de: 'Schwarze Katze', bg: '#E9D5FB', price: 150 },
+  { id: 'white', name: 'White Cat', de: 'Weiße Katze', bg: '#EDE3F8', price: 250 },
+  { id: 'calico', name: 'Calico', de: 'Glückskatze', bg: '#FCD9CD', price: 350 },
+  { id: 'gray', name: 'Gray Cat', de: 'Graue Katze', bg: '#DAF0DF', price: 450 },
+  { id: 'siamese', name: 'Siamese', de: 'Siamkatze', bg: '#FDE8C8', price: 600 },
+  { id: 'cream', name: 'Cream Tabby', de: 'Cremetiger', bg: '#FFF0D2', price: 750 },
+  { id: 'chocolate', name: 'Chocolate', de: 'Schoko', bg: '#F3E1D3', price: 900 },
+  { id: 'blue', name: 'Blue Tabby', de: 'Blauer Tiger', bg: '#DCE8F6', price: 1100 },
+  { id: 'lilac', name: 'Lilac Point', de: 'Lilac Point', bg: '#ECE5F7', price: 1300 },
+  { id: 'strawberry', name: 'Strawberry', de: 'Erdbeere', bg: '#FCDDE7', price: 1500 },
+  { id: 'blueberry', name: 'Blueberry', de: 'Blaubeere', bg: '#DEE3FB', price: 1800 },
+  { id: 'mint', name: 'Mint Tabby', de: 'Minztiger', bg: '#DDF5EA', price: 2100 },
+  { id: 'golden', name: 'Golden Cat', de: 'Goldkatze', bg: '#FFF1C9', price: 2400 }
 ];
 const MDK_BOARDS = [
-  { id: 'pastel', name: 'Pastel', bg: '#FFF6EA', price: 0, colors: ['#B4E3BA', '#FBBBAF', '#FEE7B8', '#FBC992', '#B8DAF5', '#DABFF4', '#BDEAED', '#F8C6DA', '#E2E3A4', '#D8C3A5'] },
-  { id: 'sunset', name: 'Sunset', bg: '#FDE2D6', price: 200, colors: ['#FFC9A0', '#F9A99B', '#E59AB0', '#F8C866', '#F49A6E', '#CDB0DE', '#FFC4D8', '#F2B27A', '#E8D0C4', '#B7C7E6'] },
-  { id: 'meadow', name: 'Meadow', bg: '#E2F2D9', price: 400, colors: ['#BFE6A8', '#9ED3B4', '#E6F29C', '#FFE19E', '#A9DDD2', '#CFEFC8', '#EDD992', '#C2D69A', '#93D3C4', '#D7C4EC'] },
-  { id: 'ocean', name: 'Ocean', bg: '#DCEBF8', price: 600, colors: ['#A6D3E6', '#BCDDFC', '#C9B5E0', '#9FCBFA', '#B2EEDF', '#C6EDF6', '#CBCCFB', '#BEE0C3', '#DCE8EE', '#F3D9A8'] },
-  { id: 'candy', name: 'Candy', bg: '#FDE4EE', price: 800, colors: ['#FFB3C7', '#FFD6A5', '#FDF5A6', '#CAFFBF', '#9BF6FF', '#A0C4FF', '#BDB2FF', '#FFC6FF', '#FFD9E3', '#B8E0D2'] },
-  { id: 'citrus', name: 'Citrus', bg: '#FDF3D2', price: 1000, colors: ['#FFE066', '#FFB347', '#C5E17A', '#9ADE7B', '#FFD6A5', '#F4F28A', '#B9FBC0', '#FFCF56', '#E2F0CB', '#F7A8A1'] },
-  { id: 'berry', name: 'Berry', bg: '#F2E2F8', price: 1300, colors: ['#E0AAFF', '#C9A0F0', '#F7A1C4', '#FFB5A7', '#CDB4DB', '#FFC8DD', '#BDE0FE', '#E5B3FE', '#F4ACB7', '#B8E3C9'] },
-  { id: 'forest', name: 'Forest', bg: '#E5EDD8', price: 1600, colors: ['#A3B18A', '#CCD5AE', '#E9EDC9', '#D4A373', '#B5C99A', '#87BBA2', '#DDB892', '#C9E4CA', '#B7B7A4', '#A9C6D8'] },
-  { id: 'twilight', name: 'Twilight', bg: '#E6E2F6', price: 1900, colors: ['#B9C3EE', '#D4C1F0', '#F2C4DE', '#A9D6E8', '#C9B6E4', '#F6D3C3', '#B5E0D6', '#E3D7F5', '#F4E1A8', '#9FB4E0'] },
-  { id: 'peach', name: 'Peach Sorbet', bg: '#FFE6DA', price: 2200, colors: ['#FFC4A8', '#FFDDB0', '#F9B4BE', '#FFE9A6', '#C9E8B8', '#FFCFD8', '#B8DDF0', '#F6BC94', '#E8D0F2', '#D9EBC2'] }
+  { id: 'pastel', name: 'Pastel', de: 'Pastell', bg: '#FFF6EA', price: 0, colors: ['#B4E3BA', '#FBBBAF', '#FEE7B8', '#FBC992', '#B8DAF5', '#DABFF4', '#BDEAED', '#F8C6DA', '#E2E3A4', '#D8C3A5'] },
+  { id: 'sunset', name: 'Sunset', de: 'Abendrot', bg: '#FDE2D6', price: 200, colors: ['#FFC9A0', '#F9A99B', '#E59AB0', '#F8C866', '#F49A6E', '#CDB0DE', '#FFC4D8', '#F2B27A', '#E8D0C4', '#B7C7E6'] },
+  { id: 'meadow', name: 'Meadow', de: 'Wiese', bg: '#E2F2D9', price: 400, colors: ['#BFE6A8', '#9ED3B4', '#E6F29C', '#FFE19E', '#A9DDD2', '#CFEFC8', '#EDD992', '#C2D69A', '#93D3C4', '#D7C4EC'] },
+  { id: 'ocean', name: 'Ocean', de: 'Ozean', bg: '#DCEBF8', price: 600, colors: ['#A6D3E6', '#BCDDFC', '#C9B5E0', '#9FCBFA', '#B2EEDF', '#C6EDF6', '#CBCCFB', '#BEE0C3', '#DCE8EE', '#F3D9A8'] },
+  { id: 'candy', name: 'Candy', de: 'Bonbon', bg: '#FDE4EE', price: 800, colors: ['#FFB3C7', '#FFD6A5', '#FDF5A6', '#CAFFBF', '#9BF6FF', '#A0C4FF', '#BDB2FF', '#FFC6FF', '#FFD9E3', '#B8E0D2'] },
+  { id: 'citrus', name: 'Citrus', de: 'Zitrus', bg: '#FDF3D2', price: 1000, colors: ['#FFE066', '#FFB347', '#C5E17A', '#9ADE7B', '#FFD6A5', '#F4F28A', '#B9FBC0', '#FFCF56', '#E2F0CB', '#F7A8A1'] },
+  { id: 'berry', name: 'Berry', de: 'Beere', bg: '#F2E2F8', price: 1300, colors: ['#E0AAFF', '#C9A0F0', '#F7A1C4', '#FFB5A7', '#CDB4DB', '#FFC8DD', '#BDE0FE', '#E5B3FE', '#F4ACB7', '#B8E3C9'] },
+  { id: 'forest', name: 'Forest', de: 'Wald', bg: '#E5EDD8', price: 1600, colors: ['#A3B18A', '#CCD5AE', '#E9EDC9', '#D4A373', '#B5C99A', '#87BBA2', '#DDB892', '#C9E4CA', '#B7B7A4', '#A9C6D8'] },
+  { id: 'twilight', name: 'Twilight', de: 'Dämmerung', bg: '#E6E2F6', price: 1900, colors: ['#B9C3EE', '#D4C1F0', '#F2C4DE', '#A9D6E8', '#C9B6E4', '#F6D3C3', '#B5E0D6', '#E3D7F5', '#F4E1A8', '#9FB4E0'] },
+  { id: 'peach', name: 'Peach Sorbet', de: 'Pfirsichsorbet', bg: '#FFE6DA', price: 2200, colors: ['#FFC4A8', '#FFDDB0', '#F9B4BE', '#FFE9A6', '#C9E8B8', '#FFCFD8', '#B8DDF0', '#F6BC94', '#E8D0F2', '#D9EBC2'] }
 ];
 const MDK_CAT_IN = 'mdkCatIn 0.7s cubic-bezier(.2, 1.2, .4, 1) 0.2s both';
 const MDK_SCENES = [
@@ -996,32 +1137,32 @@ const MDK_ADMOB = {
 const MDK_DOUBLE_ADS = 1;
 /* Android app: progress is saved on the phone, ads come from the native Google Mobile Ads SDK */
 const MDK_SAVE_KEY = 'meowdoki.save.v1';
-const MDK_SAVE_FIELDS = ['tutorialDone', 'played', 'level', 'allDone', 'xp', 'hearts', 'hints', 'skin', 'board', 'owned', 'adProg', 'adsRemoved', 'personalized', 'settings', 'done'];
+const MDK_SAVE_FIELDS = ['lang', 'tutorialDone', 'played', 'level', 'allDone', 'xp', 'hearts', 'hints', 'skin', 'board', 'owned', 'adProg', 'adsRemoved', 'personalized', 'settings', 'done'];
 function mdkNative() { return typeof window !== 'undefined' && window.MeowNative ? window.MeowNative : null; }
 const MDK_GOAL = 3;
 const MDK_LOAD_MS = 5500;
 /* one loading text per app start, picked at random by weight (w); the first one shows about half the time */
 const MDK_TIPS = [
-  { w: 17, text: 'A few calm puzzles before bed help you unwind and keep your mind active.' },
-  { w: 1, text: 'Solve 3 puzzles every day to keep your streak purring.' },
-  { w: 1, text: 'Every row, column and color gets exactly one cat.' },
-  { w: 1, text: 'Cats need their space. They never touch, not even diagonally.' },
-  { w: 1, text: 'A fresh Daily Challenge is waiting for you every day.' },
-  { w: 1, text: 'Stuck? A hint places a correct cat for you.' },
-  { w: 1, text: 'Finish a level with no mistakes to earn bonus XP.' },
-  { w: 1, text: 'Spend your XP on new cats and cozy boards in Skins.' },
-  { w: 1, text: 'Tap once to mark a tile. Double-tap to place a cat.' },
-  { w: 1, text: 'A color area with only one tile? A cat goes right there!' },
-  { w: 1, text: 'Take a deep breath. There is no timer in MEOWDOKI.' },
-  { w: 1, text: 'Daily Challenges give you 50% more XP.' },
-  { w: 1, text: 'Missed a day? Play past Daily Challenges from the calendar.' },
-  { w: 1, text: 'Hearts are shared across all levels. Place your cats with care!' },
-  { w: 1, text: 'Fun fact: cats sleep 12 to 16 hours a day.' },
-  { w: 1, text: 'Fun fact: a group of kittens is called a kindle.' },
-  { w: 1, text: 'Fun fact: every cat\'s nose print is unique, like a fingerprint.' },
-  { w: 1, text: 'Fluffing the pillows…' },
-  { w: 1, text: 'Warming up the yarn…' },
-  { w: 1, text: 'Waking up the kittens…' }
+  { w: 17, text: 'A few calm puzzles before bed help you unwind and keep your mind active.', de: 'Ein paar ruhige Rätsel vor dem Schlafen entspannen und halten den Kopf fit.' },
+  { w: 1, text: 'Solve 3 puzzles every day to keep your streak purring.', de: 'Löse jeden Tag 3 Rätsel, damit deine Serie weiterschnurrt.' },
+  { w: 1, text: 'Every row, column and color gets exactly one cat.', de: 'Jede Reihe, Spalte und Farbe bekommt genau eine Katze.' },
+  { w: 1, text: 'Cats need their space. They never touch, not even diagonally.', de: 'Katzen brauchen Platz. Sie berühren sich nie, auch nicht diagonal.' },
+  { w: 1, text: 'A fresh Daily Challenge is waiting for you every day.', de: 'Jeden Tag wartet ein neues Tagesrätsel auf dich.' },
+  { w: 1, text: 'Stuck? A hint places a correct cat for you.', de: 'Du hängst fest? Ein Tipp setzt eine richtige Katze für dich.' },
+  { w: 1, text: 'Finish a level with no mistakes to earn bonus XP.', de: 'Löse ein Level ohne Fehler, um Bonus-XP zu verdienen.' },
+  { w: 1, text: 'Spend your XP on new cats and cozy boards in Skins.', de: 'Gib deine XP unter Skins für neue Katzen und Bretter aus.' },
+  { w: 1, text: 'Tap once to mark a tile. Double-tap to place a cat.', de: 'Einmal tippen markiert ein Feld. Doppelt tippen setzt eine Katze.' },
+  { w: 1, text: 'A color area with only one tile? A cat goes right there!', de: 'Eine Farbe mit nur einem Feld? Genau dort sitzt eine Katze!' },
+  { w: 1, text: 'Take a deep breath. There is no timer in MEOWDOKI.', de: 'Atme tief durch. In MEOWDOKI gibt es keinen Timer.' },
+  { w: 1, text: 'Daily Challenges give you 50% more XP.', de: 'Tagesrätsel geben dir 50 % mehr XP.' },
+  { w: 1, text: 'Missed a day? Play past Daily Challenges from the calendar.', de: 'Einen Tag verpasst? Spiel alte Tagesrätsel im Kalender nach.' },
+  { w: 1, text: 'Hearts are shared across all levels. Place your cats with care!', de: 'Herzen gelten für alle Levels. Setz deine Katzen mit Bedacht!' },
+  { w: 1, text: 'Fun fact: cats sleep 12 to 16 hours a day.', de: 'Fun Fact: Katzen schlafen 12 bis 16 Stunden am Tag.' },
+  { w: 1, text: 'Fun fact: a group of kittens is called a kindle.', de: 'Fun Fact: Ein Wurf Kätzchen heißt auf Englisch „kindle“.' },
+  { w: 1, text: 'Fun fact: every cat\'s nose print is unique, like a fingerprint.', de: 'Fun Fact: Jeder Katzennasenabdruck ist einzigartig, wie ein Fingerabdruck.' },
+  { w: 1, text: 'Fluffing the pillows…', de: 'Kissen werden aufgeschüttelt…' },
+  { w: 1, text: 'Warming up the yarn…', de: 'Wolle wird vorgewärmt…' },
+  { w: 1, text: 'Waking up the kittens…', de: 'Kätzchen werden geweckt…' }
 ];
 /* paw-print transition only when going to Daily or Settings; other screens just slide in */
 const MDK_NAV_FX = { daily: 'paws', settings: 'paws' };
@@ -1058,6 +1199,179 @@ function mdkDayIndex(k) {
 function mdkParse(s) {
   const f = s.split('|');
   return { n: Number(f[0]), aid: f[1], given: Number(f[2]), reg: f[3].split('').map(ch => ch.charCodeAt(0) - 97), sol: f[4].split('').map(Number) };
+}
+/* ---------- languages: English and German. Text keys are used in the template as {{T.key}}, functions through this.tr() ---------- */
+const MDK_LANGS = ['en', 'de'];
+const MDK_I18N = {
+  en: {
+    tagline: 'Cozy cats · clever puzzles', loading: 'LOADING', play: 'Play', dailyChallenge: 'Daily Challenge', skins: 'Skins', mainNav: 'Main',
+    navHome: 'Home', navDaily: 'Daily', navSkins: 'Skins', navSettings: 'Settings', settings: 'Settings', back: 'Back', hint: 'Hint',
+    doubleRewards: 'Double rewards', adBadge: 'Ad', noThanks: 'No thanks', yourBalance: 'YOUR BALANCE',
+    calendar: 'Calendar', prevMonth: 'Previous month', nextMonth: 'Next month', skinType: 'Skin type', cats: 'Cats', boards: 'Boards',
+    selected: 'Selected', select: 'Select', watchAds: 'Watch ads', audio: 'Audio', music: 'Music', sfx: 'Sound Effects', vibration: 'Vibration',
+    gameplay: 'Gameplay', howTo: 'How to Play', account: 'Account', redeemCode: 'Redeem Code', adFree: 'Ad-free', privacy: 'Privacy',
+    privacyPolicy: 'Privacy Policy', terms: 'Terms of Service', adPrivacy: 'Ad Privacy Choices', language: 'Language', close: 'Close',
+    outOfHints: 'Out of hints', outOfHintsSub: 'Get another hint to keep going.', watchAdHint: 'Watch ad · +1 hint', outOfHearts: 'Out of hearts',
+    watchAd: 'Watch ad', playTutorial: 'Play the tutorial', gotIt: 'Got it', yourStreak: 'Your streak',
+    streakSub: 'Solve 3 puzzles every day to keep your streak going. Levels and the Daily Challenge both count.', todaysGoal: 'Today\'s goal',
+    streakTip: 'A few calm puzzles before bed are a cozy way to unwind.', playNow: 'Play now', enterCode: 'Enter your code', redeem: 'Redeem',
+    adPrivacyText: 'MEOWDOKI shows ads from Google AdMob. Choose whether your advertising ID may be used to show you ads based on your interests. You can change this at any time.',
+    personalizedAds: 'Personalized ads', save: 'Save', done: 'Done', advertisement: 'Advertisement', adTag: 'Ad', closeAd: 'Close ad',
+    fullAd: 'Full-screen ad', adPlaceholder: 'Placeholder. The real Google AdMob ad appears here.', adsRemovedAria: 'Ads removed. Tap to continue.',
+    adsRemoved: 'Ads removed!', thanks: 'Thank you for playing MEOWDOKI', skip: 'Skip', next: 'Next', tutorial: 'Tutorial',
+    langTitle: 'Choose your language', langNote: 'You can change this anytime in Settings.', cont: 'Continue',
+    heartTip: 'A wrong cat costs 1 heart. Solve levels to win hearts back.', xpTip: 'Earn XP by solving levels. Spend it on cats and boards in Skins.',
+    allDone: 'All done!', playAllDone: 'Play. All 100 levels are solved', firstTip: 'Tap a tile to mark it ✕ · double-tap to place a cat',
+    tutWrong: 'Not here: look for a row, column or color with only one free tile.',
+    noAd: 'No ad available right now. Please try again in a moment.', progressSaved: 'Progress saved. Watch the rest later!', loadingAd: 'Loading ad…',
+    marked: 'marked', wrongCat: 'wrong cat', cat: 'cat', empty: 'empty', cardSelected: ', selected', cardTapSelect: ', tap to select',
+    calendarBtn: 'Calendar', backHome: 'Back Home', nextLevel: 'Next Level', home: 'Home',
+    outTextLevel: 'Watch an ad to get 3 hearts and keep playing this level.', outTextHome: 'You need hearts to play. Watch an ad to get 3 hearts.',
+    quitLevel: 'Quit level', notNow: 'Not now', plusHint: '+1 hint', playToday: 'Play Today', completed: 'Completed',
+    alreadySolved: 'Already solved. Pick another day!', codeEmpty: 'Please enter a code.', codeBad: 'That code is not valid.',
+    codeUsed: 'This code has already been redeemed.', rewardEarned: 'Reward earned! Close the ad to collect it.', nextAd: 'Next ad starting…',
+    today: ', today', dayCompleted: ', completed', notYet: ', not yet available',
+    diff: { Easy: 'Easy', Medium: 'Medium', Hard: 'Hard', Expert: 'Expert' },
+    kinds: { row: 'row', column: 'column', color: 'color' },
+    coach: [
+      'Welcome to MEOWDOKI! Put exactly one cat in every row, every column and every color.',
+      'Cats need their space: two cats can never touch, not even diagonally.',
+      'This color has only one tile, so a cat must go here. Double-tap it!',
+      'No other cat fits in this row, this column, this color or next to the cat. Tap each glowing tile to mark it ✕.',
+      kind => 'Look at this ' + kind + ': only one free tile is left, so the cat must go there. Double-tap it!',
+      'Great! Keep going: mark ✕ where cats can\'t be, then find the next tile that must be a cat. You never have to guess.',
+      'Purrfect! You know everything you need. Have fun!'
+    ],
+    heartsLabel: n => n + (n === 1 ? ' heart' : ' hearts'),
+    levelN: n => 'Level ' + n,
+    playLevel: n => 'Play level ' + n,
+    tutDone: n => 'Tutorial done! Tap Play to start Level ' + n,
+    needXp: n => 'You need ' + n + ' more XP',
+    unlocked: name => name + ' unlocked!',
+    adsProgress: (p, of, name) => p + ' of ' + of + ' ads watched. Watch ' + (of - p) + ' more to unlock ' + name + '!',
+    cellLabel: (r, c, w) => 'Row ' + r + ', column ' + c + ': ' + w,
+    cardLocked: (p, next) => ', locked, costs ' + p + ' XP' + (next ? ', or watch ads' : ''),
+    unlockSub: (afford, isNext, need) => afford ? (isNext ? 'Unlock it with your XP, or for free by watching a few short ads.' : 'Unlock it with your XP.') : 'You need ' + need + ' more XP.' + (isNext ? ' Or unlock it for free by watching a few short ads.' : ' Solve more levels to earn XP.'),
+    buyLabel: p => 'Unlock · ' + p + ' XP',
+    adsWatched: (p, of) => p + ' of ' + of + ' ads watched',
+    kickerDaily: d => 'DAILY CHALLENGE · ' + d,
+    kickerLevel: n => 'LEVEL ' + n + ' COMPLETE',
+    starsLabel: n => n + ' of 3 stars',
+    heartWord: n => n === 1 ? 'Heart' : 'Hearts',
+    stats: (m, h) => (m === 0 ? 'No mistakes' : m + (m === 1 ? ' mistake' : ' mistakes')) + ' · ' + (h === 0 ? 'no hints' : h + (h === 1 ? ' hint' : ' hints')),
+    goalDone: s => 'Daily goal done · ' + s + '-day streak!',
+    goalProgress: (t, g) => 'Daily goal · ' + t + ' of ' + g,
+    streakLabel: (s, t, g) => s + '-day streak. Today ' + t + ' of ' + g + ' puzzles solved',
+    streakTitle: s => s > 0 ? s + '-day streak!' : 'Start your streak!',
+    dayStreak: s => 'Day Streak!',
+    goalText: (done, t, g) => done ? 'Done! 3 of 3' : t + ' of ' + g + ' puzzles',
+    goalLabel: (t, g) => t + ' of ' + g + ' puzzles solved today',
+    weekLabel: n => 'This week: ' + n + ' of 7 days with the daily goal done',
+    startLevel: n => 'Start Level ' + n,
+    catsLabel: (p, n) => p + ' of ' + n + ' cats placed',
+    hintLabel: n => n > 0 ? 'Hint, ' + n + ' left' : 'Hint, none left. Get more',
+    heartsRefilled: n => '+3 hearts! You have ' + n + ' hearts now.',
+    buyHint: p => 'Buy 1 hint · ' + p + ' XP',
+    playDay: d => 'Play ' + d,
+    adEnds: n => 'Ad ends in ' + n + ' seconds',
+    rewardIn: n => 'Reward in ' + n + 's',
+    allSolved: n => 'You solved all ' + n + ' levels! Try the Daily Challenge.',
+    dayName: (wd, month, d) => wd + ', ' + month + ' ' + d,
+    shortDate: (month3, d) => month3 + ' ' + d
+  },
+  de: {
+    tagline: 'Gemütliche Katzen · clevere Rätsel', loading: 'LÄDT', play: 'Spielen', dailyChallenge: 'Tagesrätsel', skins: 'Skins', mainNav: 'Hauptmenü',
+    navHome: 'Start', navDaily: 'Täglich', navSkins: 'Skins', navSettings: 'Optionen', settings: 'Einstellungen', back: 'Zurück', hint: 'Tipp',
+    doubleRewards: 'Belohnung ×2', adBadge: 'Werbung', noThanks: 'Nein, danke', yourBalance: 'DEIN GUTHABEN',
+    calendar: 'Kalender', prevMonth: 'Vorheriger Monat', nextMonth: 'Nächster Monat', skinType: 'Skin-Art', cats: 'Katzen', boards: 'Bretter',
+    selected: 'Ausgewählt', select: 'Auswählen', watchAds: 'Werbung ansehen', audio: 'Audio', music: 'Musik', sfx: 'Soundeffekte', vibration: 'Vibration',
+    gameplay: 'Spiel', howTo: 'Spielanleitung', account: 'Konto', redeemCode: 'Code einlösen', adFree: 'Werbefrei', privacy: 'Datenschutz',
+    privacyPolicy: 'Datenschutzerklärung', terms: 'Nutzungsbedingungen', adPrivacy: 'Werbeeinstellungen', language: 'Sprache', close: 'Schließen',
+    outOfHints: 'Keine Tipps mehr', outOfHintsSub: 'Hol dir einen weiteren Tipp, um weiterzuspielen.', watchAdHint: 'Werbung · +1 Tipp', outOfHearts: 'Keine Herzen mehr',
+    watchAd: 'Video ansehen', playTutorial: 'Tutorial spielen', gotIt: 'Verstanden', yourStreak: 'Deine Serie',
+    streakSub: 'Löse jeden Tag 3 Rätsel, um deine Serie zu halten. Levels und Tagesrätsel zählen beide.', todaysGoal: 'Heutiges Ziel',
+    streakTip: 'Ein paar ruhige Rätsel vor dem Schlafen sind eine gemütliche Art, abzuschalten.', playNow: 'Jetzt spielen', enterCode: 'Gib deinen Code ein', redeem: 'Einlösen',
+    adPrivacyText: 'MEOWDOKI zeigt Werbung von Google AdMob. Wähle, ob deine Werbe-ID genutzt werden darf, um dir Werbung passend zu deinen Interessen zu zeigen. Du kannst das jederzeit ändern.',
+    personalizedAds: 'Personalisierte Werbung', save: 'Speichern', done: 'Fertig', advertisement: 'Werbung', adTag: 'Werbung', closeAd: 'Werbung schließen',
+    fullAd: 'Vollbildwerbung', adPlaceholder: 'Platzhalter. Hier erscheint die echte Google-AdMob-Werbung.', adsRemovedAria: 'Werbung entfernt. Tippen zum Fortfahren.',
+    adsRemoved: 'Werbung entfernt!', thanks: 'Danke, dass du MEOWDOKI spielst', skip: 'Überspringen', next: 'Weiter', tutorial: 'Tutorial',
+    langTitle: 'Wähle deine Sprache', langNote: 'Du kannst das jederzeit in den Einstellungen ändern.', cont: 'Weiter',
+    heartTip: 'Eine falsche Katze kostet 1 Herz. Löse Levels, um Herzen zurückzugewinnen.', xpTip: 'Verdiene XP mit gelösten Levels. Gib sie unter Skins für Katzen und Bretter aus.',
+    allDone: 'Alles gelöst!', playAllDone: 'Spielen. Alle 100 Levels sind gelöst', firstTip: 'Tippe auf ein Feld, um es mit ✕ zu markieren · doppelt tippen setzt eine Katze',
+    tutWrong: 'Nicht hier: Such eine Reihe, Spalte oder Farbe mit nur einem freien Feld.',
+    noAd: 'Gerade ist keine Werbung verfügbar. Bitte versuch es gleich noch einmal.', progressSaved: 'Fortschritt gespeichert. Schau den Rest später!', loadingAd: 'Werbung wird geladen…',
+    marked: 'markiert', wrongCat: 'falsche Katze', cat: 'Katze', empty: 'leer', cardSelected: ', ausgewählt', cardTapSelect: ', tippen zum Auswählen',
+    calendarBtn: 'Kalender', backHome: 'Zum Start', nextLevel: 'Nächstes Level', home: 'Start',
+    outTextLevel: 'Sieh dir eine Werbung an, um 3 Herzen zu erhalten und dieses Level weiterzuspielen.', outTextHome: 'Du brauchst Herzen zum Spielen. Sieh dir eine Werbung an, um 3 Herzen zu erhalten.',
+    quitLevel: 'Level beenden', notNow: 'Nicht jetzt', plusHint: '+1 Tipp', playToday: 'Heute spielen', completed: 'Erledigt',
+    alreadySolved: 'Schon gelöst. Wähl einen anderen Tag!', codeEmpty: 'Bitte gib einen Code ein.', codeBad: 'Dieser Code ist ungültig.',
+    codeUsed: 'Dieser Code wurde bereits eingelöst.', rewardEarned: 'Belohnung verdient! Schließ die Werbung, um sie zu erhalten.', nextAd: 'Nächste Werbung startet…',
+    today: ', heute', dayCompleted: ', gelöst', notYet: ', noch nicht verfügbar',
+    diff: { Easy: 'Leicht', Medium: 'Mittel', Hard: 'Schwer', Expert: 'Experte' },
+    kinds: { row: 'Reihe', column: 'Spalte', color: 'Farbe' },
+    coach: [
+      'Willkommen bei MEOWDOKI! Setz genau eine Katze in jede Reihe, jede Spalte und jede Farbe.',
+      'Katzen brauchen Platz: Zwei Katzen dürfen sich nie berühren, auch nicht diagonal.',
+      'Diese Farbe hat nur ein Feld, also muss hier eine Katze hin. Tippe doppelt darauf!',
+      'In diese Reihe, Spalte, Farbe und neben die Katze passt keine Katze mehr. Markiere jedes leuchtende Feld mit ✕.',
+      kind => 'Schau dir diese ' + kind + ' an: Nur ein Feld ist noch frei, also muss die Katze dorthin. Tippe doppelt!',
+      'Super! Mach weiter: Markiere ✕, wo keine Katze sein kann, und finde das nächste sichere Feld. Raten musst du nie.',
+      'Schnurrfekt! Du weißt jetzt alles, was du brauchst. Viel Spaß!'
+    ],
+    heartsLabel: n => n + (n === 1 ? ' Herz' : ' Herzen'),
+    levelN: n => 'Level ' + n,
+    playLevel: n => 'Level ' + n + ' spielen',
+    tutDone: n => 'Tutorial geschafft! Tippe auf Spielen, um Level ' + n + ' zu starten',
+    needXp: n => 'Dir fehlen noch ' + n + ' XP',
+    unlocked: name => name + ' freigeschaltet!',
+    adsProgress: (p, of, name) => p + ' von ' + of + ' Videos angesehen. Noch ' + (of - p) + ', dann gehört ' + name + ' dir!',
+    cellLabel: (r, c, w) => 'Reihe ' + r + ', Spalte ' + c + ': ' + w,
+    cardLocked: (p, next) => ', gesperrt, kostet ' + p + ' XP' + (next ? ', oder Werbung ansehen' : ''),
+    unlockSub: (afford, isNext, need) => afford ? (isNext ? 'Schalte es mit deinen XP frei oder kostenlos mit ein paar kurzen Werbevideos.' : 'Schalte es mit deinen XP frei.') : 'Dir fehlen noch ' + need + ' XP.' + (isNext ? ' Oder schalte es kostenlos mit ein paar kurzen Werbevideos frei.' : ' Löse mehr Levels, um XP zu verdienen.'),
+    buyLabel: p => 'Kaufen · ' + p + ' XP',
+    adsWatched: (p, of) => p + ' von ' + of + ' Videos angesehen',
+    kickerDaily: d => 'TAGESRÄTSEL · ' + d,
+    kickerLevel: n => 'LEVEL ' + n + ' GESCHAFFT',
+    starsLabel: n => n + ' von 3 Sternen',
+    heartWord: n => n === 1 ? 'Herz' : 'Herzen',
+    stats: (m, h) => (m === 0 ? 'Keine Fehler' : m + ' Fehler') + ' · ' + (h === 0 ? 'keine Tipps' : h + (h === 1 ? ' Tipp' : ' Tipps')),
+    goalDone: s => 'Tagesziel geschafft · ' + (s === 1 ? '1 Tag' : s + ' Tage') + ' in Folge!',
+    goalProgress: (t, g) => 'Tagesziel · ' + t + ' von ' + g,
+    streakLabel: (s, t, g) => (s === 1 ? '1 Tag' : s + ' Tage') + ' in Folge. Heute ' + t + ' von ' + g + ' Rätseln gelöst',
+    streakTitle: s => s > 0 ? (s === 1 ? '1 Tag' : s + ' Tage') + ' in Folge!' : 'Starte deine Serie!',
+    dayStreak: s => s === 1 ? 'Tag in Folge!' : 'Tage in Folge!',
+    goalText: (done, t, g) => done ? 'Geschafft! 3 von 3' : t + ' von ' + g + ' Rätseln',
+    goalLabel: (t, g) => 'Heute ' + t + ' von ' + g + ' Rätseln gelöst',
+    weekLabel: n => 'Diese Woche: Tagesziel an ' + n + ' von 7 Tagen erreicht',
+    startLevel: n => 'Level ' + n + ' starten',
+    catsLabel: (p, n) => p + ' von ' + n + ' Katzen gesetzt',
+    hintLabel: n => n > 0 ? 'Tipp, noch ' + n : 'Tipp, keine mehr. Hol dir neue',
+    heartsRefilled: n => '+3 Herzen! Du hast jetzt ' + n + ' Herzen.',
+    buyHint: p => 'Tipp kaufen · ' + p + ' XP',
+    playDay: d => d + ' spielen',
+    adEnds: n => 'Werbung endet in ' + n + ' Sekunden',
+    rewardIn: n => 'Belohnung in ' + n + ' s',
+    allSolved: n => 'Du hast alle ' + n + ' Levels gelöst! Probier das Tagesrätsel.',
+    dayName: (wd, month, d) => wd + ', ' + d + '. ' + month,
+    shortDate: (month3, d) => d + '. ' + month3
+  }
+};
+const MDK_MONTHS_DE = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+const MDK_MONTHS3_DE = ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sept.', 'Okt.', 'Nov.', 'Dez.'];
+const MDK_WD_DE = [['Mo', 'Montag'], ['Di', 'Dienstag'], ['Mi', 'Mittwoch'], ['Do', 'Donnerstag'], ['Fr', 'Freitag'], ['Sa', 'Samstag'], ['So', 'Sonntag']];
+const MDK_TITLES_DE = {
+  3: ['Schnurrfekt!', 'Pfotastisch!', 'Miauwunderbar!', 'Krallenstark!', 'Fellomenal!', 'Katzastisch!', 'Miautastisch!', 'Schnurrhaft!'],
+  2: ['Toll gemacht!', 'Super Pfoten!', 'Gut geschnurrt!', 'Pfoten hoch!', 'Klasse!', 'Sauber gelöst!', 'Starke Pfoten!'],
+  1: ['Gelöst!', 'Geschafft!', 'Puh, gelöst!', 'Hingekriegt!', 'Alle Katzen da!', 'Gut gemacht!']
+};
+function mdkMonths(lang) { return lang === 'de' ? MDK_MONTHS_DE : MDK_MONTHS; }
+function mdkWeekdays(lang) { return lang === 'de' ? MDK_WD_DE : MDK_WD; }
+function mdkShortL(k, lang) {
+  const d = mdkFromKey(k), L = MDK_I18N[lang] || MDK_I18N.en;
+  return L.shortDate(lang === 'de' ? MDK_MONTHS3_DE[d.getMonth()] : MDK_MONTHS[d.getMonth()].slice(0, 3), d.getDate());
+}
+function mdkDeviceLang() {
+  try { const l = (navigator.languages && navigator.languages[0]) || navigator.language || ''; return /^de/i.test(l) ? 'de' : 'en'; } catch (e) { return 'en'; }
 }
 const MDK_TUTORIAL = '5|t|-1|caaaaccabaccaeacccedcceed|13042';
 function mdkAttacked(n, reg, i) {
@@ -1208,7 +1522,9 @@ class Component extends DCLogic {
       frameH: 900,
       nativeAd: false,
       tut: null,
-      tutorialDone: false
+      tutorialDone: false,
+      lang: null,
+      langPick: mdkDeviceLang()
     };
     if (mdkNative()) {
       try {
@@ -1216,6 +1532,18 @@ class Component extends DCLogic {
         if (saved) MDK_SAVE_FIELDS.forEach(k => { if (saved[k] !== undefined) this.state[k] = k === 'settings' ? Object.assign({}, this.state.settings, saved[k]) : saved[k]; });
       } catch (e) {}
     }
+  }
+
+  /* current language: the saved choice, or the one picked on the language page */
+  lang() { const l = this.state.lang || this.state.langPick; return MDK_LANGS.includes(l) ? l : 'en'; }
+  tr(key, ...args) {
+    const v = MDK_I18N[this.lang()][key];
+    return typeof v === 'function' ? v(...args) : v;
+  }
+  nm(item) { return this.lang() === 'de' && item.de ? item.de : item.name; }
+  setLang(l) {
+    if (!MDK_LANGS.includes(l)) return;
+    this.setState({ lang: l, langPick: l });
   }
 
   saveProgress() {
@@ -1232,7 +1560,7 @@ class Component extends DCLogic {
     if (typeof window !== 'undefined') {
       window.__meowBack = () => {
         const s = this.state;
-        if (s.ad || s.nativeAd || s.screen === 'loading') return true;
+        if (s.ad || s.nativeAd || s.screen === 'loading' || s.screen === 'lang') return true;
         if (s.modal) { this.setState({ modal: '' }); return true; }
         if (s.tut) return true;
         if (s.screen === 'level' && s.complete && s.game.status === 'won') {
@@ -1522,6 +1850,7 @@ class Component extends DCLogic {
     this.later(() => {
       if (token !== this.loadToken || this.state.screen !== 'loading') return;
       if (stay) { this.setState({ tip: this.state.tip + 1, tipIdx: mdkPickTip(this.state.tipIdx) }); this.runLoading(); return; }
+      if (!this.state.lang) { this.go('lang', 'fade'); return; }
       if (!this.state.tutorialDone) { this.startTutorial(); return; }
       this.go('home', 'fade');
     }, MDK_LOAD_MS + (stay ? 900 : 250));
@@ -1575,7 +1904,7 @@ class Component extends DCLogic {
     this.interacted = true;
     if (this.state.hearts <= 0) { this.sfx('tap'); this.setState({ modal: 'nohearts' }); return; }
     this.go('level', 'fwd', { game: game, complete: null });
-    if (game.kind === 'level' && game.num <= 2) this.later(() => this.flash('Tap a tile to mark it ✕ · double-tap to place a cat', 3600), 800);
+    if (game.kind === 'level' && game.num <= 2) this.later(() => this.flash(this.tr('firstTip'), 3600), 800);
   }
 
   /* ---------- gameplay ---------- */
@@ -1606,7 +1935,7 @@ class Component extends DCLogic {
   finishTutorial(skip) {
     this.setState({ tutorialDone: true, tut: null });
     this.go('home', 'fwd', { complete: null, game: this.buildGame('level', this.state.level) });
-    if (!skip) this.later(() => this.flash('Tutorial done! Tap Play to start Level ' + this.state.level, 3000), 700);
+    if (!skip) this.later(() => this.flash(this.tr('tutDone', this.state.level), 3000), 700);
   }
 
   tapCell(i) {
@@ -1655,7 +1984,7 @@ class Component extends DCLogic {
       const cells = baseCells.slice(); cells[i] = 'w';
       this.sfx('wrong');
       this.setState({ game: Object.assign({}, g, { cells: cells }) });
-      this.flash('Not here: look for a row, column or color with only one free tile.', 2600);
+      this.flash(this.tr('tutWrong'), 2600);
       this.later(() => { const gg = this.state.game; if (gg.id !== g.id || gg.cells[i] !== 'w') return; const cc = gg.cells.slice(); cc[i] = 'x'; this.setGame({ cells: cc }); }, 750);
       return;
     }
@@ -1749,16 +2078,17 @@ class Component extends DCLogic {
     const info = this.itemInfo(id);
     if (!info || this.state.owned[id]) return;
     const price = info.item.price;
-    if (this.state.xp < price) { this.sfx('wrong'); this.flash('You need ' + (price - this.state.xp) + ' more XP'); return; }
+    if (this.state.xp < price) { this.sfx('wrong'); this.flash(this.tr('needXp', price - this.state.xp)); return; }
     this.setState({ xp: this.state.xp - price, owned: Object.assign({}, this.state.owned, { [id]: true }), modal: '' });
     this.selectItem(id);
     this.sfx('win');
-    this.flash(info.item.name + ' unlocked!', 2400);
+    this.flash(this.tr('unlocked', this.nm(info.item)), 2400);
   }
 
   /* the one ad after a level: shown when the player leaves the level-complete screen (Next Level, Home or Back) */
   leaveComplete(then) {
     if (this.leaving) return;
+    if (this.collectedAt && Date.now() - this.collectedAt < 700) return;
     if (this.state.adsRemoved) { then(); return; }
     this.leaving = true;
     this.startAd({ type: 'interstitial', unit: 'noThanks', onClose: () => { this.leaving = false; then(); } });
@@ -1779,8 +2109,8 @@ class Component extends DCLogic {
         this.setState(patch);
       },
       onReward: () => {
-        if (!this.state.owned[id]) { this.flash((this.state.adProg[id] || 0) + ' of ' + MDK_ADS_TO_UNLOCK + ' ads watched. Watch ' + (MDK_ADS_TO_UNLOCK - (this.state.adProg[id] || 0)) + ' more to unlock ' + info.item.name + '!', 2800); return; }
-        this.selectItem(id); this.sfx('unlock'); this.flash(info.item.name + ' unlocked!', 2400);
+        if (!this.state.owned[id]) { this.flash(this.tr('adsProgress', this.state.adProg[id] || 0, MDK_ADS_TO_UNLOCK, this.nm(info.item)), 2800); return; }
+        this.selectItem(id); this.sfx('unlock'); this.flash(this.tr('unlocked', this.nm(info.item)), 2400);
       }
     });
   }
@@ -1809,14 +2139,14 @@ class Component extends DCLogic {
         }
         finish();
         if (kind === 'interstitial') { if (spec.onClose) spec.onClose(); return; }
-        if (status === 'failed') this.flash('No ad available right now. Please try again in a moment.', 2600);
-        else if (idx > 0) this.flash('Progress saved. Watch the rest later!', 2200);
+        if (status === 'failed') this.flash(this.tr('noAd'), 2600);
+        else if (idx > 0) this.flash(this.tr('progressSaved'), 2200);
       };
       try { nat.showAd(kind, unit.id || '', rid); } catch (e) { window.__meowAdCallbacks[rid]('failed'); }
     };
     this.interacted = true;
     this.setState({ nativeAd: true });
-    this.flash('Loading ad…', 1400);
+    this.flash(this.tr('loadingAd'), 1400);
     next();
   }
 
@@ -1866,6 +2196,7 @@ class Component extends DCLogic {
   /* ---------- render ---------- */
   renderVals() {
     const s = this.state, g = s.game, n = g.n;
+    const lang = this.lang(), T = MDK_I18N[lang], tr = (k, ...a) => this.tr(k, ...a);
     const pal = (MDK_BOARDS.find(b => b.id === s.board) || MDK_BOARDS[0]).colors;
     const skinIdx = Math.max(0, MDK_SKIN_IDS.indexOf(s.skin));
     const gap = n <= 6 ? 6 : n <= 8 ? 5 : 4;
@@ -1893,10 +2224,10 @@ class Component extends DCLogic {
       let anim = '';
       if (st === 'c' || st === 'h') anim = 'animation: mdkPop 0.32s ease-out;';
       if (st === 'w') anim = 'animation: mdkShake 0.45s ease-in-out; filter: saturate(0.7);';
-      const what = st === 'x' ? 'marked' : st === 'w' ? 'wrong cat' : isCat ? 'cat' : 'empty';
+      const what = T[st === 'x' ? 'marked' : st === 'w' ? 'wrongCat' : isCat ? 'cat' : 'empty'];
       const tutHi = s.tut && s.tut.hi.includes(i), tutUnit = s.tut && s.tut.unit && s.tut.unit.includes(i) && !tutHi;
       cells.push({
-        label: 'Row ' + (r + 1) + ', column ' + (c + 1) + ': ' + what,
+        label: tr('cellLabel', r + 1, c + 1, what),
         style: 'position: relative; display: flex; align-items: center; justify-content: center; margin: 0; padding: 0; border: none; border-radius: ' + radius + 'px; background: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.08) 52%, rgba(255, 255, 255, 0) 100%), ' + color + '; box-shadow: inset 0 -' + depth + 'px 0 rgba(110, 70, 40, 0.13), inset 0 1.5px 0 rgba(255, 255, 255, 0.6)' + ring + '; cursor: pointer; min-width: 0; min-height: 0; animation: ' + (par ? 'mdkTile' : 'mdkTileB') + ' 0.42s cubic-bezier(.2, 1.3, .4, 1) ' + (120 + (r + c) * 26) + 'ms both' + (tutHi ? '; outline: 3px solid #FF8A2A; outline-offset: -3px; animation: mdkGlow 1.1s ease-in-out infinite' : tutUnit ? '; outline: 3px dashed rgba(255, 138, 42, 0.7); outline-offset: -3px' : ''),
         isX: st === 'x',
         isCat: isCat,
@@ -1930,7 +2261,7 @@ class Component extends DCLogic {
       const owned = !!s.owned[k.id];
       const afford = s.xp >= k.price;
       return {
-        name: k.name,
+        name: this.nm(k),
         selected: selected,
         selectable: owned && !selected,
         locked: !owned,
@@ -1938,7 +2269,7 @@ class Component extends DCLogic {
         priceText: String(k.price),
         priceStyle: 'position: absolute; left: 30px; top: 165px; width: 113px; height: 35px; box-sizing: border-box; border-radius: 18px; display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 18px; font-weight: 900; background: ' + (afford ? '#FFFFFF' : 'rgba(255, 255, 255, 0.55)') + '; color: ' + (afford ? '#D9611A' : '#8C7D75') + '; box-shadow: ' + (afford ? 'inset 0 0 0 2px #F4B37A, 0 2px 6px rgba(207, 94, 26, 0.15)' : 'inset 0 0 0 1.5px rgba(160, 140, 120, 0.35)'),
         pressed: selected ? 'true' : 'false',
-        label: k.name + (selected ? ', selected' : owned ? ', tap to select' : ', locked, costs ' + k.price + ' XP' + (isNext ? ', or watch ads' : '')),
+        label: this.nm(k) + (selected ? T.cardSelected : owned ? T.cardTapSelect : tr('cardLocked', k.price, isNext)),
         tap: () => {
           this.interacted = true;
           this.sfx('tap');
@@ -1956,21 +2287,21 @@ class Component extends DCLogic {
     if (info) {
       const it = info.item, afford = s.xp >= it.price, prog = s.adProg[it.id] || 0;
       un = {
-        name: it.name,
+        name: this.nm(it),
         isCat: info.type === 'cat',
         isBoard: info.type === 'board',
         faceStyle: mdkFace(info.idx, 117),
         swatches: info.type === 'board' ? swatchesOf(it) : [],
         previewBg: 'width: 150px; height: 128px; border-radius: 24px; background: ' + it.bg + '; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 -3px 0 rgba(120, 80, 50, 0.06)',
-        sub: afford ? (info.isNext ? 'Unlock it with your XP, or for free by watching a few short ads.' : 'Unlock it with your XP.') : 'You need ' + (it.price - s.xp) + ' more XP.' + (info.isNext ? ' Or unlock it for free by watching a few short ads.' : ' Solve more levels to earn XP.'),
-        buyLabel: 'Unlock · ' + it.price + ' XP',
+        sub: tr('unlockSub', afford, info.isNext, it.price - s.xp),
+        buyLabel: tr('buyLabel', it.price),
         buyDisabled: afford ? 'false' : 'true',
         buyStyle: 'width: 100%; height: 60px; padding: 0 0 4px; border: none; border-radius: 30px; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 21px; font-weight: 900; ' + (afford ? 'cursor: pointer; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17, 0 6px 12px rgba(207, 94, 26, 0.28); color: #FFFFFF' : 'cursor: default; background: #EFE3D6; box-shadow: inset 0 -4px 0 rgba(200, 180, 160, 0.5); color: #A09085'),
         buy: () => this.buyItem(it.id),
         ads: info.isNext,
         watch: () => this.watchItemAds(it.id),
         hasProgress: prog > 0,
-        progressLabel: prog + ' of ' + MDK_ADS_TO_UNLOCK + ' ads watched',
+        progressLabel: tr('adsWatched', prog, MDK_ADS_TO_UNLOCK),
         dots: [0, 1, 2].map(k => ({ style: 'width: 10px; height: 10px; border-radius: 50%; background: ' + (k < prog ? '#F4873A' : '#E8D8C6') }))
       };
     }
@@ -2003,7 +2334,7 @@ class Component extends DCLogic {
     const goalDone = todayCount >= MDK_GOAL;
     const weekStart = new Date(this.today);
     weekStart.setDate(weekStart.getDate() - ((this.today.getDay() + 6) % 7));
-    const weekDots = MDK_WD.map((w, i) => {
+    const weekDots = mdkWeekdays(lang).map((w, i) => {
       const d = new Date(weekStart);
       d.setDate(d.getDate() + i);
       const k = mdkKey(d), met = this.goalMet(k), isToday = k === this.todayKey;
@@ -2035,9 +2366,9 @@ class Component extends DCLogic {
       const mult = c.doubled ? 2 : 1;
       const got = c.stage === 'collected';
       cp = {
-        kicker: daily ? 'DAILY CHALLENGE · ' + mdkShort(g.dayKey).toUpperCase() : 'LEVEL ' + g.num + ' COMPLETE',
-        title: MDK_TITLES[c.stars][(g.id * 2 + g.num * 3) % MDK_TITLES[c.stars].length],
-        starsLabel: c.stars + ' of 3 stars',
+        kicker: daily ? tr('kickerDaily', mdkShortL(g.dayKey, lang).toUpperCase()) : tr('kickerLevel', g.num),
+        title: (lang === 'de' ? MDK_TITLES_DE : MDK_TITLES)[c.stars][(g.id * 2 + g.num * 3) % (lang === 'de' ? MDK_TITLES_DE : MDK_TITLES)[c.stars].length],
+        starsLabel: tr('starsLabel', c.stars),
         stars: [0, 1, 2].map(k => {
           const on = k < c.stars, big = k === 1, size = big ? 78 : 60;
           return { fill: on ? '#FFC93F' : '#EADCCB', stroke: on ? '#E59422' : '#D8C6B2', shine: on ? 0.9 : 0, style: 'width: ' + size + 'px; height: ' + size + 'px; margin-top: ' + (big ? 0 : 16) + 'px; display: block; filter: ' + (on ? 'drop-shadow(0 4px 6px rgba(229, 148, 34, 0.35))' : 'none') + '; animation: mdkStarIn 0.55s cubic-bezier(.2, 1.4, .4, 1) ' + (0.35 + k * 0.18).toFixed(2) + 's both' };
@@ -2045,17 +2376,17 @@ class Component extends DCLogic {
         faceX: -skinIdx * 190,
         xpText: '+' + c.xp * mult,
         heartsText: '+' + c.hearts * mult,
-        heartsWord: c.hearts * mult === 1 ? 'Heart' : 'Hearts',
+        heartsWord: tr('heartWord', c.hearts * mult),
         doubled: !!c.doubled,
         doubledHearts: !!c.doubled && c.hearts > 0,
         numStyle: 'font-size: 34px; font-weight: 900; color: #F06A1A; line-height: 1; display: inline-block' + (got ? '; animation: ' + (c.doubled ? 'mdkCount' : 'mdkCountB') + ' 0.5s ease-out' : ''),
-        stats: (g.mistakes === 0 ? 'No mistakes' : g.mistakes + (g.mistakes === 1 ? ' mistake' : ' mistakes')) + ' · ' + (g.hintsUsed === 0 ? 'no hints' : g.hintsUsed + (g.hintsUsed === 1 ? ' hint' : ' hints')),
+        stats: tr('stats', g.mistakes, g.hintsUsed),
         offer: c.stage === 'offer',
         collected: got,
-        primaryLabel: daily ? 'Calendar' : finishedAll ? 'Back Home' : 'Next Level',
-        secondaryLabel: 'Home',
+        primaryLabel: daily ? T.calendarBtn : finishedAll ? T.backHome : T.nextLevel,
+        secondaryLabel: T.home,
         balStyle: 'display: inline-block' + (got ? '; animation: mdkCount 0.6s ease-out 0.1s' : ''),
-        goalText: goalDone ? 'Daily goal done · ' + streak + '-day streak!' : 'Daily goal · ' + todayCount + ' of ' + MDK_GOAL,
+        goalText: goalDone ? tr('goalDone', streak) : tr('goalProgress', todayCount, MDK_GOAL),
         goalFlame: goalDone ? '#FFFFFF' : '#FF7A1F',
         goalStyle: 'height: 36px; padding: 0 14px 0 10px; box-sizing: border-box; border-radius: 18px; display: flex; align-items: center; gap: 7px; font-size: 16px; font-weight: 900; white-space: nowrap; ' + (goalDone ? 'background: linear-gradient(180deg, #FF9A47, #F4701F); color: #FFFFFF; box-shadow: inset 0 -3px 0 #DD5F17, 0 4px 10px rgba(207, 94, 26, 0.30)' : 'background: rgba(255, 255, 255, 0.92); color: #4E3B36; box-shadow: inset 0 0 0 2px rgba(244, 179, 122, 0.7), 0 3px 8px rgba(170, 110, 50, 0.14)'),
         goalDots: goalDone ? [] : [0, 1, 2].map(k => ({ style: 'width: 10px; height: 10px; border-radius: 50%; display: block; background: ' + (k < todayCount ? '#F4873A' : '#EADCCB') }))
@@ -2083,6 +2414,29 @@ class Component extends DCLogic {
     const fitted = Math.abs(fw0 - 390 * scale) > 2 || Math.abs(fh0 - 900 * scale) > 2;
 
     return {
+      T: T,
+      isEn: lang === 'en',
+      isDe: lang === 'de',
+      isLang: s.screen === 'lang',
+      langFaceX: -skinIdx * 190,
+      langOpts: MDK_LANGS.map(l => {
+        const on = l === lang;
+        return {
+          isEn: l === 'en', isDe: l === 'de', name: l === 'de' ? 'Deutsch' : 'English', checked: on ? 'true' : 'false',
+          card: 'height: 84px; padding: 0 20px 0 18px; border: none; border-radius: 28px; display: flex; align-items: center; gap: 18px; cursor: pointer; color: #2B1A14; text-align: left; transition: background 0.2s, box-shadow 0.2s; ' + (on ? 'background: #FFF6EA; box-shadow: inset 0 0 0 3px #F4873A, 0 6px 14px rgba(207, 94, 26, 0.22)' : 'background: rgba(255, 250, 242, 0.92); box-shadow: inset 0 0 0 2px rgba(232, 196, 150, 0.6), 0 4px 10px rgba(186, 128, 66, 0.14)'),
+          check: 'flex: none; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-sizing: border-box; ' + (on ? 'background: linear-gradient(180deg, #FF9A47, #F4701F); box-shadow: inset 0 -2px 0 #DD5F17; animation: mdkPop 0.3s ease-out' : 'background: #FFFFFF; box-shadow: inset 0 0 0 2.5px #E5D3BF'),
+          pill: 'height: 54px; min-width: 0; padding: 0 10px; border: none; border-radius: 27px; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; font-size: 19px; font-weight: 800; transition: background 0.2s; ' + (on ? 'background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -3px 0 #DD5F17, 0 3px 8px rgba(207, 94, 26, 0.25); color: #FFFFFF' : 'background: #FFFFFF; box-shadow: inset 0 0 0 2px #EBD3B6; color: #2B1A14'),
+          pick: () => { this.interacted = true; this.sfx('tab'); this.setState({ langPick: l }); },
+          set: () => { this.interacted = true; this.sfx('tab'); this.setLang(l); }
+        };
+      }),
+      langContinue: () => {
+        this.interacted = true;
+        this.setLang(this.state.langPick === 'de' ? 'de' : 'en');
+        if (!this.state.tutorialDone) { this.startTutorial(); return; }
+        this.go('home', 'fwd');
+      },
+      dayStreakText: tr('dayStreak', streak),
       uid: this.uid,
       frameStyle: 'position: absolute; inset: 0; min-width: 300px; min-height: 600px; overflow: hidden; background: #FCEFDF',
       backdropStyle: fitted ? 'position: absolute; inset: -40px; background: ' + (backdropImg ? 'url(' + backdropImg + ') center / cover no-repeat, ' : '') + '#FCEFDF; filter: blur(22px) saturate(1.1); opacity: 0.9' : 'display: none',
@@ -2101,41 +2455,41 @@ class Component extends DCLogic {
       loadStars: loadStars,
       tipA: s.tip % 2 === 0,
       tipB: s.tip % 2 === 1,
-      tipText: (MDK_TIPS[s.tipIdx] || MDK_TIPS[0]).text,
+      tipText: (MDK_TIPS[s.tipIdx] || MDK_TIPS[0])[lang === 'de' ? 'de' : 'text'],
       tipStyle: 'position: absolute; left: 0; top: 0; width: 330px; height: 92px; display: flex; align-items: center; justify-content: center; font-size: 21px; line-height: 1.35; font-weight: 800; color: #4E3B36; text-wrap: balance; animation: mdkTipIn 0.7s ease-out 0.5s both',
       loadFillStyle: 'position: absolute; left: 0; top: 0; height: 20px; display: block; border-radius: 10px; background: linear-gradient(180deg, #FFA457 0%, #F4701F 100%); box-shadow: inset 0 -3px 0 rgba(200, 80, 15, 0.35); animation: mdkLoadFill ' + (MDK_LOAD_MS / 1000) + 's cubic-bezier(.45, .05, .4, 1) both',
 
       goalStreak: streak,
-      streakLabel: streak + '-day streak. Today ' + todayCount + ' of ' + MDK_GOAL + ' puzzles solved',
+      streakLabel: tr('streakLabel', streak, todayCount, MDK_GOAL),
       flameOuter: goalDone ? '#FF7A1F' : '#E3B98F',
       flameInner: goalDone ? '#FFC93F' : '#F6E0C4',
       bigFlameStyle: 'display: block; filter: drop-shadow(0 6px 10px rgba(214, 100, 30, 0.30)); transform-origin: 50% 100%' + (goalDone ? '; animation: mdkFlame 1.6s ease-in-out infinite' : ''),
       openStreak: () => { this.interacted = true; this.sfx('tap'); this.setState({ modal: 'streak' }); },
       showStreak: s.modal === 'streak',
-      streakTitle: streak > 0 ? streak + '-day streak!' : 'Start your streak!',
-      goalText: goalDone ? 'Done! 3 of 3' : todayCount + ' of ' + MDK_GOAL + ' puzzles',
-      goalLabel: todayCount + ' of ' + MDK_GOAL + ' puzzles solved today',
+      streakTitle: tr('streakTitle', streak),
+      goalText: tr('goalText', goalDone, todayCount, MDK_GOAL),
+      goalLabel: tr('goalLabel', todayCount, MDK_GOAL),
       goalSlots: [0, 1, 2].map(k => ({
         paw: k < todayCount ? '#FFFFFF' : '#E6D3BF',
         style: 'height: 58px; border-radius: 18px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; ' + (k < todayCount ? 'background: linear-gradient(180deg, #FF9A47, #F4701F); box-shadow: inset 0 -4px 0 #DD5F17' : 'background: #FBF3E9; box-shadow: inset 0 0 0 2px #EEDFCD')
       })),
       weekDots: weekDots,
-      weekLabel: 'This week: ' + weekDots.filter(w => w.met).length + ' of 7 days with the daily goal done',
+      weekLabel: tr('weekLabel', weekDots.filter(w => w.met).length),
       streakPlay: () => { this.setState({ modal: '' }); this.playNext(); },
 
       hearts: s.hearts,
       xp: s.xp,
-      heartsLabel: s.hearts + (s.hearts === 1 ? ' heart' : ' hearts'),
+      heartsLabel: tr('heartsLabel', s.hearts),
       xpLabel: s.xp + ' XP',
       tapHearts: () => {
         this.interacted = true;
         this.sfx('tap');
         if (this.state.hearts <= 0) { this.setState({ modal: 'nohearts' }); return; }
-        this.flash('A wrong cat costs 1 heart. Solve levels to win hearts back.', 2800);
+        this.flash(this.tr('heartTip'), 2800);
       },
-      tapXp: () => { this.sfx('tap'); this.flash('Earn XP by solving levels. Spend it on cats and boards in Skins.', 2800); },
-      playBadge: s.allDone ? 'All done!' : 'Level ' + s.level,
-      playLabel: s.allDone ? 'Play. All 100 levels are solved' : 'Play level ' + s.level,
+      tapXp: () => { this.sfx('tap'); this.flash(this.tr('xpTip'), 2800); },
+      playBadge: s.allDone ? T.allDone : tr('levelN', s.level),
+      playLabel: s.allDone ? T.playAllDone : tr('playLevel', s.level),
 
       goHome: () => this.go('home', 'back'),
       goHomeBack: () => this.go('home', 'back'),
@@ -2155,21 +2509,13 @@ class Component extends DCLogic {
         frontStyle: sc.front ? 'position: absolute; left: 0; bottom: 0; width: 390px; height: ' + sc.frontH + 'px; background: url(' + sc.front + ') center / 100% 100% no-repeat; pointer-events: none' : ''
       },
       fx: this.fxCache[sc.anim],
-      gameTitle: g.kind === 'tutorial' ? 'Tutorial' : daily ? mdkShort(g.dayKey) : 'Level ' + g.num,
+      gameTitle: g.kind === 'tutorial' ? T.tutorial : daily ? mdkShortL(g.dayKey, lang) : tr('levelN', g.num),
       showChips: g.kind !== 'tutorial',
       showCoach: !!s.tut && g.kind === 'tutorial' && s.screen === 'level',
       showHintBtn: g.kind !== 'tutorial' || (s.tut && s.tut.step === 5),
-      coachText: !s.tut ? '' : [
-        'Welcome to MEOWDOKI! Put exactly one cat in every row, every column and every color.',
-        'Cats need their space: two cats can never touch, not even diagonally.',
-        'This color has only one tile, so a cat must go here. Double-tap it!',
-        'No other cat fits in this row, this column, this color or next to the cat. Tap each glowing tile to mark it ✕.',
-        'Look at this ' + (s.tut.kind || 'row') + ': only one free tile is left, so the cat must go there. Double-tap it!',
-        'Great! Keep going: mark ✕ where cats can\'t be, then find the next tile that must be a cat. You never have to guess.',
-        'Purrfect! You know everything you need. Have fun!'
-      ][s.tut.step],
+      coachText: !s.tut ? '' : (v => typeof v === 'function' ? v(T.kinds[s.tut.kind || 'row']) : v)(T.coach[s.tut.step]),
       coachHasNext: !!s.tut && (s.tut.step < 2 || s.tut.step === 6),
-      coachNextLabel: s.tut && s.tut.step === 6 ? 'Start Level ' + s.level : 'Next',
+      coachNextLabel: s.tut && s.tut.step === 6 ? tr('startLevel', s.level) : T.next,
       coachNext: () => { this.sfx('tap'); const st = this.state.tut; if (!st) return; if (st.step === 6) { this.finishTutorial(false); return; } this.tutNext(st.step + 1); },
       coachSkip: () => { this.sfx('tap'); this.finishTutorial(true); },
       coachShowSkip: !!s.tut && s.tut.step < 6,
@@ -2179,17 +2525,17 @@ class Component extends DCLogic {
       heartFill: s.hearts > 0 ? '#F23C3C' : '#D7C9BC',
       lossOn: s.lossOn,
       lossStyle: 'position: absolute; right: 30px; top: 98px; font-size: 21px; font-weight: 900; color: #E5252D; text-shadow: 0 1px 0 #FFFFFF, 0 0 6px rgba(255, 255, 255, 0.9); animation: ' + (s.lossKey % 2 ? 'mdkFloatUp' : 'mdkFloatUpB') + ' 0.9s ease-out both',
-      diffText: diff[0] + ' · ' + n + '×' + n,
+      diffText: T.diff[diff[0]] + ' · ' + n + '×' + n,
       diffDot: 'width: 12px; height: 12px; border-radius: 50%; background: ' + diff[1] + '; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9)',
       catsText: placed + ' / ' + n,
-      catsLabel: placed + ' of ' + n + ' cats placed',
+      catsLabel: tr('catsLabel', placed, n),
       chipFaceX: -skinIdx * 28,
       boardStyle: 'position: absolute; left: 4px; top: 230px; width: 382px; height: 382px; box-sizing: border-box; padding: 8px; border-radius: 28px; background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 251, 245, 0.95) 100%); box-shadow: 0 14px 30px rgba(90, 56, 30, 0.24), inset 0 -3px 0 rgba(232, 208, 180, 0.55); animation: ' + (par ? 'mdkPopIn' : 'mdkPopInB') + ' 0.55s cubic-bezier(.2, 1.2, .4, 1) 0.05s both',
       cells: cells,
       xStyle: 'width: ' + xSize + 'px; height: ' + xSize + 'px; display: block; animation: mdkPop 0.22s ease-out',
       faceImg: 'position: absolute; top: 0; left: ' + (-skinIdx * fw) + 'px; width: ' + (fw * 14) + 'px; height: ' + fh + 'px; max-width: none',
       useHint: () => this.hint(),
-      hintLabel: s.hints > 0 ? 'Hint, ' + s.hints + ' left' : 'Hint, none left. Get more',
+      hintLabel: tr('hintLabel', s.hints),
       hintBadge: s.hints > 0 ? String(s.hints) : '+',
       hintBadgeStyle: 'position: absolute; right: -8px; top: -10px; min-width: 30px; height: 30px; padding: 0 7px; box-sizing: border-box; border-radius: 15px; background: ' + (s.hints > 0 ? 'linear-gradient(180deg, #FB9A4A, #F3782A)' : 'linear-gradient(180deg, #8ACB7E, #6DB86A)') + '; color: #FFFFFF; font-size: 17px; font-weight: 900; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(200, 90, 20, 0.35), 0 0 0 2.5px #FFFFFF',
 
@@ -2199,6 +2545,7 @@ class Component extends DCLogic {
       doubleRewards: () => { this.interacted = true; this.startAd({ type: 'rewarded', unit: 'doubleRewards', onReward: () => this.collect(2) }); },
       noThanks: () => {
         this.interacted = true;
+        this.collectedAt = Date.now();
         this.collect(1);
       },
       cpPrimary: () => this.leaveComplete(() => {
@@ -2209,8 +2556,8 @@ class Component extends DCLogic {
       cpHome: () => this.leaveComplete(() => this.go('home', 'back', { complete: null })),
 
       showOut: s.modal === 'nohearts' || (outInLevel && !s.modal && !ad),
-      outText: outInLevel && s.modal !== 'nohearts' ? 'Watch an ad to get 3 hearts and keep playing this level.' : 'You need hearts to play. Watch an ad to get 3 hearts.',
-      outSecondaryLabel: outInLevel && s.modal !== 'nohearts' ? 'Quit level' : 'Not now',
+      outText: outInLevel && s.modal !== 'nohearts' ? T.outTextLevel : T.outTextHome,
+      outSecondaryLabel: outInLevel && s.modal !== 'nohearts' ? T.quitLevel : T.notNow,
       outSecondary: () => {
         this.sfx('tap');
         if (outInLevel && this.state.modal !== 'nohearts') { this.setGame({ status: 'quit' }); this.go('home', 'back'); return; }
@@ -2223,30 +2570,30 @@ class Component extends DCLogic {
           const gg = this.state.game;
           this.setState({ hearts: Math.max(3, this.state.hearts), game: gg.status === 'out' ? Object.assign({}, gg, { status: 'play' }) : gg });
           this.sfx('win');
-          this.flash('Hearts refilled!');
+          this.flash(this.tr('heartsRefilled', this.state.hearts), 2400);
         } });
       },
 
       showHints: s.modal === 'hints',
-      hintBuyLabel: 'Buy 1 hint · ' + MDK_HINT_PRICE + ' XP',
+      hintBuyLabel: tr('buyHint', MDK_HINT_PRICE),
       hintBuyDisabled: canBuyHint ? 'false' : 'true',
       hintBuyStyle: 'width: 100%; height: 60px; padding: 0 0 4px; border: none; border-radius: 30px; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 20px; font-weight: 900; ' + (canBuyHint ? 'cursor: pointer; background: linear-gradient(180deg, #FF9A47 0%, #F4701F 100%); box-shadow: inset 0 -5px 0 #DD5F17, 0 6px 12px rgba(207, 94, 26, 0.28); color: #FFFFFF' : 'cursor: default; background: #EFE3D6; box-shadow: inset 0 -4px 0 rgba(200, 180, 160, 0.5); color: #A09085'),
       buyHint: () => {
-        if (this.state.xp < MDK_HINT_PRICE) { this.sfx('wrong'); this.flash('You need ' + (MDK_HINT_PRICE - this.state.xp) + ' more XP'); return; }
+        if (this.state.xp < MDK_HINT_PRICE) { this.sfx('wrong'); this.flash(this.tr('needXp', MDK_HINT_PRICE - this.state.xp)); return; }
         this.sfx('coin');
         this.setState({ xp: this.state.xp - MDK_HINT_PRICE, hints: this.state.hints + 1, modal: '' });
-        this.flash('+1 hint');
+        this.flash(this.tr('plusHint'));
       },
       watchHintAd: () => {
         this.setState({ modal: '' });
-        this.startAd({ type: 'rewarded', unit: 'hint', onReward: () => { this.setState({ hints: this.state.hints + 1 }); this.sfx('coin'); this.flash('+1 hint'); } });
+        this.startAd({ type: 'rewarded', unit: 'hint', onReward: () => { this.setState({ hints: this.state.hints + 1 }); this.sfx('coin'); this.flash(this.tr('plusHint')); } });
       },
 
       showUnlock: s.modal === 'unlock' && !!info,
       un: un,
 
       streak: streak,
-      monthLabel: MDK_MONTHS[s.calM] + ' ' + s.calY,
+      monthLabel: mdkMonths(lang)[s.calM] + ' ' + s.calY,
       prevMonth: () => {
         this.sfx('tap');
         const m = s.calM === 0 ? 11 : s.calM - 1, y = s.calM === 0 ? s.calY - 1 : s.calY;
@@ -2260,14 +2607,14 @@ class Component extends DCLogic {
       },
       nextDisabled: atCurrentMonth ? 'true' : 'false',
       nextMonthStyle: 'position: absolute; right: 9px; top: 6px; width: 44px; height: 46px; padding: 0; border: none; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer;' + (atCurrentMonth ? ' opacity: 0.3; cursor: default;' : ''),
-      weekdays: MDK_WD.map((w, i) => ({ short: w[0], full: w[1], style: 'text-decoration: none; font-size: 18px; line-height: 24px; color: ' + (i === wdToday ? '#2B1A14' : '#5C4A44') + '; font-weight: ' + (i === wdToday ? 800 : 600) })),
+      weekdays: mdkWeekdays(lang).map((w, i) => ({ short: w[0], full: w[1], style: 'text-decoration: none; font-size: 18px; line-height: 24px; color: ' + (i === wdToday ? '#2B1A14' : '#5C4A44') + '; font-weight: ' + (i === wdToday ? 800 : 600) })),
       dayGridStyle: 'position: absolute; left: 2.6px; top: 96px; width: 365.4px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); grid-auto-rows: ' + pitch.toFixed(1) + 'px',
       days: days.map((d, i) => this.dayVals(d, pitch, i)),
-      playDailyLabel: selDone ? 'Completed' : selIsToday ? 'Play Today' : 'Play ' + mdkShort(s.selDay),
+      playDailyLabel: selDone ? T.completed : selIsToday ? T.playToday : tr('playDay', mdkShortL(s.selDay, lang)),
       dailyDisabled: selDone ? 'true' : 'false',
       playDailyStyle: 'position: absolute; left: 27px; top: 630px; width: 338px; height: 82px; padding: 0 0 5px; border: none; border-radius: 41px; background: linear-gradient(180deg, #FF9A47 0%, #FA7E2C 50%, #F4701F 100%); box-shadow: inset 0 -6px 0 #DD5F17, inset 0 3px 0 rgba(255, 255, 255, 0.26), 0 8px 16px rgba(207, 94, 26, 0.28); display: flex; align-items: center; justify-content: center; gap: 20px; color: #FFFFFF; cursor: pointer' + (selDone ? '; filter: saturate(0.35) brightness(1.08); cursor: default' : ''),
       playDaily: () => {
-        if (this.state.done[this.state.selDay]) { this.sfx('tap'); this.flash('Already solved. Pick another day!'); return; }
+        if (this.state.done[this.state.selDay]) { this.sfx('tap'); this.flash(this.tr('alreadySolved')); return; }
         this.openLevel(this.buildGame('daily', 0, this.state.selDay));
       },
 
@@ -2300,9 +2647,9 @@ class Component extends DCLogic {
       onCode: e => this.setState({ code: e.target.value, codeMsg: '' }),
       redeem: () => {
         const code = (this.state.code || '').trim().toLowerCase();
-        if (!code) { this.setState({ codeMsg: 'Please enter a code.', codeOk: false }); return; }
-        if (code !== MDK_CODE) { this.sfx('redeemBad'); this.setState({ codeMsg: 'That code is not valid.', codeOk: false }); return; }
-        if (this.state.adsRemoved) { this.setState({ codeMsg: 'This code has already been redeemed.', codeOk: true }); return; }
+        if (!code) { this.setState({ codeMsg: this.tr('codeEmpty'), codeOk: false }); return; }
+        if (code !== MDK_CODE) { this.sfx('redeemBad'); this.setState({ codeMsg: this.tr('codeBad'), codeOk: false }); return; }
+        if (this.state.adsRemoved) { this.setState({ codeMsg: this.tr('codeUsed'), codeOk: true }); return; }
         this.sfx('redeem');
         this.setState({ adsRemoved: true, modal: '', code: '', codeMsg: '', heart: true });
         this.later(() => this.setState({ heart: false }), 4200);
@@ -2318,12 +2665,12 @@ class Component extends DCLogic {
       adCounting: !!(ad && !ad.done),
       adCanClose: !!(ad && ad.done),
       adSecs: ad ? String(ad.secs) : '',
-      adSecsLabel: ad ? 'Ad ends in ' + ad.secs + ' seconds' : '',
+      adSecsLabel: ad ? tr('adEnds', ad.secs) : '',
       adBarStyle: ad ? 'height: 100%; width: 100%; background: #FFB067; transform-origin: left center; ' + (ad.done ? 'transform: scaleX(1)' : 'animation: ' + (ad.round % 2 ? 'mdkAdBarB' : 'mdkAdBar') + ' ' + ad.total + 's linear both') : '',
       adUnitText: ad && MDK_ADMOB.units[ad.unit] ? MDK_ADMOB.units[ad.unit].label + ' · ' + MDK_ADMOB.units[ad.unit].id : '',
-      doubleAdsText: 'Ad',
+      doubleAdsText: T.adBadge,
       adRewarded: !!(ad && ad.type === 'rewarded'),
-      adRewardText: !ad ? '' : ad.earned ? 'Reward earned! Close the ad to collect it.' : ad.between ? 'Next ad starting…' : 'Reward in ' + ad.secs + 's',
+      adRewardText: !ad ? '' : ad.earned ? T.rewardEarned : ad.between ? T.nextAd : tr('rewardIn', ad.secs),
       adRewardChip: 'padding: 9px 16px; border-radius: 20px; font-size: 15px; font-weight: 800; background: ' + (ad && ad.earned ? '#5EAE5B' : 'rgba(255, 255, 255, 0.14)'),
       adMulti: !!(ad && ad.of > 1),
       adDots: ad ? Array.from({ length: ad.of }, (_, k) => ({ style: 'width: 10px; height: 10px; border-radius: 50%; background: ' + (k < adFilled ? '#FFB067' : 'rgba(255, 255, 255, 0.25)') })) : [],
@@ -2336,7 +2683,7 @@ class Component extends DCLogic {
 
   playNext() {
     const st = this.state, gg = st.game;
-    if (st.allDone) { this.sfx('tap'); this.flash('You solved all ' + MDK_LAST + ' levels! Try the Daily Challenge.', 2800); return; }
+    if (st.allDone) { this.sfx('tap'); this.flash(this.tr('allSolved', MDK_LAST), 2800); return; }
     if (gg.kind === 'level' && gg.num === st.level && gg.status === 'play') { this.go('level', 'fwd'); return; }
     this.openLevel(this.buildGame('level', st.level));
   }
@@ -2374,7 +2721,8 @@ class Component extends DCLogic {
     } else {
       tile += 'background: rgba(245, 226, 204, 0.45)' + (selected ? '; box-shadow: inset 0 0 0 2.5px #F2731D' : '');
     }
-    const name = MDK_WD[(d.getDay() + 6) % 7][1] + ', ' + MDK_MONTHS[d.getMonth()] + ' ' + d.getDate();
+    const lang = this.lang(), T = MDK_I18N[lang];
+    const name = T.dayName(mdkWeekdays(lang)[(d.getDay() + 6) % 7][1], mdkMonths(lang)[d.getMonth()], d.getDate());
     const ps = Math.round(Math.min(30, th - 12));
     return {
       real: true,
@@ -2387,7 +2735,7 @@ class Component extends DCLogic {
       numStyle: numStyle,
       future: future,
       pressed: selected ? 'true' : 'false',
-      label: name + (isToday ? ', today' : '') + (done ? ', completed' : future ? ', not yet available' : ''),
+      label: name + (isToday ? T.today : '') + (done ? T.dayCompleted : future ? T.notYet : ''),
       tap: () => { if (future) return; this.sfx('tap'); this.setState({ selDay: k }); }
     };
   }
