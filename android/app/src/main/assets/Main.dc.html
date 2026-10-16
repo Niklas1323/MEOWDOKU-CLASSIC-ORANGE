@@ -1142,6 +1142,7 @@ const MDK_DOUBLE_ADS = 1;
 /* Android app: progress is saved on the phone, ads come from the native Google Mobile Ads SDK */
 const MDK_SAVE_KEY = 'meowdoki.save.v1';
 const MDK_SAVE_FIELDS = ['lang', 'tutorialDone', 'played', 'level', 'allDone', 'xp', 'hearts', 'hints', 'skin', 'board', 'owned', 'adProg', 'adsRemoved', 'personalized', 'settings', 'done'];
+function mdkWebApp() { return typeof window !== 'undefined' && !!window.__meowWeb; }
 function mdkNative() { return typeof window !== 'undefined' && window.MeowNative ? window.MeowNative : null; }
 const MDK_GOAL = 3;
 const MDK_LOAD_MS = 5500;
@@ -1532,7 +1533,7 @@ class Component extends DCLogic {
       lang: null,
       langPick: mdkDeviceLang()
     };
-    if (mdkNative()) {
+    if (mdkNative() || mdkWebApp()) {
       try {
         const saved = JSON.parse(window.localStorage.getItem(MDK_SAVE_KEY) || 'null');
         if (saved) MDK_SAVE_FIELDS.forEach(k => { if (saved[k] !== undefined) this.state[k] = k === 'settings' ? Object.assign({}, this.state.settings, saved[k]) : saved[k]; });
@@ -1554,7 +1555,7 @@ class Component extends DCLogic {
   }
 
   saveProgress() {
-    if (!mdkNative()) return;
+    if (!mdkNative() && !mdkWebApp()) return;
     const data = {};
     MDK_SAVE_FIELDS.forEach(k => { data[k] = this.state[k]; });
     const json = JSON.stringify(data);
@@ -1593,6 +1594,13 @@ class Component extends DCLogic {
       if (w > 50 && h > 50 && (w !== this.state.frameW || h !== this.state.frameH)) this.setState({ frameW: w, frameH: h });
       const nat = mdkNative();
       if (nat && nat.safeTop) { try { const st = Math.round(Number(nat.safeTop()) || 0); if (st !== this.state.safeTop) this.setState({ safeTop: st }); } catch (e) {} }
+      else if (mdkWebApp()) {
+        /* iPhone home-screen web app: keep clear of the notch / Dynamic Island */
+        let pr = document.getElementById('mdk-safe-probe');
+        if (!pr) { pr = document.createElement('div'); pr.id = 'mdk-safe-probe'; pr.style.cssText = 'position: fixed; left: 0; top: 0; width: 1px; height: env(safe-area-inset-top, 0px); visibility: hidden; pointer-events: none'; document.body.appendChild(pr); }
+        const st = Math.round(pr.getBoundingClientRect().height);
+        if (st !== this.state.safeTop) this.setState({ safeTop: st });
+      }
     };
     window.__meowSafe = v => this.setState({ safeTop: Math.round(Number(v) || 0) });
     this.later(() => this.measure(), 600);
