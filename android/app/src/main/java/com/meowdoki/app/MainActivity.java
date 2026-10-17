@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
         // anything that might crash again, and offer to start without ads so we can tell what causes it.
         boolean unfinished = startMarker().exists();
         String report = previousReport(unfinished);
-        if (report == null) { startGame(false); return; }
+        if (report == null || !BuildConfig.DEBUG) { startGame(false); return; }
         try {
             new AlertDialog.Builder(this)
                     .setTitle("MEOWDOKI wurde beim letzten Start beendet")
@@ -119,7 +119,6 @@ public class MainActivity extends Activity {
             lp.layoutInDisplayCutoutMode = android.view.WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
             getWindow().setAttributes(lp);
         }
-        hideSystemBars();
 
         final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
                 .addPathHandler("/", new WebViewAssetLoader.AssetsPathHandler(this))
@@ -167,6 +166,7 @@ public class MainActivity extends Activity {
             }
         });
         setContentView(webView);
+        hideSystemBars();
         // keep the game below the front camera / status bar area: measure it and tell the page
         safeTopDp = statusBarDp(0);
         webView.setOnApplyWindowInsetsListener((v, insets) -> {
@@ -409,8 +409,9 @@ public class MainActivity extends Activity {
 
     @SuppressWarnings("deprecation")
     private void hideSystemBars() {
-        runOnUiThread(() -> {
+        runOnUiThread(() -> { try {
             Window w = getWindow();
+            if (w.peekDecorView() == null) return;
             if (Build.VERSION.SDK_INT >= 30) {
                 w.setDecorFitsSystemWindows(false);
                 WindowInsetsController c = w.getInsetsController();
@@ -424,7 +425,7 @@ public class MainActivity extends Activity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
             }
-        });
+        } catch (Throwable ignored) { } });
     }
 
     @Override
