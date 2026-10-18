@@ -138,6 +138,9 @@ public class MainActivity extends Activity {
         s.setAllowFileAccess(false);
         s.setAllowContentAccess(false);
         s.setTextZoom(100);
+        // the game files are inside the app: never serve an old copy from the cache after an update
+        s.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        webView.clearCache(true);
         webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
         webView.addJavascriptInterface(new Bridge(), "MeowNative");
         webView.setWebViewClient(new WebViewClient() {
